@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami | Reborn Sheets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --sage: #7d8e7b;
+            --deep-forest: #2c332d;
+            --paper-white: #fdfbf7;
+            --earth-brown: #a67c52;
+            --soft-gray: #f4f4f2;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--paper-white); color: var(--deep-forest); line-height: 1.6; }
+
+        /* --- NAVIGATION (Konsisten) --- */
+        nav { background: rgba(255, 255, 255, 0.95); height: 80px; display: flex; align-items: center; padding: 0 8%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.03); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--deep-forest); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; margin-left: auto; }
+        .nav-links li a { text-decoration: none; color: var(--deep-forest); padding: 0 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition); }
+        .nav-links a.active { color: var(--sage); pointer-events: none; }
+
+        /* --- HEADER --- */
+        .contact-hero { padding: 160px 10% 60px; text-align: center; background: white; }
+        .contact-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; font-style: italic; }
+        .contact-hero p { max-width: 600px; margin: 0 auto; color: #666; font-size: 1.1rem; }
+
+        /* --- TEAM SECTION --- */
+        .team-section { padding: 80px 10%; background: var(--paper-white); }
+        .section-tag { display: block; text-align: center; color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 3px; margin-bottom: 10px; }
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; }
+
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .team-card { background: white; padding: 40px 30px; border-radius: 20px; text-align: center; transition: var(--transition); border: 1px solid rgba(0,0,0,0.03); }
+        .team-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .team-img { width: 100px; height: 100px; border-radius: 50%; background: var(--soft-gray); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--sage); overflow: hidden; }
+        .team-img img { width: 100%; height: 100%; object-fit: cover; }
+        .team-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 5px; }
+        .team-card .role { color: var(--sage); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: block; }
+        .team-card .desc { font-size: 14px; color: #777; line-height: 1.5; }
+
+        /* --- FORM & COLLAB --- */
+        .collab-container { padding: 80px 10%; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+        .collab-info h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 25px; }
+        .collab-list { list-style: none; margin-top: 30px; }
+        .collab-list li { margin-bottom: 15px; display: flex; align-items: center; color: #555; font-size: 15px; }
+        .collab-list li::before { content: "✔"; color: var(--sage); margin-right: 15px; font-weight: bold; }
+
+        .contact-form { background: white; padding: 50px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; letter-spacing: 1px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #eee; border-radius: 12px; font-family: inherit; outline: none; transition: var(--transition); }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--sage); }
+
+        .send-btn { width: 100%; background: var(--deep-forest); color: white; padding: 18px; border: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: var(--transition); font-size: 11px; }
+        .send-btn:hover { background: var(--sage); transform: translateY(-3px); }
+
+        /* --- FOOTER (Konsisten) --- */
+        footer { background: #f8f9f7; padding: 80px 10% 40px; border-top: 1px solid #eee; margin-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; }
+        .footer-col h4 { font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+        .footer-col p, .footer-col ul li a { color: #777; font-size: 14px; text-decoration: none; }
+        .copyright { text-align: center; padding-top: 40px; border-top: 1px solid #eee; font-size: 12px; color: #aaa; margin-top: 50px; }
+
+        @media (max-width: 992px) { .collab-container { grid-template-columns: 1fr; gap: 50px; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">REBORN SHEETS</a>
+        <ul class="nav-links">
+            <li><a href="kalkulator.html">Kalkulator</a></li>
+            <li><a href="filosofi.html">Filosofi</a></li>
+            <li><a href="kontak.html" class="active">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header class="contact-hero">
+        <h1>Hubungi Kami</h1>
+        <p>Kami terbuka untuk kolaborasi, edukasi, dan pengembangan solusi keberlanjutan. Mari ciptakan perubahan bersama.</p>
+    </header>
+
+    <section class="team-section">
+        <span class="section-tag">The People Behind</span>
+        <h2 class="section-title">Tim Kami</h2>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-img">👤</div> <span class="role">Ketua Tim</span>
+                <h3>Nama Kamu</h3>
+                <p class="desc">Project Lead & Concept Developer. Mengembangkan ide utama dan strategi keberlanjutan Reborn Sheets.</p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-img">💻</div>
+                <span class="role">Web Developer</span>
+                <h3>Anggota 1</h3>
+                <p class="desc">Mengembangkan sistem dan tampilan website agar user-friendly dan informatif.</p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-img">🌿</div>
+                <span class="role">SDGs Analyst</span>
+                <h3>Anggota 2</h3>
+                <p class="desc">Mengkaji masalah lingkungan dan memastikan project selaras dengan tujuan pembangunan berkelanjutan.</p>
+            </div>
+
+            </div>
+    </section>
+
+    <section class="collab-container">
+        <div class="collab-info">
+            <span class="section-tag" style="text-align: left;">Partnership</span>
+            <h2>Mari Berkolaborasi</h2>
+            <p>Kami percaya perubahan besar bisa dimulai dari hal kecil seperti selembar kertas. Reborn Sheets mengundang Anda untuk bergabung dalam misi ini.</p>
+
+            <ul class="collab-list">
+                <li>Kolaborasi Industri Perusahaan Kertas</li>
+                <li>Edukasi di Institusi Pendidikan</li>
+                <li>Program Pemberdayaan Komunitas</li>
+                <li>Partnership Distribusi Produk Etis</li>
+            </ul>
+
+            <div style="margin-top: 40px; padding: 25px; border-left: 3px solid var(--sage); background: white; font-style: italic; font-family: 'Playfair Display', serif;">
+                "Setiap kontribusi Anda membantu kami menanam lebih banyak masa depan."
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Masukkan nama Anda">
+            </div>
+            <div class="form-group">
+                <label>Alamat Email</label>
+                <input type="email" placeholder="email@contoh.com">
+            </div>
+            <div class="form-group">
+                <label>Pesan Anda</label>
+                <textarea rows="5" placeholder="Apa yang ingin Anda bicarakan?"></textarea>
+            </div>
+            <button class="send-btn">Kirim Pesan Sekarang</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display: block; margin-bottom: 20px;">REBORN SHEETS</a>
+                <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigasi</h4>
+                <ul style="list-style: none;">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="kalkulator.html">Kalkulator</a></li>
+                    <li><a href="filosofi.html">Filosofi</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Lokasi</h4>
+                <p>Indonesia<br>Project berbasis pendidikan dan lingkungan.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <p>@reborn.sheets</p>
+            </div>
+        </div>
+        <div class="copyright">© 2024 Reborn Sheets Eco-Project. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>

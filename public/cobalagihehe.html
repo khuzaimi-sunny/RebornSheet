@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proses Produksi | Reborn Sheets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #7d8e7b;
+            --deep-forest: #2c332d;
+            --paper-white: #fdfbf7;
+            --soft-gray: #f4f4f2;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper-white);
+            color: var(--deep-forest);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Header Sederhana agar fokus ke konten */
+        .process-header {
+            padding: 100px 10% 60px;
+            text-align: center;
+            background: var(--soft-gray);
+        }
+
+        .process-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            color: var(--sage);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Container Dokumentasi */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 10%;
+        }
+
+        /* Styling Step-by-Step */
+        .step {
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: rgba(125, 142, 123, 0.2);
+            position: absolute;
+            top: -40px;
+            left: -30px;
+            z-index: -1;
+        }
+
+        .step h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--sage);
+            display: inline-block;
+        }
+
+        .step img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .technical-note {
+            background: white;
+            padding: 25px;
+            border-left: 4px solid var(--sage);
+            border-radius: 0 15px 15px 0;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .technical-note b {
+            color: var(--sage);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Kesimpulan / Footer Action */
+        .closing {
+            text-align: center;
+            padding: 60px;
+            background: var(--deep-forest);
+            color: white;
+            border-radius: 30px;
+            margin-top: 50px;
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: var(--sage);
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="process-header">
+        <a href="index.html" class="btn-back">← Kembali ke Beranda</a>
+        <p class="tagline">Laboratorium Kreatif</p>
+        <h1>Dibalik Setiap Lembar</h1>
+        <p>Mendokumentasikan transisi dari limbah kertas sekolah menjadi media seni berkelanjutan.</p>
+    </header>
+
+    <div class="container">
+
+        <div class="step">
+            <span class="step-number">01</span>
+            <h2>Sortasi & Dekonstruksi</h2>
+            <p>Tahap awal dimulai dengan memilah kertas berdasarkan jenisnya. Kami memisahkan kertas HVS bekas ujian dari material plastik atau staples yang masih menempel.</p>
+            <img src="img/proses-sortasi.jpg" alt="Sortasi Kertas">
+            <div class="technical-note">
+                <b>Catatan Teknis:</b>
+                Kertas dicacah hingga ukuran 2x2 cm untuk memaksimalkan penyerapan air pada tahap hidrasi, sehingga serat selulosa lebih mudah terurai.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">02</span>
+            <h2>Pulperisasi (Pembuatan Bubur)</h2>
+            <p>Cacahan kertas direndam selama 24 jam kemudian diproses menjadi pulp (bubur kertas). Di tahap ini, kami hanya menggunakan air tanpa pemutih klorin.</p>
+            <img src="img/proses-bubur.jpg" alt="Pembuatan Bubur Kertas">
+            <div class="technical-note">
+                <b>Sentuhan Alami:</b>
+                Kami menambahkan serat organik tambahan seperti kelopak bunga kering atau serat pelepah pisang untuk memperkuat tekstur dan memberikan nilai estetika alami.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">03</span>
+            <h2>Pencetakan Manual</h2>
+            <p>Menggunakan bingkai kayu (*deckle*), bubur kertas disaring secara merata. Teknik goyangan tangan menentukan ketebalan lembaran yang dihasilkan.</p>
+            <img src="img/proses-cetak.jpg" alt="Pencetakan Kertas">
+            <div class="technical-note">
+                <b>Zero Waste Water:</b>
+                Air sisa penyaringan ditampung kembali ke dalam bak penampungan untuk digunakan pada proses pencetakan berikutnya.
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">04</span>
+            <h2>Pres & Pengeringan Alami</h2>
+            <p>Lembaran basah dipindahkan ke kain katun untuk di-pres, menghilangkan sisa air, lalu dijemur di bawah sinar matahari langsung.</p>
+            <img src="img/proses-jemur.jpg" alt="Pengeringan Kertas">
+        </div>
+
+        <section class="closing">
+            <h2>Ingin Belajar Langsung?</h2>
+            <p>Kami rutin mengadakan workshop di sekolah untuk berbagi teknik daur ulang ini kepada teman-teman siswa lainnya.</p>
+            <br>
+            <a href="kontak.html" style="color: var(--paper-white); border: 1px solid white; padding: 10px 25px; border-radius: 50px; text-decoration: none;">Daftar Workshop</a>
+        </section>
+
+    </div>
+
+</body>
+</html>

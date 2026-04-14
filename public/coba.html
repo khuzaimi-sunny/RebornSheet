@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reborn Sheets | Edukasi Daur Ulang Sekolah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #7d8e7b;
+            --deep-forest: #2c332d;
+            --paper-white: #fdfbf7;
+            --soft-gray: #f4f4f2;
+            --transition: all 0.3s ease;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--paper-white); color: var(--deep-forest); line-height: 1.6; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            height: 80px; display: flex; align-items: center; padding: 0 8%;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--deep-forest); text-decoration: none; letter-spacing: 1px; }
+        .nav-links { display: flex; list-style: none; margin-left: auto; }
+        .nav-links li a { text-decoration: none; color: var(--deep-forest); padding: 0 15px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition); }
+        .nav-links li a:hover { color: var(--sage); }
+
+        /* --- HERO: THE PROBLEM --- */
+        .hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/sampah-kertas.jpg');
+            background-size: cover; background-position: center; color: white; padding: 0 10%;
+        }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+        .hero-content p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; font-weight: 300; }
+
+        /* --- SECTION STYLING --- */
+        section { padding: 100px 10%; }
+        .section-tag { color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; display: block; margin-bottom: 15px; text-align: center; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 40px; text-align: center; }
+
+        /* --- GALLERY PROSES (STEP BY STEP) --- */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .process-card { position: relative; overflow: hidden; border-radius: 15px; height: 350px; }
+        .process-card img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .process-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white;
+            transform: translateY(20px); opacity: 0; transition: var(--transition);
+        }
+        .process-card:hover img { transform: scale(1.1); }
+        .process-card:hover .process-overlay { transform: translateY(0); opacity: 1; }
+
+        /* --- EDUKASI CONTENT --- */
+        .edu-flex { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; }
+        .edu-flex:nth-child(even) { flex-direction: row-reverse; }
+        .edu-text { flex: 1; }
+        .edu-img { flex: 1; border-radius: 20px; width: 100%; height: 400px; object-fit: cover; box-shadow: 20px 20px 0px var(--sage); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--deep-forest); color: white; padding: 60px 10%; text-align: center; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">REBORN SHEETS</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="#masalah">Masalah</a></li>
+            <li><a href="#proses">Proses Kami</a></li>
+            <li><a href="kolaborasi.html">Collaborator</a></li>
+            <li><a href="output.html">Produk Kami</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Satu Lembar, Ribuan Harapan.</h1>
+            <p>Di sekolah, kertas adalah jendela ilmu. Namun saat ia menjadi sampah, ia menjadi beban bagi bumi. Kami hadir untuk menghidupkan kembali sisa ilmu tersebut.</p>
+            <a href="#masalah" class="btn-main" style="color: white; border: 1px solid white; padding: 10px 20px; text-decoration: none; border-radius: 50px;">Lihat Urgensi Kami</a>
+        </div>
+    </header>
+
+    <section id="masalah">
+        <div class="edu-flex">
+            <div class="edu-text">
+                <span class="section-tag">Latar Belakang</span>
+                <h2>Sampah Kertas di Sekolah Kita</h2>
+                <p>Setiap akhir semester, ribuan kertas ujian dan administrasi berakhir di tempat sampah. Tanpa pengolahan yang tepat, limbah ini hanya menambah beban TPA.</p>
+                <br>
+                <p><b>Reborn Sheets</b> lahir dari keinginan siswa untuk menciptakan sistem siklus tertutup (Circular) di lingkungan pendidikan.</p>
+            </div>
+            <img src="img/kegiatan-1.jpg" class="edu-img" alt="Tumpukan Kertas Sekolah">
+        </div>
+    </section>
+
+    <section id="proses" style="background-color: var(--soft-gray);">
+        <span class="section-tag">Workshop Gallery</span>
+        <h2>Penjelasan Proses (Step-by-Step)</h2>
+
+        <div class="process-grid">
+            <div class="process-card">
+                <img src="img/proses-1.jpg" alt="Pencacahan">
+                <div class="process-overlay">
+                    <h3>1. Pencacahan</h3>
+                    <p>Kertas bekas dipilah dan dicacah menjadi bagian kecil agar mudah menjadi bubur.</p>
+                </div>
+            </div>
+            <div class="process-card">
+                <img src="img/proses-2.jpg" alt="Perendaman">
+                <div class="process-overlay">
+                    <h3>2. Perendaman</h3>
+                    <p>Kertas direndam dengan air hingga serat-seratnya terurai sempurna secara alami.</p>
+                </div>
+            </div>
+            <div class="process-card">
+                <img src="img/proses-3.jpg" alt="Pencetakan">
+                <div class="process-overlay">
+                    <h3>3. Pencetakan</h3>
+                    <p>Bubur kertas disaring menggunakan *screen* kayu untuk membentuk lembaran baru.</p>
+                </div>
+            </div>
+            <div class="process-card">
+                <img src="img/proses-4.jpg" alt="Pengeringan">
+                <div class="process-overlay">
+                    <h3>4. Pengeringan</h3>
+                    <p>Lembaran dijemur di bawah sinar matahari untuk mendapatkan tekstur yang otentik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tujuan">
+        <div class="edu-flex">
+            <img src="img/kegiatan-2.jpg" class="edu-img" alt="Hasil Produk">
+            <div class="edu-text">
+                <span class="section-tag">Misi Kami</span>
+                <h2>Edukasi & Lingkungan</h2>
+                <p>Tujuan utama kami bukan sekadar membuat produk, melainkan:</p>
+                <br>
+                <ul style="padding-left: 20px;">
+                    <li><b>Kesadaran:</b> Mengajak siswa lebih bijak menggunakan kertas.</li>
+                    <li><b>Kreativitas:</b> Melatih tangan untuk menciptakan karya dari limbah.</li>
+                    <li><b>Keberlanjutan:</b> Menghilangkan jejak karbon dari pembakaran sampah kertas.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">REBORN SHEETS</span>
+        <p>Project Edukasi Lingkungan Sekolah - 2026</p>
+    </footer>
+
+</body>
+</html>

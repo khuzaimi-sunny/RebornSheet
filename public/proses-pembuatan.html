@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proses Kami | REBORN SHEETS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --sage: #7d8e7b;
+            --deep-forest: #2c332d;
+            --paper-white: #fdfbf7;
+            --earth-brown: #a67c52;
+            --soft-gray: #f4f4f2;
+            --transition: all 0.3s ease;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper-white);
+            color: var(--deep-forest);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--deep-forest);
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-style: italic; }
+
+        /* --- PROSES SECTION (YANG DIPERBAIKI) --- */
+        .process-section {
+            padding: 100px 10%;
+            position: relative;
+        }
+
+        /* Garis Tengah */
+        .process-section::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 150px;
+            bottom: 100px;
+            width: 2px;
+            background-color: var(--sage);
+            opacity: 0.2;
+        }
+
+        .step-frame {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 150px;
+            position: relative;
+        }
+
+        /* Membuat selang-seling */
+        .step-frame:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Bulatan Angka */
+        .step-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--sage);
+            color: white;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 0 0 10px var(--paper-white);
+        }
+
+        .step-img {
+            flex: 1;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 15px 15px 0px var(--soft-gray);
+        }
+
+        .step-text { flex: 1; }
+        .step-tag { color: var(--earth-brown); font-size: 11px; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .step-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
+        .step-text p { color: #666; font-size: 1rem; line-height: 1.8; }
+
+        @media (max-width: 992px) {
+            .process-section::before, .step-number { display: none; }
+            .step-frame, .step-frame:nth-child(even) { flex-direction: column; gap: 30px; }
+            .step-img { height: 300px; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">REBORN SHEETS</a>
+    <ul class="nav-links">
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Process</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>Our Sustainable Journey</h1>
+</section>
+
+<section class="process-section">
+    <!-- Step 1 -->
+    <div class="step-frame">
+        <div class="step-number">1</div>
+        <img src="https://unsplash.com" class="step-img">
+        <div class="step-text">
+            <span class="step-tag">Eksplorasi</span>
+            <h2>Pemilihan Serat Alami</h2>
+            <p>Kami mencari serat organik terbaik dari petani lokal untuk memastikan bahan dasar ramah lingkungan.</p>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-frame">
+        <div class="step-number">2</div>
+        <img src="https://unsplash.com" class="step-img">
+        <div class="step-text">
+            <span class="step-tag">Produksi</span>
+            <h2>Penenunan Tradisional</h2>
+            <p>Menggunakan alat tenun tangan untuk menciptakan tekstur kain yang unik dan bernilai seni tinggi.</p>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-frame">
+        <div class="step-number">3</div>
+        <img src="https://unsplash.com" class="step-img">
+        <div class="step-text">
+            <span class="step-tag">Pewarnaan</span>
+            <h2>Pigmen Nabati</h2>
+            <p>Warna lembut kami berasal dari akar dan daun, tanpa limbah kimia yang merusak air.</p>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-frame">
+        <div class="step-number">4</div>
+        <img src="https://unsplash.com" class="step-img">
+        <div class="step-text">
+            <span class="step-tag">Detailing</span>
+            <h2>Jahitan Presisi</h2>
+            <p>Setiap potongan kain disatukan dengan teliti oleh penjahit ahli dengan prinsip zero-waste.</p>
+        </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-frame">
+        <div class="step-number">5</div>
+        <img src="https://unsplash.com" class="step-img">
+        <div class="step-text">
+            <span class="step-tag">Distribusi</span>
+            <h2>Kemasan Ramah Lingkungan</h2>
+            <p>Produk dikemas menggunakan bahan biodegradable yang aman bagi bumi.</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

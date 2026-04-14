@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi Terdekat | Bloom Eco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --sage: #7d8e7b;
+            --deep-forest: #2c332d;
+            --paper-white: #fdfbf7;
+            --soft-gray: #f4f4f2;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--paper-white);
+            color: var(--deep-forest);
+            padding-top: 100px;
+        }
+/* --- NAVIGATION (SAMA DENGAN INDEX/HOMEPAGE) --- */
+    /* --- NAVIGATION (COPY DARI INDEX.HTML) --- */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--deep-forest);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    height: 100%;
+}
+
+.nav-links > li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links > li > a {
+    text-decoration: none;
+    color: var(--deep-forest);
+    padding: 0 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.nav-links > li:hover > a { color: var(--sage); }
+
+/* --- MEGA MENU (COPY DARI INDEX.HTML) --- */
+.mega-menu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 40px 10%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    border-bottom: 4px solid var(--sage);
+}
+
+.nav-links > li:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+        /* --- MEGA MENU --- */
+        .mega-menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 40px 10%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border-bottom: 4px solid var(--sage);
+        }
+
+        .nav-links > li:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-col h4 { font-size: 13px; margin-bottom: 15px; color: var(--sage); text-transform: uppercase; }
+        .mega-col ul { list-style: none; }
+        .mega-col ul li { margin-bottom: 8px; }
+        .mega-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
+        .mega-col ul li a:hover { color: var(--earth-brown); padding-left: 5px; }
+
+        /* --- HALAMAN LOKASI CONTENT --- */
+        .container {
+            width: 84%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-box { text-align: center; margin-bottom: 40px; }
+        .header-box h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
+
+        .track-btn {
+            background: transparent; color: var(--sage); border: 1.5px solid var(--sage);
+            padding: 12px 30px; border-radius: 50px; cursor: pointer;
+            font-weight: 600; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 2px; transition: var(--transition); margin: 20px 0;
+        }
+        .track-btn:hover { background: var(--sage); color: white; }
+
+        .main-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; margin-bottom: 50px; }
+
+        #map-container {
+            background: #eee; border-radius: 20px; overflow: hidden; height: 500px;
+            border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .location-card {
+            background: white; padding: 20px; border-radius: 15px;
+            border-left: 5px solid #eee; margin-bottom: 15px;
+        }
+        .location-card.closest { border-left-color: var(--sage); background: #f9faf8; }
+
+        @media (max-width: 850px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .mega-menu { display: none !important; }
+            .nav-container { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+    <a href="index.html" class="logo">BLOOM.ECO</a>
+    <ul class="nav-links">
+        <li>
+            <a href="#">Shop</a>
+            <div class="mega-menu">
+                <div class="mega-col">
+                    <h4>Koleksi Kertas</h4>
+                    <ul>
+                        <li><a href="kertas-benih.html">Kertas Benih</a></li>
+                        <li><a href="kertas-bunga.html">Kertas Kelopak Bunga</a></li>
+                        <li><a href="serat-bambu.html">Serat Bambu</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Alat Tulis</h4>
+                    <ul>
+                        <li><a href="journal.html">Journal Etis</a></li>
+                        <li><a href="kartu.html">Kartu Ucapan</a></li>
+                        <li><a href="sketchbook.html">Sketchbook</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Terlaris</h4>
+                    <ul>
+                        <li><a href="#">Bundling Kit</a></li>
+                        <li><a href="#">Custom Order</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col" style="background: var(--soft-gray); padding: 20px; border-radius: 10px;">
+                    <h4>Sustainable Choice</h4>
+                    <p style="font-size: 12px; color: #666;">Setiap lembar kertas yang kamu beli membantu kami menanam kembali hutan.</p>
+                </div>
+            </div>
+        </li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+
+        <li>
+            <a href="#Edukasi">Edukasi</a>
+            <div class="mega-menu">
+                <div class="mega-col">
+                    <h4>Siklus Hidup</h4>
+                    <ul>
+                        <li><a href="#">Limbah Jadi Karya</a></li>
+                        <li><a href="#">Sumber Serat Alam</a></li>
+                        <li><a href="#">Misi Zero Waste</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Hand-Pressed Stories</h4>
+                    <ul>
+                        <li><a href="proses-pembuatan.html">Dibalik Lembar Manual Kami</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Belajar Bersama</h4>
+                    <ul>
+                        <li><a href="#">Cara Daur Ulang di Rumah</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col" style="background: #f0f2ee; padding: 20px; border-radius: 12px;">
+                    <h4 style="color: var(--deep-forest); border: none;">Impact</h4>
+                    <p style="font-size: 12px; color: #555; line-height: 1.4;">Sampah kertas yang Anda berikan kami olah kembali menjadi produk bernilai seni tinggi.</p>
+                </div>
+            </div>
+        </li>
+        <li><a href="lokasi.html">Lokasi</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
+    <div class="container">
+        <div class="header-box">
+            <h1>Cari Pengolahan Terdekat</h1>
+            <button class="track-btn" onclick="getLocation()">📍 CEK LOKASI TERDEKAT</button>
+        </div>
+
+        <div class="main-grid">
+            <div id="map-container">
+                <iframe id="gmap" width="100%" height="100%" frameborder="0" src="https://maps.google.com/maps?q=Malang&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+
+            <div class="location-list" id="list-container">
+                <div class="location-card closest">
+                    <h3>Workshop Bloom Malang</h3>
+                    <p style="font-size: 13px; color: #666;">Jl. Ijen No. 12</p>
+                    <a href="#" style="color: var(--sage); font-size: 12px; font-weight: 600; text-decoration: none; margin-top:10px; display:inline-block;">HUBUNGI TEMPAT →</a>
+                </div>
+                </div>
+        </div>
+    </div>
+
+</body>
+</html>

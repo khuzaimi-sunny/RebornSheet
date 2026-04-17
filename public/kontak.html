@@ -19,12 +19,82 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--paper-white); color: var(--deep-forest); line-height: 1.6; }
 
-        /* --- NAVIGATION (Konsisten) --- */
-        nav { background: rgba(255, 255, 255, 0.95); height: 80px; display: flex; align-items: center; padding: 0 8%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.03); }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--deep-forest); text-decoration: none; }
-        .nav-links { display: flex; list-style: none; margin-left: auto; }
-        .nav-links li a { text-decoration: none; color: var(--deep-forest); padding: 0 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition); }
-        .nav-links a.active { color: var(--sage); pointer-events: none; }
+          /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+            height: 100%;
+        }
+
+        .nav-links > li { display: flex; align-items: center; }
+
+        .nav-links > li > a {
+            text-decoration: none;
+            color: var(--deep-forest);
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links > li:hover > a { color: var(--sage); }
+
+        /* --- MEGA MENU --- */
+        .mega-menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 40px 10%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border-bottom: 4px solid var(--sage);
+        }
+
+        .nav-links > li:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-col h4 { font-size: 13px; margin-bottom: 15px; color: var(--sage); text-transform: uppercase; }
+        .mega-col ul { list-style: none; }
+        .mega-col ul li { margin-bottom: 8px; }
+        .mega-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
+        .mega-col ul li a:hover { color: var(--earth-brown); padding-left: 5px; }
 
         /* --- HEADER --- */
         .contact-hero { padding: 160px 10% 60px; text-align: center; background: white; }
@@ -73,15 +143,87 @@
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="logo">REBORN SHEETS</a>
-        <ul class="nav-links">
-            <li><a href="kalkulator.html">Kalkulator</a></li>
-            <li><a href="filosofi.html">Filosofi</a></li>
-            <li><a href="kontak.html" class="active">Kontak</a></li>
-        </ul>
-    </nav>
+    < <nav>
+    <a href="index.html" class="logo">REBORN SHEET</a>
+    <ul class="nav-links">
 
+        <li><a href="index.html">Beranda</a></li>
+        <li>
+            <a href="#">Shop</a>
+            <div class="mega-menu">
+                <div class="mega-col">
+                    <h4>Koleksi Kertas</h4>
+                    <ul>
+                        <li><a href="kertas-benih.html">Kertas Benih</a></li>
+                        <li><a href="kertas-bunga.html">Kertas Kelopak Bunga</a></li>
+                        <li><a href="serat-bambu.html">Serat Bambu</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Alat Tulis</h4>
+                    <ul>
+                        <li><a href="journal.html">Journal Etis</a></li>
+                        <li><a href="kartu.html">Kartu Ucapan</a></li>
+                        <li><a href="sketchbook.html">Sketchbook</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Terlaris</h4>
+                    <ul>
+                        <li><a href="#">Bundling Kit</a></li>
+                        <li><a href="#">Custom Order</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col" style="background: var(--soft-gray); padding: 20px; border-radius: 10px;">
+                    <h4>Sustainable Choice</h4>
+                    <p style="font-size: 12px; color: #666;">Setiap lembar kertas yang kamu beli membantu kami menanam kembali hutan.</p>
+                </div>
+            </div>
+        </li>
+        <li><a href="masalah.html">Masalah</a></li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+
+        <li class="has-mega">
+    <a href="#Edukasi">Edukasi</a>
+    <div class="mega-menu">
+        <div class="mega-col">
+            <h4>Siklus Hidup</h4>
+            <ul>
+                <li><a href="#">Limbah Jadi Karya</a></li>
+                <li><a href="#">Sumber Serat Alam</a></li>
+                <li><a href="#">Misi Zero Waste</a></li>
+            </ul>
+        </div>
+
+<div class="mega-col">
+    <h4>Hand-Pressed Stories</h4>
+    <ul>
+        <li>
+            <a href="proses-pembuatan.html" style="font-weight: 600; color: var(--sage);">
+                Dibalik Lembar Manual Kami
+            </a>
+        </li>
+    </ul>
+</div>
+        <div class="mega-col">
+            <h4>Belajar Bersama</h4>
+            <ul>
+                <li><a href="#">Cara Daur Ulang di Rumah</a></li>
+            </ul>
+        </div>
+
+        <div class="mega-col" style="background: #f0f2ee; padding: 20px; border-radius: 12px;">
+            <h4 style="color: var(--deep-forest); border: none;">Impact</h4>
+            <p style="font-size: 12px; color: #555; line-height: 1.4;">
+                Sampah kertas yang Anda berikan kami olah kembali menjadi produk bernilai seni tinggi.
+            </p>
+        </div>
+    </div>
+</li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
     <header class="contact-hero">
         <h1>Hubungi Kami</h1>
         <p>Kami terbuka untuk kolaborasi, edukasi, dan pengembangan solusi keberlanjutan. Mari ciptakan perubahan bersama.</p>

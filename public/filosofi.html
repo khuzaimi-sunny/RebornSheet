@@ -27,28 +27,54 @@
             overflow-x: hidden;
         }
 
+
         /* --- NAVIGATION --- */
         nav {
             background: rgba(255, 255, 255, 0.95);
-            height: 80px; display: flex; align-items: center; padding: 0 8%;
-            position: fixed; top: 0; width: 100%; z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.03);
         }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--deep-forest); text-decoration: none; cursor: pointer; }
-        .nav-links { display: flex; list-style: none; margin-left: auto; height: 100%; }
-        .nav-links > li { display: flex; align-items: center; }
-        .nav-links > li > a { text-decoration: none; color: var(--deep-forest); padding: 0 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition); }
-        .nav-links > li:hover > a { color: var(--sage); }
 
-        .nav-links a.active {
-            pointer-events: none;
-            cursor: default;
-            color: var(--sage);
+        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-forest);
             text-decoration: none;
+            cursor: pointer;
         }
 
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+            height: 100%;
+        }
 
-       /* --- MEGA MENU --- */
+        .nav-links > li { display: flex; align-items: center; }
+
+        .nav-links > li > a {
+            text-decoration: none;
+            color: var(--deep-forest);
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links > li:hover > a { color: var(--sage); }
+
+        /* --- MEGA MENU --- */
         .mega-menu {
             position: absolute;
             top: 80px;
@@ -78,7 +104,6 @@
         .mega-col ul li { margin-bottom: 8px; }
         .mega-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
         .mega-col ul li a:hover { color: var(--earth-brown); padding-left: 5px; }
-
         /* --- HERO --- */
         .hero {
             height: 70vh;
@@ -151,13 +176,102 @@
     color: var(--sage);   /* Warna Hijau Sage khas Bloom Eco */
     text-decoration: none;
 }
+/* --- STORYBOARD LOGO SECTION --- */
+.logo-storyboard {
+    background: #fdfbf7;
+    padding: 120px 8%;
+    position: relative;
+}
+
+.story-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Membuat elemen saling menyambung */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.story-frame {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 60px 0;
+    border-bottom: 1px solid rgba(125, 142, 123, 0.2);
+}
+
+.story-frame:last-child { border-bottom: none; }
+
+/* Membuat layout zig-zag */
+.story-frame:nth-child(even) { direction: rtl; }
+.story-frame:nth-child(even) .story-text { direction: ltr; }
+
+.story-visual {
+    position: relative;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-radius: 4px;
+}
+
+.story-visual img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    filter: sepia(20%); /* Memberi kesan kertas lama */
+}
+
+/* Label Frame (Frame 1, Frame 2, dst) */
+.frame-number {
+    font-family: monospace;
+    font-size: 11px;
+    color: var(--sage);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.story-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--deep-forest);
+}
+
+.story-text p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Garis penghubung vertikal agar terasa seperti siklus */
+.story-container::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 200px;
+    bottom: 200px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--sage), transparent);
+    opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+    .story-frame { grid-template-columns: 1fr; gap: 40px; }
+    .story-container::before { display: none; }
+}
     </style>
 </head>
 <body>
 
+
+
     <nav>
-    <a href="index.html" class="logo">REBORN SHEETS</a>
+    <a href="index.html" class="logo">REBORN SHEET</a>
     <ul class="nav-links">
+
+        <li><a href="index.html">Beranda</a></li>
         <li>
             <a href="#">Shop</a>
             <div class="mega-menu">
@@ -190,6 +304,7 @@
                 </div>
             </div>
         </li>
+        <li><a href="masalah.html">Masalah</a></li>
         <li><a href="kalkulator.html">Kalkulator</a></li>
 
         <li class="has-mega">
@@ -229,8 +344,7 @@
         </div>
     </div>
 </li>
-
-       <li><a href="filosofi.html" class="active">Filosofi</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
         <li><a href="kontak.html">Kontak</a></li>
     </ul>
 </nav>
@@ -255,39 +369,59 @@
         <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=800&q=80" style="width: 100%; border-radius: 20px;" alt="Daur Ulang">
     </section>
 
-    <section class="grid-2" style="padding-top: 0;">
-        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:20px;">
-        <div>
-            <span class="section-tag">Our Principles</span>
-            <h2>Prinsip Kami</h2>
+    <section class="logo-storyboard">
+    <div style="text-align: center; margin-bottom: 80px;">
+        <span class="section-tag">Visual Identity</span>
+        <h2>Filosofi di Balik Simbol</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: #888;">Bagaimana sebuah logo bercerita tentang sebuah perjalanan dari limbah menjadi nadi kehidupan baru.</p>
+    </div>
 
-            <p><b>Circular Value</b><br>
-            Mengubah limbah kertas menjadi sumber daya baru yang bernilai.</p>
-            <br>
-            <p><b>Conscious Creation</b><br>
-            Proses produksi yang memperhatikan dampak terhadap lingkungan.</p>
-            <br>
-            <p><b>Imperfect Beauty</b><br>
-            Setiap ketidaksempurnaan adalah ciri khas dari produk daur ulang.</p>
-        </div>
-    </section>
-
-    <section style="padding-top: 0;">
-        <div class="meaning-box">
-            <span class="section-tag" style="color: white; opacity: 0.6;">Naming Strategy</span>
-            <h2 style="color: white;">Apa itu Reborn Sheets?</h2>
-            <div class="meaning-grid">
-                <div class="meaning-item">
-                    <b>REBORN</b>
-                    <p>Melambangkan kehidupan kedua dari kertas yang sudah tidak terpakai melalui proses tangan yang teliti.</p>
-                </div>
-                <div class="meaning-item">
-                    <b>SHEETS</b>
-                    <p>Merepresentasikan kertas sebagai media utama untuk segala pesan, cerita, dan kreasi manusia.</p>
-                </div>
+    <div class="story-container">
+        <div class="story-frame">
+            <div class="story-visual">
+                <img src="papersfilosofi.jpg"The Waste">
+            </div>
+            <div class="story-text">
+                <span class="frame-number">Frame 01: The Waste</span>
+                <h3>Banyak yang melihatnya sebagai akhir.</h3>
+                <p>Kertas krem yang usang seringkali dianggap sebagai sisa yang tak lagi punya cerita. Di tahap ini, kita melihat kejujuran material yang menunggu untuk disentuh kembali.</p>
             </div>
         </div>
-    </section>
+
+        <div class="story-frame">
+            <div class="story-visual">
+                <img src="paperhancur.jpg" alt="The Rebirth">
+            </div>
+            <div class="story-text">
+                <span class="frame-number">Frame 02: The Rebirth</span>
+                <h3>Kami melihatnya sebagai awal yang baru.</h3>
+                <p>Proses daur ulang mengubah serat yang kusam menjadi lembaran bersih. Warna krem pada logo kami melambangkan kemurnian niat untuk memberikan kesempatan kedua pada setiap material.</p>
+            </div>
+        </div>
+
+        <div class="story-frame">
+            <div class="story-visual">
+                <img src="daurulangkertas2.jpeg" alt="The Life">
+            </div>
+            <div class="story-text">
+                <span class="frame-number">Frame 03: The Life</span>
+                <h3>Memberikan nadi pada setiap serat.</h3>
+                <p>Daun hijau di tengah logo bukan sekadar hiasan. Ia adalah simbol kehidupan (The Heartbeat). Bahwa dari material yang semula "mati", kita bisa menumbuhkan sesuatu yang bermanfaat bagi semesta.</p>
+            </div>
+        </div>
+
+        <div class="story-frame">
+            <div class="story-visual" style="display: flex; justify-content: center; align-items: center; background: var(--paper-white);">
+                <img src="logo-kamu.png" alt="Logo Reborn Sheets" style="width: 80%; height: auto; object-fit: contain; filter: none;">
+            </div>
+            <div class="story-text">
+                <span class="frame-number">Frame 04: The Sustainability</span>
+                <h3>Menjaga kebaikan untuk terus berputar.</h3>
+                <p>Lingkaran yang membingkai semuanya adalah janji keberlanjutan. Sebuah komitmen bahwa di Reborn Sheets, tidak ada yang benar-benar terbuang. Kebaikan akan terus mengalir dalam sebuah siklus yang harmonis.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section class="manifesto">
         <blockquote>

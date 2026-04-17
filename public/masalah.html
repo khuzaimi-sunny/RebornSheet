@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Nilai Kertas | REBORN SHEETS</title>
+    <title>Urgensi & Dampak | Reborn Sheet</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --sage: #7d8e7b;
@@ -13,24 +12,25 @@
             --paper-white: #fdfbf7;
             --earth-brown: #a67c52;
             --soft-gray: #f4f4f2;
-            --transition: all 0.3s ease;
+            --line-color: rgba(44, 51, 45, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--deep-forest);
-            line-height: 1.6;
-            background: linear-gradient(rgba(253, 251, 247, 0.92), rgba(253, 251, 247, 0.92)),
-                        url('https://www.transparenttextures.com/patterns/recycled-paper.png'),
-                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-               /* --- NAVIGATION --- */
+    body {
+    font-family: 'Inter', sans-serif;
+    color: var(--deep-forest);
+    line-height: 1.7;
+    background: var(--paper-white); /* putih normal */
+}
+        /* --- FRAME DEKORATIF HALAMAN --- */
+   .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.2);
+}
+     /* --- NAVIGATION --- */
         nav {
             background: rgba(255, 255, 255, 0.95);
             height: 80px;
@@ -107,86 +107,155 @@
         .mega-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
         .mega-col ul li a:hover { color: var(--earth-brown); padding-left: 5px; }
 
-        /* --- WHY IT MATTERS SECTION --- */
-         .info-section {
-            background: white; padding: 80px 10%; text-align: center;
+        /* --- HERO SECTION --- */
+        .problem-hero {
+            padding: 60px 15% 100px;
+            text-align: center;
         }
-        .info-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px; margin-top: 50px;
+        .section-tag { color: var(--earth-brown); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 20px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; margin-bottom: 30px; }
+        .hero-desc { max-width: 700px; margin: 0 auto; color: #666; font-size: 1.1rem; }
+
+        /* --- ILMIAH STATS (The "Facts" Bar) --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--line-color);
+            border: 1px solid var(--line-color);
+            margin: 50px 0;
         }
-        .info-box h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; color: var(--sage); }
-        .info-box p { font-size: 14px; color: #666; }
+        .stat-card { background: var(--paper-white); padding: 40px; text-align: center; }
+        .stat-card h2 { font-family: 'Playfair Display', serif; color: var(--sage); font-size: 2.5rem; margin-bottom: 10px; }
+        .stat-card p { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #888; }
+
+        /* --- MAIN CONTENT (The 3 Problems) --- */
+        .content-wrapper { padding: 0 10% 100px; }
+
+        .problem-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+        .problem-item:nth-child(even) { direction: rtl; }
+        .problem-item:nth-child(even) .problem-text { direction: ltr; }
+
+        .problem-img-frame {
+            position: relative;
+            padding: 15px;
+            border: 1px solid var(--line-color);
+        }
+        .problem-img-frame img { width: 100%; height: 450px; object-fit: cover; filter: grayscale(30%); }
+
+        .problem-text h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px; position: relative; }
+        .problem-text h3::after { content: ""; position: absolute; left: 0; bottom: -10px; width: 40px; height: 2px; background: var(--sage); }
+        .problem-text p { color: #555; margin-bottom: 20px; }
+
+        .scientific-note {
+            background: var(--soft-gray);
+            padding: 20px;
+            border-left: 3px solid var(--sage);
+            font-size: 14px;
+            font-style: italic;
+            color: #777;
+        }
+
+        /* --- FOOTER CTA --- */
+        .transition-box {
+            background: var(--deep-forest);
+            color: white;
+            padding: 80px 10%;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+        .transition-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
+        .cta-btn {
+            display: inline-block; padding: 15px 40px; background: var(--sage); color: white;
+            text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 30px;
+            transition: 0.3s;
+        }
+        .cta-btn:hover { background: var(--earth-brown); transform: translateY(-3px); }
+
+        @media (max-width: 768px) {
+            .problem-item, .stats-grid { grid-template-columns: 1fr; }
+            .problem-item { gap: 40px; }
+            .problem-item:nth-child(even) { direction: ltr; }
+        }
+               /* --- KHUSUS HALAMAN MASALAH (STYLE BARU) --- */
+       .problem-header {
+    padding: 180px 10% 80px;
+    text-align: center;
+    background: transparent;
+}
+
+        .section-tag { color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 3px; margin-bottom: 20px; display: block; }
+
+
+
+
+
+
+        .scientific-frame {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 60px;
+            position: relative;
+            background: white;
+        }
+
+       /* Hiasan Sudut */
+        .scientific-frame::before {
+            content: "ID: 404-WASTE";
+            position: absolute; top: 10px; left: 15px;
+            font-size: 10px; color: #ccc; font-family: monospace;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+            text-align: left;
+        }
+
+        .problem-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--deep-forest);
+        }
+
+        .problem-box p { color: #666; font-size: 0.95rem; line-height: 1.8; }
+
+        .stat-highlight {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--sage);
+            display: block;
+            margin-bottom: 10px;
+        }
 
         /* --- FOOTER --- */
         footer { background: #f8f9f7; padding: 80px 10% 40px; border-top: 1px solid #eee; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; }
-        .footer-col h4 { font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 60px; }
+        .footer-col h4 { font-family: 'Playfair Display', serif; margin-bottom: 25px; font-size: 1.2rem; }
+        .footer-col p { font-size: 14px; color: #777; max-width: 250px; }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { text-decoration: none; color: #777; font-size: 14px; }
-        .copyright { text-align: center; padding-top: 40px; border-top: 1px solid #eee; font-size: 12px; color: #aaa; margin-top: 50px; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
+        .footer-col ul li a:hover { color: var(--sage); }
 
-        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } .mega-menu { display: none; } }
-        /* Gaya input email di footer */
-.footer-col input[type="email"] {
-    width: 100%;
-    padding: 12px 25px;
-    border: 1px solid #e0e0e0;
-    border-radius: 30px; /* Membuat input lonjong */
-    background: white;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    outline: none;
-    margin-bottom: 12px;
-    transition: var(--transition);
-}
+        .copyright { text-align: center; padding-top: 40px; border-top: 1px solid #eee; font-size: 12px; color: #aaa; }
 
-/* Tombol GABUNG gaya pill-shaped sesuai gambar */
-.btn-gabung {
-    width: 100%;
-    padding: 12px;
-    background: white;
-    color: var(--deep-forest);
-    border: 1.5px solid var(--deep-forest);
-    border-radius: 30px; /* KUNCI: Membuat tombol lonjong seperti gambar */
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    font-size: 11px;
-    transition: var(--transition);
-    font-family: 'Inter', sans-serif;
-}
-
-.btn-gabung:hover {
-    background: var(--deep-forest);
-    color: white;
-}
-/* Pastikan posisi li induk adalah relative */
-.nav-links > li {
-    position: static; /* Biar mega menu bisa selebar layar/nav */
-    display: flex;
-    align-items: center;
-}
-
-/* Munculkan mega menu saat hover */
-.nav-links > li:hover .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Penyesuaian teks judul kolom */
-.mega-col h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    margin-bottom: 18px;
-    color: var(--deep-forest);
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
-}
-/* Letakkan ini di dalam tag <style> */
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .impact-bg { flex-direction: column; margin: 0; border-radius: 0; }
+            .impact-img { width: 100%; height: 300px; border-radius: 0; }
+        }
+        /* Letakkan ini di dalam tag <style> */
 .mega-col h4 {
     font-family: 'Playfair Display', serif;
     font-size: 11px;
@@ -196,12 +265,6 @@
     color: var(--sage);
     border-bottom: 1px solid #eee; /* Garis tipis di bawah judul agar rapi */
     padding-bottom: 8px;
-}
-.nav-links a.active {
-    pointer-events: none; /* KUNCI: Membuat link tidak bisa diklik */
-    cursor: default;      /* Mengubah kursor panah kembali ke standar */
-    color: var(--sage);   /* Memberi warna berbeda sebagai penanda halaman aktif */
-    text-decoration: none;
 }
 /* Styling Newsletter agar persis gambar dengan warna Sage */
 .newsletter-form {
@@ -237,23 +300,260 @@
     background: var(--sage);
     color: white;
 }
-    </style>
+   /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
 
+        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-forest);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+            height: 100%;
+        }
+
+        .nav-links > li { display: flex; align-items: center; }
+
+        .nav-links > li > a {
+            text-decoration: none;
+            color: var(--deep-forest);
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links > li:hover > a { color: var(--sage); }
+
+        /* --- MEGA MENU --- */
+        .mega-menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 40px 10%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border-bottom: 4px solid var(--sage);
+        }
+
+        .nav-links > li:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-col h4 { font-size: 13px; margin-bottom: 15px; color: var(--sage); text-transform: uppercase; }
+        .mega-col ul { list-style: none; }
+        .mega-col ul li { margin-bottom: 8px; }
+        .mega-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
+        .mega-col ul li a:hover { color: var(--earth-brown); padding-left: 5px; }
+
+        /* --- HERO --- */
+        .hero {
+    height: calc(100vh - 80px);
+    background: transparent; /* penting */
+}
+
+        .hero::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/recycled-paper.png');
+            opacity: 0.15; pointer-events: none;
+        }
+
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; font-style: italic; }
+        .hero p { font-size: 1.1rem; max-width: 600px; margin-bottom: 40px; font-weight: 300; }
+
+        .cta-btn {
+            background: var(--paper-white); color: var(--deep-forest); padding: 18px 40px;
+            text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 12px;
+            text-transform: uppercase; letter-spacing: 2px; transition: var(--transition);
+        }
+        .cta-btn:hover { background: var(--sage); color: white; transform: translateY(-3px); }
+.hero {
+    position: relative;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    background:
+        linear-gradient(rgba(44, 51, 45, 0.65), rgba(44, 51, 45, 0.65)),
+        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
+
+    background-size: cover;
+    background-position: center;
+}
+.hero h1 {
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero-desc {
+    color: rgba(255,255,255,0.9);
+}
+
+.section-tag {
+    color: rgba(255,255,255,0.75);
+}
+.section-tag {
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+.hero h1,
+.hero p {
+    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+}
+
+.hero {
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    margin-top: 80px;
+}
+/* Container kartu statistik */
+.stat-card {
+    background: var(--paper-white);
+    padding: 60px 40px; /* Ruang lebih luas agar teks tidak sesak */
+    text-align: center;
+    border-right: 1px solid var(--line-color); /* Garis pemisah antar kolom */
+}
+
+.stat-card:last-child { border-right: none; }
+
+/* Angka Besar (10L, 45%) */
+.stat-card h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--sage);
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+/* Label (Air per Lembar, dll) */
+.stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: var(--deep-forest);
+}
+
+/* Teks Penjelasan Baru */
+.stat-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.8;
+    max-width: 280px;
+    margin: 0 auto;
+}
+.problem-item {
+    position: relative;
+}
+
+.problem-item::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    border-top: 1px solid var(--sage);
+    border-left: 1px solid var(--sage);
+    opacity: 0.5;
+}
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 9999;
+}
+    </style>
 </head>
 <body>
 
 
     <nav>
-    <a href="index.html" class="logo">REBORN SHEETS</a>
+    <a href="index.html" class="logo">REBORN SHEET</a>
     <ul class="nav-links">
-        <li>
-            <a href="index.html">Beranda</a>
 
+        <li><a href="index.html">Beranda</a></li>
+        <li>
+            <a href="#">Shop</a>
+            <div class="mega-menu">
+                <div class="mega-col">
+                    <h4>Koleksi Kertas</h4>
+                    <ul>
+                        <li><a href="kertas-benih.html">Kertas Benih</a></li>
+                        <li><a href="kertas-bunga.html">Kertas Kelopak Bunga</a></li>
+                        <li><a href="serat-bambu.html">Serat Bambu</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Alat Tulis</h4>
+                    <ul>
+                        <li><a href="journal.html">Journal Etis</a></li>
+                        <li><a href="kartu.html">Kartu Ucapan</a></li>
+                        <li><a href="sketchbook.html">Sketchbook</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Terlaris</h4>
+                    <ul>
+                        <li><a href="#">Bundling Kit</a></li>
+                        <li><a href="#">Custom Order</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col" style="background: var(--soft-gray); padding: 20px; border-radius: 10px;">
+                    <h4>Sustainable Choice</h4>
+                    <p style="font-size: 12px; color: #666;">Setiap lembar kertas yang kamu beli membantu kami menanam kembali hutan.</p>
+                </div>
+            </div>
         </li>
         <li><a href="masalah.html">Masalah</a></li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
 
         <li class="has-mega">
-    <a href="#Edukasi">Proses Kami</a>
+    <a href="#Edukasi">Edukasi</a>
     <div class="mega-menu">
         <div class="mega-col">
             <h4>Siklus Hidup</h4>
@@ -289,39 +589,100 @@
         </div>
     </div>
 </li>
-        <li><a href="filosofi.html">Collaborator</a></li>
-        <li><a href="kontak.html">Produk Kami</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
     </ul>
 </nav>
 
-    <main class="calc-wrapper"></main>
+<header class="hero">
+    <span class="section-tag">Analisis Masalah</span>
+    <h1>Mengapa Satu Lembar<br>Begitu Berarti?</h1>
+    <p class="hero-desc">Seringkali kita melihat kertas hanya sebagai benda sekali pakai. Di balik keputihannya, terdapat jejak lingkungan yang menuntut perhatian kita.</p>
+<p style="font-family: monospace; font-size: 11px; color: #aaa; margin-top: 20px; text-transform: uppercase;">
+    Log ID: RS-2026 // Environmental Impact Study // [Page 01]
+</p>
+</header>
+    <main>
 
-   <section class="info-section">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <p style="color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;">Why It Matters</p>
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 20px 0;">Lebih Dari Sekadar Angka</h2>
-            <p>Setiap kilogram kertas yang Anda proses kembali memiliki dampak berantai bagi ekosistem global.</p>
-        </div>
-        <div class="info-grid">
-            <div class="info-box">
-                <h3>Konservasi Air</h3>
-                <p>Memproduksi kertas daur ulang menghemat hingga 7.000 galon air per ton dibandingkan kertas baru.</p>
-            </div>
-            <div class="info-box">
-                <h3>Hemat Energi</h3>
-                <p>Proses daur ulang memotong penggunaan energi hingga 60%, mengurangi jejak karbon secara signifikan.</p>
-            </div>
-            <div class="info-box">
-                <h3>Zero Waste</h3>
-                <p>Mencegah kertas berakhir di TPA (Tempat Pembuangan Akhir) yang memicu produksi gas metana berbahaya.</p>
-            </div>
-        </div>
-    </section>
 
-   <footer>
+       <div class="stats-grid">
+    <div class="stat-card">
+        <h2>10 Liter</h2>
+        <p class="stat-label">Air per Lembar A4</p>
+        <p class="stat-desc">Memproduksi satu lembar kertas baru membutuhkan rata-rata 10 liter air. Membuangnya secara cuma-cuma adalah pemborosan sumber daya air global yang kian menipis.</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>45%</h2>
+        <p class="stat-label">Limbah yang Terlupakan</p>
+        <p class="stat-desc">Hampir setengah dari total sampah harian di institusi adalah kertas. Tanpa pemisahan, material ini berakhir di TPA dan melepaskan gas metana berbahaya.</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>324 Kg</h2>
+        <p class="stat-label">Jejak Per Tahun</p>
+        <p class="stat-desc">Estimasi rata-rata limbah kertas yang dihasilkan per orang. Reborn Sheet hadir untuk memutus siklus konsumsi-buang yang tidak berkelanjutan ini.</p>
+    </div>
+</div>
+
+
+        <div class="content-wrapper">
+
+            <div class="problem-item">
+                <div class="problem-img-frame">
+                    <img src="gambarsampah1.jpg" alt="Limbah Kertas">
+                </div>
+                <div class="problem-text">
+                    <span class="section-tag" style="letter-spacing: 1px;">Kesadaran yang Terabaikan</span>
+                    <h3>kurangnya kesadaran dalam mengelola kertas</h3>
+                    <p>Tumpukan kertas bekas tugas dan fotokopi di sekolah saat ini masih sering terbuang sia-sia tanpa adanya proses pemilahan yang tepat dikarenakan banyak masyarakat belum menyadari nilai una yang tinggi dari kertas yang diolah secara benar </p>
+                    <div class="scientific-note">
+                        "Erosi nilai pada material organik mempercepat siklus konsumsi-buang yang tidak berkelanjutan."
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem-item">
+                <div class="problem-img-frame">
+                    <img src="gambarsampah2.jpg" alt="Mixed Waste">
+                </div>
+                <div class="problem-text">
+                    <span class="section-tag" style="letter-spacing: 1px;">Sistem yang Tidak Terarah</span>
+                    <h3> Sistem Pengumpulan Kertas yang tidak Terstruktur</h3>
+                    <p>Kondisi di lingkungan masyarakat saat ini belum memiliki wadah khusus untuk mengumpulkan kertas bekas sehinggakertas-kertas tersebut berakhir di tempat sampah umum dalam keadaan tercampur plastik serta sisa makanan, yang membuatnya tidak lagi layak untuk didaur ulang</p>
+                    <div class="scientific-note">
+                        Kertas yang terkontaminasi di TPA menghasilkan gas metana, yang 25x lebih berbahaya dari CO2 bagi atmosfer.
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem-item">
+                <div class="problem-img-frame">
+                    <img src="gambar3.jpg" alt="Lack of Education">
+                </div>
+                <div class="problem-text">
+                    <span class="section-tag" style="letter-spacing: 1px;">Edukasi yang Tidak Tersampaikan</span>
+                    <h3>Media Edukasi dan Promosi yang tidak Sistematis</h3>
+                    <p>Minimnya media informasi digital seperti poster dan platform digital di sekolah mengakibatkan kurangnya informasi mengenai daur ulang di kalangan siswi dan membuat proram lingkungan menjadi sulit dikenali dan cenderung berjalan di tempat tanpa partisipasi yang signifikan</p>
+                    <div class="scientific-note">
+                        Pembelajaran kinetik (praktik langsung) meningkatkan retensi kesadaran lingkungan hingga 70% dibandingkan sekadar teori.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="transition-box">
+            <span class="section-tag" style="color: var(--sage);">The Solution</span>
+            <h2>Mengubah Narasi Menjadi Aksi</h2>
+            <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">Reborn Sheet hadir bukan hanya untuk mendaur ulang, tapi untuk mengembalikan martabat selembar kertas sebagai media seni yang berharga.</p>
+            <a href="index.html#produk" class="cta-btn">Lihat Bagaimana Kami Memulai</a>
+        </section>
+    </main>
+ <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <a href="index.html" class="logo" style="margin-bottom: 20px; display: block;">REBORN SHEETS</a>
+                <a href="index.html" class="logo" style="margin-bottom: 20px; display: block;">REBORN SHEET</a>
                 <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
             </div>
             <div class="footer-col">
@@ -350,11 +711,12 @@
 
         <button class="btn-gabung-newsletter">Gabung</button>
     </div>
+    </div>  <!-- close footer-col -->
+        </div>  <!-- close footer-grid -->
         <div class="copyright">
-            © 2026 REBORN SHEETS. All rights reserved.
+            © 2026 REBORN SHEET. All rights reserved.
         </div>
     </footer>
-
 
 </body>
 </html>

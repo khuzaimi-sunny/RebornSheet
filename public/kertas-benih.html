@@ -1,136 +1,116 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Reborn Sheet | Kertas Daur Ulang Estetik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kertas Benih | Reborn Sheet</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
             --sage: #7d8e7b;
             --deep-forest: #2c332d;
             --paper-white: #fdfbf7;
             --earth-brown: #a67c52;
             --soft-gray: #f4f4f2;
-            --charcoal: #3a3f3a;
             --transition: all 0.3s ease;
         }
 
-        html {
-            scroll-behavior: smooth;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--paper-white);
             color: var(--deep-forest);
-            line-height: 1.5;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* navigation */
+        /* --- NAVIGATION --- */
         nav {
-            background: rgba(253, 251, 247, 0.96);
-            backdrop-filter: blur(2px);
+            background: rgba(255, 255, 255, 0.95);
             height: 80px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 6%;
+            padding: 0 8%;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            border-bottom: 1px solid #ece9e2;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--deep-forest);
             text-decoration: none;
-            letter-spacing: -0.3px;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            color: var(--sage);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 0.5rem;
+            margin-left: auto;
             height: 100%;
-            align-items: center;
         }
 
-        .nav-links li {
-            position: relative;
+        .nav-links>li {
             display: flex;
             align-items: center;
         }
 
-        .nav-links li > a {
+        .nav-links>li>a {
             text-decoration: none;
             color: var(--deep-forest);
-            padding: 0 18px;
+            padding: 0 20px;
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             transition: var(--transition);
         }
 
-        .nav-links li > a:hover {
+        .nav-links>li:hover>a {
             color: var(--sage);
         }
 
-        /* mega menu */
+        /* --- MEGA MENU --- */
         .mega-menu {
             position: absolute;
             top: 80px;
             left: 0;
-            width: 100vw;
+            width: 100%;
             background: white;
-            padding: 40px 8%;
+            padding: 40px 10%;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            box-shadow: 0 25px 35px -10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
             opacity: 0;
             visibility: hidden;
-            transform: translateY(12px);
+            transform: translateY(10px);
             transition: var(--transition);
-            border-bottom: 3px solid var(--sage);
-            z-index: 999;
-            pointer-events: none;
+            border-bottom: 4px solid var(--sage);
         }
 
-        .nav-links li:hover .mega-menu {
+        .nav-links>li:hover .mega-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
-            pointer-events: auto;
         }
 
         .mega-col h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 18px;
+            font-size: 13px;
+            margin-bottom: 15px;
             color: var(--sage);
-            border-bottom: 1px solid #ece9e2;
-            padding-bottom: 8px;
+            text-transform: uppercase;
         }
 
         .mega-col ul {
@@ -138,12 +118,12 @@
         }
 
         .mega-col ul li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .mega-col ul li a {
             text-decoration: none;
-            color: #5b5b5b;
+            color: #777;
             font-size: 14px;
             transition: var(--transition);
         }
@@ -153,360 +133,232 @@
             padding-left: 5px;
         }
 
-        /* hero */
-        .hero {
-            height: 95vh;
-            background: linear-gradient(135deg, rgba(34, 40, 30, 0.6), rgba(20, 25, 18, 0.7)), url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center 30%;
-            background-attachment: fixed;
+        /* Product Hero */
+        .product-hero {
+            margin-top: 80px;
+            padding: 60px 8% 40px;
+            background: linear-gradient(135deg, #E8F0E8 0%, #F5F0E8 100%);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
             align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
         }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
+        .product-hero-img {
+            flex: 1;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-hero-img img {
             width: 100%;
-            height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
-            opacity: 0.12;
-            pointer-events: none;
+            height: auto;
+            display: block;
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 7vw, 4.8rem);
-            margin-bottom: 1rem;
-            font-style: italic;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+        .product-hero-text {
+            flex: 1;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin-bottom: 2.2rem;
-            font-weight: 300;
-        }
-
-        .cta-btn {
-            background: var(--paper-white);
-            color: var(--deep-forest);
-            padding: 14px 36px;
-            text-decoration: none;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: var(--transition);
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-btn:hover {
+        .product-hero-text .badge {
             background: var(--sage);
             color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .product-hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .product-hero-text .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--sage);
+            margin: 20px 0;
+        }
+
+        .product-hero-text p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .btn-buy {
+            background: var(--deep-forest);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-buy:hover {
+            background: var(--sage);
             transform: translateY(-3px);
         }
 
-        /* stats bar */
-        .stats-bar {
+        /* Section styling */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--sage);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        /* Galeri Produk Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
             background: white;
-            width: 85%;
-            margin: -50px auto 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .gallery-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-info p {
+            color: var(--sage);
+            font-weight: 600;
+        }
+
+        /* Shaped Products (Buntelan) */
+        .shaped-section {
+            background: var(--soft-gray);
+            border-radius: 40px;
+            margin: 0 8% 80px;
+            padding: 60px;
+        }
+
+        .shaped-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .shaped-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .shaped-card:hover {
+            transform: scale(1.03);
+        }
+
+        .shaped-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .shaped-card h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 8px;
+        }
+
+        /* Benefit section */
+        .benefit-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            padding: 2rem 1.5rem;
-            border-radius: 28px;
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
-            position: relative;
-            z-index: 12;
+            gap: 30px;
             text-align: center;
-            backdrop-filter: blur(2px);
         }
 
-        .stat-item h3 {
-            font-size: 2rem;
+        .benefit-card {
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .benefit-card i {
+            font-size: 40px;
             color: var(--sage);
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        .stat-item p {
-            text-transform: uppercase;
-            font-size: 10px;
-            letter-spacing: 2px;
-            color: #7a7a7a;
-            font-weight: 600;
-            margin-top: 6px;
-        }
-
-        section {
-            padding: 90px 8%;
-        }
-
-        .section-tag {
-            color: var(--sage);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 2.5px;
-            display: block;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        /* impact container */
-        .impact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .impact-text h2 {
-            text-align: left;
             margin-bottom: 20px;
         }
 
-        .video-placeholder {
-            width: 100%;
-            height: 340px;
-            background: #2c332d;
-            border-radius: 28px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .video-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.75;
-            transition: 0.3s;
-        }
-
-        .play-icon {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--sage);
-            font-size: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* produk grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 35px;
-            margin-top: 20px;
-        }
-
-        .product-card {
-            background: white;
-            padding: 20px 20px 25px;
-            border-radius: 24px;
-            transition: var(--transition);
-            border: 1px solid #f0ede7;
-            text-align: center;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.08);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 270px;
-            background: var(--soft-gray);
-            border-radius: 18px;
-            margin-bottom: 20px;
-            object-fit: cover;
-        }
-
-        .impact-bg {
-            background: var(--deep-forest);
-            color: white;
-            display: flex;
-            align-items: center;
-            border-radius: 34px;
-            overflow: hidden;
-            margin: 30px 0;
-        }
-
-        .impact-content {
-            flex: 1;
-            padding: 50px 45px;
-        }
-
-        .impact-img {
-            flex: 1;
-            height: 460px;
-            object-fit: cover;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .process-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 28px;
-            height: 320px;
-        }
-
-        .process-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .process-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 25px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
-            color: white;
-            transform: translateY(15px);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .process-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .process-card:hover .process-overlay {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .edu-flex {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-
-        .edu-flex:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .edu-img {
-            flex: 1;
-            border-radius: 28px;
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            box-shadow: 18px 18px 0 var(--sage);
-        }
-
-        .edu-text {
-            flex: 1;
-        }
-
-        .map-container {
-            width: 100%;
-            height: 420px;
-            border-radius: 28px;
-            overflow: hidden;
-            border: 5px solid white;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-        }
-
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .newsletter-input {
-            padding: 12px 20px;
-            border: 1px solid #ddd6cc;
-            border-radius: 60px;
-            outline: none;
-            font-family: 'Inter', sans-serif;
-            background: white;
-        }
-
-        .btn-gabung-newsletter {
-            background: transparent;
-            color: var(--sage);
-            padding: 10px 18px;
-            border: 1.5px solid var(--sage);
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-gabung-newsletter:hover {
-            background: var(--sage);
-            color: white;
-        }
-
+        /* Footer */
         footer {
-            background: #f8f7f3;
-            padding: 70px 8% 40px;
-            border-top: 1px solid #e8e3db;
+            background: #f8f9f7;
+            padding: 80px 8% 40px;
+            border-top: 1px solid #eee;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.2fr;
-            gap: 45px;
-            margin-bottom: 50px;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
         }
 
         .footer-col h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
         }
 
-        .footer-col p, .footer-col ul li a {
-            font-size: 13px;
-            color: #6c6a64;
-            text-decoration: none;
+        .footer-col p {
+            font-size: 14px;
+            color: #777;
         }
 
         .footer-col ul {
@@ -517,70 +369,91 @@
             margin-bottom: 12px;
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 35px;
-            border-top: 1px solid #e2ddd4;
-            font-size: 11px;
-            color: #9b968c;
+        .footer-col ul li a {
+            text-decoration: none;
+            color: #777;
+            font-size: 14px;
+            transition: var(--transition);
         }
 
-        @media (max-width: 900px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-            .impact-container, .edu-flex {
-                grid-template-columns: 1fr;
-                flex-direction: column;
-            }
-            .impact-bg {
-                flex-direction: column;
-            }
-            .stats-bar {
-                width: 92%;
-            }
-            nav {
-                padding: 0 4%;
-            }
-            .nav-links li > a {
-                padding: 0 10px;
-                font-size: 10px;
-            }
+        .footer-col ul li a:hover {
+            color: var(--sage);
         }
-        @media (max-width: 780px) {
-            .mega-menu {
-                display: none;
-            }
-            .nav-links {
-                gap: 0;
-            }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .newsletter-input {
+            padding: 12px 25px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .btn-gabung-newsletter {
+            background: transparent;
+            color: var(--sage);
+            padding: 12px 25px;
+            border: 1.5px solid var(--sage);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-gabung-newsletter:hover {
+            background: var(--sage);
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .product-hero { flex-direction: column; }
+            .benefit-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .shaped-section { padding: 30px; margin: 0 5% 50px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
+
 <body>
 
 <nav>
-    <a href="#" class="logo">REBORN SHEET</a>
+    <a href="index.html" class="logo">REBORN SHEET</a>
     <ul class="nav-links">
-        <li><a href=index.html>Beranda</a></li>
+        <li><a href="index.html">Beranda</a></li>
         <li>
             <a href="#">Shop</a>
             <div class="mega-menu">
                 <div class="mega-col">
                     <h4>Koleksi Kertas</h4>
                     <ul>
-                        <li><a href="#">Kertas Benih</a></li>
-                        <li><a href="#">Kertas Kelopak Bunga</a></li>
-                        <li><a href="#">Serat Bambu</a></li>
+                        <li><a href="kertas-benih.html">Kertas Benih</a></li>
+                        <li><a href="kertas-bunga.html">Kertas Kelopak Bunga</a></li>
+                        <li><a href="serat-bambu.html">Serat Bambu</a></li>
                     </ul>
                 </div>
                 <div class="mega-col">
                     <h4>Alat Tulis</h4>
                     <ul>
-                        <li><a href="#">Journal Etis</a></li>
-                        <li><a href="#">Kartu Ucapan</a></li>
-                        <li><a href="#">Sketchbook</a></li>
+                        <li><a href="journal.html">Journal Etis</a></li>
+                        <li><a href="kartu.html">Kartu Ucapan</a></li>
+                        <li><a href="sketchbook.html">Sketchbook</a></li>
                     </ul>
                 </div>
                 <div class="mega-col">
@@ -590,174 +463,172 @@
                         <li><a href="#">Custom Order</a></li>
                     </ul>
                 </div>
-                <div class="mega-col" style="background: #f9f7f2; padding: 20px; border-radius: 20px;">
-                    <h4 style="border:none;">Sustainable Choice</h4>
-                    <p style="font-size: 12px;">Setiap lembar membantu menanam kembali hutan.</p>
+                <div class="mega-col" style="background: var(--soft-gray); padding: 20px; border-radius: 10px;">
+                    <h4>Sustainable Choice</h4>
+                    <p style="font-size: 12px; color: #666;">Setiap lembar kertas yang kamu beli membantu kami menanam kembali hutan.</p>
                 </div>
             </div>
         </li>
-        <li><a href=masalah.html>Masalah</a></li>
-        <li><a href=kalkulator.html>Kalkulator</a></li>
-        <li>
-            <a href="#Ed">Edukasi</a>
-            <div class="mega-menu">
-                <div class="mega-col"><h4>Siklus Hidup</h4><ul><li><a href="#">Limbah Jadi Karya</a></li><li><a href="#">Sumber Serat Alam</a></li><li><a href="#">Misi Zero Waste</a></li></ul></div>
-                <div class="mega-col"><h4>Hand-Pressed Stories</h4><ul><li><a href="#" style="font-weight:600;">Dibalik Lembar Manual</a></li></ul></div>
-                <div class="mega-col"><h4>Belajar Bersama</h4><ul><li><a href="#">Cara Daur Ulang di Rumah</a></li></ul></div>
-                <div class="mega-col" style="background:#f1efea;"><h4>Impact</h4><p style="font-size:12px;">Sampah kertas yang Anda berikan kami olah kembali.</p></div>
-            </div>
-        </li>
-        <li><a href="#filosofi">Filosofi</a></li>
-        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="masalah.html">Masalah</a></li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+        <li><a href="proses-pembuatan.html">Edukasi</a></li>
+        <li><a href="sumber.html">Sumber</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
     </ul>
 </nav>
 
-<header class="hero">
-    <h1>Dari Hutan, Kembali ke Hutan.</h1>
-    <p>Mengubah limbah kertas menjadi media kreasi baru yang 100% biodegradable dan penuh estetika.</p>
-    <a href="#produk" class="cta-btn">Jelajahi Produk</a>
-</header>
-
-<div class="stats-bar">
-    <div class="stat-item"><h3>520+ kg</h3><p>Sampah Terolah</p></div>
-    <div class="stat-item"><h3>12</h3><p>Sekolah Mitra</p></div>
-    <div class="stat-item"><h3>2,400+</h3><p>Lembar Terlahir</p></div>
+<!-- Product Hero -->
+<div class="product-hero">
+    <div class="product-hero-img">
+        <img src="https://images.unsplash.com/photo-1586075010620-2276188dc996?auto=format&fit=crop&w=800&q=80" alt="Kertas Benih">
+    </div>
+    <div class="product-hero-text">
+        <span class="badge"><i class="fas fa-seedling"></i> Plantable Series</span>
+        <h1>Kertas Benih</h1>
+        <p>Kertas daur ulang yang mengandung biji bunga liar. Setelah digunakan, tanam kertasnya dan saksikan bunga tumbuh — simbol siklus hidup yang berkelanjutan.</p>
+        <p style="font-size: 14px; color: #888;">🌿 100% limbah kertas bekas | ♻️ Proses handmade | 🌱 Mengandung biji bunga</p>
+        <div class="price">Rp 45.000</div>
+        <button class="btn-buy" onclick="alert('Terima kasih! Produk akan segera diproses 🌿')"><i class="fas fa-shopping-bag"></i> Beli Sekarang</button>
+    </div>
 </div>
 
-<section id="masalah" class="impact-container">
-    <div class="impact-text">
-        <span class="section-tag" style="text-align: left;">Latar Belakang</span>
-        <h2>Dari Sekolah, Untuk Bumi</h2>
-        <p>Setiap akhir semester, ribuan kertas ujian dan administrasi berakhir di tempat sampah. Tanpa pengolahan yang tepat, limbah ini hanya menambah beban TPA.</p>
-        <p>Melalui <b>Reborn Sheet</b>, kami membangun gerakan daur ulang kertas yang dapat diakses oleh siapa saja, dimulai dari lingkungan sekolah sebagai langkah awal menuju perubahan yang lebih luas.</p>
+<!-- Galeri Variasi Produk -->
+<section>
+    <div class="section-title">
+        <p>Koleksi Lainnya</p>
+        <h2>✨ Ragam Kertas Benih ✨</h2>
     </div>
-    <div class="video-placeholder">
-        <img src="https://images.unsplash.com/photo-1528333147000-0610336230bc?auto=format&fit=crop&w=800&q=80" alt="recycle workshop">
-        <div class="play-icon">▶</div>
-    </div>
-</section>
-
-<section id="produk">
-    <div class="section-tag">Our Best Sellers</div>
-    <h2>Koleksi Favorit</h2>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1586075010620-2276188dc996?auto=format&fit=crop&w=500&q=80" class="product-img" alt="seed paper">
-            <h3>Plantable Seed Paper</h3>
-            <p style="color: var(--sage); font-weight: bold; margin: 8px 0;">Rp 45.000</p>
-            <p style="font-size: 13px;">Tanam setelah digunakan, saksikan bunga bermekaran.</p>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=500&q=80" class="product-img" alt="journal">
-            <h3>Wildflower Journal</h3>
-            <p style="color: var(--sage); font-weight: bold; margin: 8px 0;">Rp 125.000</p>
-            <p style="font-size: 13px;">Buku catatan dari 100% serat kain daur ulang.</p>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1603484477859-abe6a73f9366?auto=format&fit=crop&w=500&q=80" class="product-img" alt="envelopes">
-            <h3>Earth Tone Envelopes</h3>
-            <p style="color: var(--sage); font-weight: bold; margin: 8px 0;">Rp 35.000</p>
-            <p style="font-size: 13px;">Amplop bertekstur dengan pewarna alami kayu.</p>
-        </div>
-    </div>
-</section>
-
-<section style="padding: 40px 8% 80px;">
-    <div class="impact-bg">
-        <div class="impact-content">
-            <span class="section-tag" style="color: #cbd8c5; text-align: left;">The Earth Lab</span>
-            <h2 style="text-align: left; font-size: 2.6rem;">Dampak Nyata Untuk Bumi</h2>
-            <p style="margin-bottom: 25px; opacity: 0.9;">Kami tidak hanya menjual kertas. Kami mengurangi timbunan sampah kertas perkotaan sebanyak 2 ton setiap bulannya.</p>
-            <div style="display: flex; gap: 40px;">
-                <div><h3 style="font-size: 2rem;">24k+</h3><p style="font-size: 12px;">Pohon Diselamatkan</p></div>
-                <div><h3 style="font-size: 2rem;">100%</h3><p style="font-size: 12px;">Bebas Kimia</p></div>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1544815843-2c2a5e2c6c4a?auto=format&fit=crop&w=500&q=80" alt="Kertas benih bundling">
+            <div class="gallery-info">
+                <h3>Bundling Hadiah</h3>
+                <p>Rp 85.000</p>
             </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1550596334-7bb40a719fbc?auto=format&fit=crop&w=800&q=80" class="impact-img" alt="forest conservation">
-    </div>
-</section>
-
-<section id="proses" style="background: var(--soft-gray);">
-    <span class="section-tag">Workshop Gallery</span>
-    <h2>Penjelasan Proses (Step-by-Step)</h2>
-    <div class="process-grid">
-        <div class="process-card"><img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=500&q=80" alt="cacah"><div class="process-overlay"><h3>1. Pencacahan</h3><p>Kertas bekas dipilah dan dicacah menjadi bagian kecil.</p></div></div>
-        <div class="process-card"><img src="https://images.unsplash.com/photo-1560421683-6856ea585c78?auto=format&fit=crop&w=500&q=80" alt="rendam"><div class="process-overlay"><h3>2. Perendaman</h3><p>Direndam hingga serat terurai secara alami.</p></div></div>
-        <div class="process-card"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=500&q=80" alt="cetak"><div class="process-overlay"><h3>3. Pencetakan</h3><p>Bubur kertas disaring menggunakan screen kayu.</p></div></div>
-        <div class="process-card"><img src="https://images.unsplash.com/photo-1517278322228-3fe7a86cf6f0?auto=format&fit=crop&w=500&q=80" alt="kering"><div class="process-overlay"><h3>4. Pengeringan</h3><p>Dijemur di bawah sinar matahari untuk tekstur otentik.</p></div></div>
-    </div>
-</section>
-
-<section id="tujuan">
-    <div class="edu-flex">
-        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=700&q=80" class="edu-img" alt="edukasi">
-        <div class="edu-text">
-            <span class="section-tag">Misi Kami</span>
-            <h2 style="text-align: left;">Edukasi & Lingkungan</h2>
-            <p>Tujuan utama kami bukan sekadar membuat produk, melainkan:</p>
-            <ul style="margin-top: 20px; padding-left: 20px;">
-                <li><b>Kesadaran:</b> Mengajak siswa lebih bijak menggunakan kertas.</li>
-                <li><b>Kreativitas:</b> Melatih tangan menciptakan karya dari limbah.</li>
-                <li><b>Keberlanjutan:</b> Menghilangkan jejak karbon dari pembakaran sampah.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section style="padding: 0 8% 80px;">
-    <div class="impact-bg">
-        <div class="impact-content">
-            <span class="section-tag" style="color: #cbd8c5; text-align: left;">The Cycle Station</span>
-            <h2 style="text-align: left;">Satu Lembar, Satu Perubahan.</h2>
-            <p style="margin-bottom: 20px;">Kami percaya bahwa sekolah adalah tempat terbaik untuk memulai perubahan. Setiap tumpukan kertas ujian tak lagi berakhir sia-sia.</p>
-            <div style="display: flex; gap: 40px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 25px;">
-                <div><h3 style="font-size: 2rem; color: var(--sage);">500+ kg</h3><p>Sampah Terolah</p></div>
-                <div><h3 style="font-size: 2rem; color: var(--sage);">100%</h3><p>Karya Siswa</p></div>
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=500&q=80" alt="Kartu ucapan benih">
+            <div class="gallery-info">
+                <h3>Kartu Ucapan</h3>
+                <p>Rp 25.000</p>
             </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1517404215738-15263e9f9178?auto=format&fit=crop&w=800&q=80" class="impact-img" alt="student workshop">
-    </div>
-</section>
-
-<section id="kolaborasi" style="background: #fefcf9;">
-    <div class="section-tag">Mari Beraksi Bersama</div>
-    <h2>Jadikan Sekolahmu Bagian dari Siklus</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: white; padding: 40px; border-radius: 36px; box-shadow: 0 15px 30px rgba(0,0,0,0.02);">
-        <div>
-            <h3 style="font-family: 'Playfair Display'; font-size: 1.8rem;">Mulai dari Langkah Kecil</h3>
-            <p style="color:#666; margin: 20px 0;">Kami membuka kolaborasi bagi OSIS, komunitas, atau sekolah yang ingin mengelola limbah kertasnya secara mandiri.</p>
-            <ul style="list-style: none;">
-                <li style="display:flex; gap:12px; margin-bottom: 18px;"><span style="background: var(--sage); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items:center; justify-content:center; color:white; font-size:12px;">1</span> Kirim sampah kertas sekolahmu ke workshop kami.</li>
-                <li style="display:flex; gap:12px; margin-bottom: 18px;"><span style="background: var(--sage); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items:center; justify-content:center; color:white; font-size:12px;">2</span> Ikuti pelatihan daur ulang gratis untuk komunitasmu.</li>
-            </ul>
-            <a href="#" class="cta-btn" style="background: var(--deep-forest); color: white;">Ajukan Kolaborasi</a>
-        </div>
-        <div style="background: var(--soft-gray); border-radius: 28px; padding: 40px 30px; text-align: center; border: 2px dashed var(--sage);">
-            <p style="font-family: 'Playfair Display'; font-size: 1.4rem; color: var(--sage);">"Kertas bekas bukan akhir dari sebuah ilmu, tapi awal dari sebuah karya."</p>
-            <p style="margin-top: 20px; font-size: 13px;">— Workshop Produksi Reborn Sheet</p>
+        <div class="gallery-item">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1563784467444-5b8c9b4a0d8a?auto=format&fit=crop&w=500&q=80" alt="Kertas benih custom">
+            <div class="gallery-info">
+                <h3>Custom Shape</h3>
+                <p>Rp 35.000</p>
+            </div>
         </div>
     </div>
 </section>
 
-<section id="lokasi">
-    <div class="section-tag">Visit Our Studio</div>
-    <h2>Lokasi Kami</h2>
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.2139414925824!2d112.6567693!3d-7.9770141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6285c5c1b1b1b%3A0x1b1b1b1b1b1b1b1b!2sMalang!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<!-- BUNTELAN / SHAPED PRODUCTS (Kertas yang dibentuk berbagai rupa) -->
+<div class="shaped-section">
+    <div class="section-title">
+        <p>Handmade Bundles</p>
+        <h2>📦 Buntelan Kertas Istimewa</h2>
+    </div>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 20px;">Dari limbah kertas, kami bentuk menjadi berbagai kreasi unik — siap pakai atau dijadikan hadiah berkesan.</p>
+
+    <div class="shaped-grid">
+        <div class="shaped-card">
+            <img class="shaped-img" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=400&q=80" alt="Buntelan kertas bunga">
+            <h4>🌸 Buntelan Bunga Kertas</h4>
+            <p style="font-size: 13px;">Bentuk bunga dari serat kertas daur ulang, bisa dijadikan dekorasi meja atau hantaran.</p>
+            <p style="color: var(--sage); font-weight: bold; margin-top: 10px;">Rp 55.000</p>
+        </div>
+        <div class="shaped-card">
+            <img class="shaped-img" src="https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&w=400&q=80" alt="Origami bundle">
+            <h4>🕊️ Buntelan Origami</h4>
+            <p style="font-size: 13px;">Set berisi 10 lembar kertas benih + panduan melipat origami ramah lingkungan.</p>
+            <p style="color: var(--sage); font-weight: bold; margin-top: 10px;">Rp 65.000</p>
+        </div>
+        <div class="shaped-card">
+            <img class="shaped-img" src="https://images.unsplash.com/photo-1589330273594-fade1ee91647?auto=format&fit=crop&w=400&q=80" alt="Gift box">
+            <h4>🎁 Gift Box Set</h4>
+            <p style="font-size: 13px;">Box eksklusif berisi kertas benih + kartu ucapan + bunga kertas daur ulang.</p>
+            <p style="color: var(--sage); font-weight: bold; margin-top: 10px;">Rp 120.000</p>
+        </div>
+        <div class="shaped-card">
+            <img class="shaped-img" src="https://images.unsplash.com/photo-1603484477859-abe6a73f9366?auto=format&fit=crop&w=400&q=80" alt="Envelope set">
+            <h4>✉️ Amplop Set</h4>
+            <p style="font-size: 13px;">10 amplop dari kertas daur ulang + stiker biji. Sempurna untuk surat-surat spesial.</p>
+            <p style="color: var(--sage); font-weight: bold; margin-top: 10px;">Rp 45.000</p>
+        </div>
+    </div>
+</div>
+
+<!-- Keunggulan Produk -->
+<section>
+    <div class="section-title">
+        <p>Why Reborn Sheet?</p>
+        <h2>🌿 Lebih dari Sekadar Kertas</h2>
+    </div>
+    <div class="benefit-grid">
+        <div class="benefit-card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>Ramah Lingkungan</h3>
+            <p style="font-size: 14px;">Setiap lembar menyelamatkan 10 liter air dan mengurangi penebangan pohon.</p>
+        </div>
+        <div class="benefit-card">
+            <i class="fas fa-seedling"></i>
+            <h3>Dapat Ditanam</h3>
+            <p style="font-size: 14px;">Kertas benih mengandung biji bunga — tanam dan tumbuhkan kehidupan baru.</p>
+        </div>
+        <div class="benefit-card">
+            <i class="fas fa-recycle"></i>
+            <h3>100% Daur Ulang</h3>
+            <p style="font-size: 14px;">Berbahan dasar limbah kertas sekolah & kantor, diproses secara handmade.</p>
+        </div>
     </div>
 </section>
 
+<!-- Footer -->
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
-            <a href="#" class="logo" style="margin-bottom: 20px; display: inline-block;">REBORN SHEET</a>
-            <p>Menciptakan harmoni antara kreativitas dan alam melalui kertas daur ulang.</p>
+            <a href="index.html" class="logo" style="margin-bottom: 20px; display: block;">REBORN SHEET</a>
+            <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
         </div>
-        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#">Tentang Kami</a></li><li><a href="#">Proses Kami</a></li><li><a href="#">Kebijakan Privasi</a></li><li><a href="#">FAQ</a></li></ul></div>
-        <div class="footer-col"><h4>Social</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">LinkedIn</a></li></ul></div>
-        <div class="footer-col"><h4>Stay Updated</h4><p>Dapatkan tips sustainable living setiap minggu.</p><div class="newsletter-form"><input type="email" placeholder="Email Anda" class="newsletter-input"><button class="btn-gabung-newsletter">Gabung</button></div></div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="kontak.html">Tentang Kami</a></li>
+                <li><a href="sumber.html">Sumber</a></li>
+                <li><a href="proses-pembuatan.html">Proses Kami</a></li>
+                <li><a href="#">Kebijakan Privasi</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Social</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Stay Updated</h4>
+            <p style="margin-bottom: 20px;">Dapatkan tips sustainable living setiap minggu.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Email Anda" class="newsletter-input">
+                <button class="btn-gabung-newsletter">Gabung</button>
+            </div>
+        </div>
     </div>
-    <div class="copyright">© 2026 REBORN SHEET. All rights reserved. — Setiap lembar kertas kami terlahir kembali dari limbah.</div>
+    <div class="copyright">
+        © 2026 REBORN SHEET. All rights reserved.
+    </div>
 </footer>
+
+<script>
+    document.querySelectorAll('.btn-gabung-newsletter').forEach(btn => {
+        btn.addEventListener('click', () => alert('Terima kasih sudah berlangganan 🌱'));
+    });
+</script>
 </body>
+
 </html>

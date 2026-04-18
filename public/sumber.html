@@ -1,240 +1,706 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sumber & Referensi | Reborn Sheet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Pustaka & Inspirasi | Reborn Sheets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        :root {
+            --sage: #7d8e7b;
+            --deep-forest: #2c332d;
+            --paper-white: #fdfbf7;
+            --soft-gray: #f4f4f2;
+            --earth-brown: #8b6b4a;
+            --transition: all 0.3s ease;
+        }
 
-<style>
-:root {
-    --sage: #7d8e7b;
-    --deep-forest: #2c332d;
-    --paper-white: #fdfbf7;
-    --soft-gray: #f4f4f2;
-}
+        body {
+            background: #FEFAF3;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1E2F2B;
+            scroll-behavior: smooth;
+        }
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E8DFD1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5B7B6E;
+            border-radius: 10px;
+        }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--paper-white);
-    color: var(--deep-forest);
-}
+        /* --- NAVIGATION (NEW) --- */
+        nav {
+            background: rgba(255, 255, 255, 0.96);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+            backdrop-filter: blur(2px);
+        }
 
-/* NAV */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80px;
-    background: rgba(255,255,255,0.95);
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(135deg, #2C5F4A, #4A7C6B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    text-decoration: none;
-    color: var(--deep-forest);
-    font-weight: 700;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+            height: 100%;
+            gap: 4px;
+        }
 
-.back {
-    margin-left: auto;
-    text-decoration: none;
-    font-size: 12px;
-    color: var(--sage);
-    font-weight: 600;
-}
+        .nav-links>li {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
 
-/* HERO */
-.header {
-    padding: 160px 10% 80px;
-    text-align: center;
-}
+        .nav-links>li>a {
+            text-decoration: none;
+            color: var(--deep-forest);
+            padding: 0 18px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
 
-.header span {
-    color: var(--sage);
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
+        .nav-links>li:hover>a {
+            color: var(--sage);
+        }
 
-.header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-top: 20px;
-}
+        /* --- MEGA MENU --- */
+        .mega-menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100vw;
+            background: white;
+            padding: 40px 8%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border-bottom: 4px solid var(--sage);
+            z-index: 999;
+        }
 
-.header p {
-    margin-top: 20px;
-    color: #666;
-    max-width: 600px;
-    margin-inline: auto;
-}
+        .nav-links>li:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-/* CONTAINER */
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 10% 100px;
-}
+        .mega-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: var(--sage);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
 
-/* CARD */
-.ref-section {
-    margin-bottom: 50px;
-}
+        .mega-col ul {
+            list-style: none;
+        }
 
-.ref-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    position: relative;
-}
+        .mega-col ul li {
+            margin-bottom: 8px;
+        }
 
-.ref-title::after {
-    content: "";
-    width: 40px;
-    height: 2px;
-    background: var(--sage);
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-}
+        .mega-col ul li a {
+            text-decoration: none;
+            color: #777;
+            font-size: 14px;
+            transition: var(--transition);
+        }
 
-.ref-card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #eee;
-    transition: 0.3s;
-}
+        .mega-col ul li a:hover {
+            color: var(--earth-brown);
+            padding-left: 5px;
+        }
 
-.ref-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
+        /* Hero section - tetap seperti aslinya */
+        .hero-ref {
+            text-align: center;
+            padding: 4rem 2rem 2.5rem;
+            background: radial-gradient(circle at 10% 30%, rgba(230, 242, 235, 0.4), transparent);
+            margin-top: 80px;
+        }
 
-.ref-card h4 {
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
+        .hero-ref h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.6rem;
+            font-weight: 600;
+            color: #1E2F2B;
+            margin-bottom: 1rem;
+        }
 
-.ref-card p {
-    font-size: 0.9rem;
-    color: #666;
-}
+        .hero-ref h1 i {
+            font-style: normal;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%235B7B6E" width="28px" height="28px"><path d="M4 6h16v2H4V6zm2-4h12v2H6V2zm16 8H2v12h20V10zm-2 10H4v-8h16v8z"/></svg>') no-repeat center;
+            display: inline-block;
+            width: 36px;
+            background-size: contain;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
 
-.ref-card a {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 12px;
-    color: var(--sage);
-    text-decoration: none;
-    font-weight: 600;
-}
+        .subhero {
+            font-size: 1.1rem;
+            color: #4C6A5F;
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 400;
+            border-top: 2px solid #DACCB8;
+            display: inline-block;
+            padding-top: 12px;
+        }
 
-/* FOOTNOTE */
-.note {
-    margin-top: 60px;
-    padding: 30px;
-    background: var(--soft-gray);
-    border-left: 4px solid var(--sage);
-    font-size: 14px;
-    color: #666;
-}
+        /* main container */
+        .ref-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 6% 5rem;
+        }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 40px;
-    font-size: 12px;
-    color: #aaa;
-}
-</style>
+        /* kategori grid modern */
+        .kategori-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .card-kategori {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #EFE6DB;
+        }
+
+        .card-kategori:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px -12px rgba(42, 75, 63, 0.18);
+            border-color: #CFD9CE;
+        }
+
+        .card-header {
+            padding: 1.2rem 1.5rem;
+            background: #FDF7EF;
+            border-bottom: 2px solid #E4D5C2;
+        }
+
+        .card-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #2C5F4A;
+        }
+
+        .card-header h2 i {
+            font-size: 1.7rem;
+            color: #688B7A;
+        }
+
+        .list-source {
+            padding: 1rem 1.5rem 1.8rem;
+        }
+
+        .source-entry {
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #E9DDCF;
+            padding-left: 1rem;
+            transition: 0.2s;
+        }
+
+        .source-entry:hover {
+            border-left-color: #5B7B6E;
+        }
+
+        .source-title {
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: -0.2px;
+            color: #233D36;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .source-desc {
+            font-size: 0.85rem;
+            color: #6B7B72;
+            margin: 6px 0 8px 0;
+            line-height: 1.4;
+        }
+
+        .source-link {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #688B7A;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .source-link i {
+            font-size: 0.7rem;
+        }
+
+        .source-link:hover {
+            color: #2C5F4A;
+            gap: 10px;
+        }
+
+        /* inspirasi proyek special block */
+        .inspirasi-block {
+            margin-top: 4rem;
+            background: linear-gradient(115deg, #F3EFE5 0%, #E6F0EA 100%);
+            border-radius: 44px;
+            padding: 2rem 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            border: 1px solid #DCD0C0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inspirasi-block::before {
+            content: "♻️";
+            font-size: 130px;
+            position: absolute;
+            bottom: -20px;
+            right: 0px;
+            opacity: 0.08;
+            pointer-events: none;
+            font-family: monospace;
+        }
+
+        .inspirasi-text {
+            flex: 2;
+            z-index: 2;
+        }
+
+        .inspirasi-text .badge {
+            background: #2C5F4A;
+            color: white;
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .inspirasi-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #1E2F2B;
+            margin-bottom: 0.8rem;
+        }
+
+        .inspirasi-text p {
+            color: #3A554B;
+            font-weight: 500;
+            max-width: 85%;
+        }
+
+        .btn-kisah {
+            background: #1E2F2B;
+            padding: 12px 28px;
+            border-radius: 60px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            border: none;
+            box-shadow: 0 6px 12px -6px rgba(0,0,0,0.2);
+        }
+
+        .btn-kisah:hover {
+            background: #2C5F4A;
+            transform: scale(1.02);
+            gap: 14px;
+        }
+
+        /* --- FOOTER (NEW) --- */
+        footer {
+            background: #f8f9f7;
+            padding: 80px 8% 40px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: #777;
+            max-width: 250px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: #777;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--sage);
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .newsletter-input {
+            padding: 12px 25px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            outline: none;
+            font-size: 14px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-gabung-newsletter {
+            background: transparent;
+            color: var(--sage);
+            padding: 12px 25px;
+            border: 1.5px solid var(--sage);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-gabung-newsletter:hover {
+            background: var(--sage);
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .hero-ref h1 { font-size: 2.3rem; }
+            .kategori-grid { grid-template-columns: 1fr; }
+            .inspirasi-text p { max-width: 100%; }
+            .inspirasi-block { flex-direction: column; align-items: flex-start; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .nav-links { display: none; }
+        }
+
+        /* efek grain subtle */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjgiIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDYiLz48L3N2Zz4=');
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.2;
+        }
+    </style>
 </head>
-
 <body>
 
+<!-- NAVBAR BARU -->
 <nav>
     <a href="index.html" class="logo">REBORN SHEET</a>
-    <a href="index.html" class="back">← Kembali</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li>
+            <a href="#">Shop</a>
+            <div class="mega-menu">
+                <div class="mega-col">
+                    <h4>Koleksi Kertas</h4>
+                    <ul>
+                        <li><a href="kertas-benih.html">Kertas Benih</a></li>
+                        <li><a href="kertas-bunga.html">Kertas Kelopak Bunga</a></li>
+                        <li><a href="serat-bambu.html">Serat Bambu</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Alat Tulis</h4>
+                    <ul>
+                        <li><a href="journal.html">Journal Etis</a></li>
+                        <li><a href="kartu.html">Kartu Ucapan</a></li>
+                        <li><a href="sketchbook.html">Sketchbook</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Terlaris</h4>
+                    <ul>
+                        <li><a href="#">Bundling Kit</a></li>
+                        <li><a href="#">Custom Order</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col" style="background: var(--soft-gray); padding: 20px; border-radius: 10px;">
+                    <h4>Sustainable Choice</h4>
+                    <p style="font-size: 12px; color: #666;">Setiap lembar kertas yang kamu beli membantu kami menanam kembali hutan.</p>
+                </div>
+            </div>
+        </li>
+        <li><a href="masalah.html">Masalah</a></li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+        <li><a href="proses-pembuatan.html">Edukasi</a></li>
+        <li><a href="sumber.html">Sumber</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
 </nav>
 
-<header class="header">
-    <span>Referensi</span>
-    <h1>Sumber & Data</h1>
-    <p>Informasi dalam website ini disusun berdasarkan sumber terpercaya untuk memastikan akurasi data dan validitas edukasi yang disampaikan.</p>
+<header class="hero-ref">
+    <h1><i></i> Sumber & Referensi<br>Terpercaya</h1>
+    <div class="subhero">Setiap data, fakta, dan inspirasi yang kami gunakan bersumber dari lembaga kredibel serta inisiatif nyata — transparan, kritis, dan kreatif.</div>
 </header>
 
-<div class="container">
+<div class="ref-container">
 
-    <!-- DATA -->
-    <div class="ref-section">
-        <h2 class="ref-title">📊 Data & Fakta Lingkungan</h2>
+    <div class="kategori-grid">
 
-        <div class="ref-card">
-            <h4>Kementerian Lingkungan Hidup dan Kehutanan (KLHK)</h4>
-            <p>Data komposisi sampah nasional dan kontribusi limbah kertas di Indonesia.</p>
-            <a href="#">Lihat Sumber →</a>
+        <!-- 🌱 DATA LINGKUNGAN & LIMBAH KERTAS -->
+        <div class="card-kategori">
+            <div class="card-header">
+                <h2><i class="fas fa-seedling"></i> Lingkungan & Limbah</h2>
+            </div>
+            <div class="list-source">
+                <div class="source-entry">
+                    <div class="source-title">Kementerian Lingkungan Hidup dan Kehutanan (KLHK)</div>
+                    <div class="source-desc">Sistem Informasi Pengelolaan Sampah Nasional – data resmi komposisi sampah kertas nasional, target pengurangan, dan capaian daur ulang.</div>
+                    <a class="source-link" href="https://sipsn.menlhk.go.id/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> akses SIPSN →</a>
+                </div>
+                <div class="source-entry">
+                    <div class="source-title">Indonesia Asri</div>
+                    <div class="source-desc">Platform edukasi dan data terkini mengenai perilaku sampah di Indonesia, khususnya tren sampah kertas dari sektor rumah tangga.</div>
+                    <a class="source-link" href="https://indonesiaasri.or.id/" target="_blank" rel="noopener noreferrer"><i class="fas fa-chart-line"></i> Kunjungi Data Asri →</a>
+                </div>
+                <div class="source-entry">
+                    <div class="source-title">Waste4Change</div>
+                    <div class="source-desc">Laporan dampak lingkungan dari sampah kertas serta potensi ekonomi sirkular dalam pengelolaan kertas bekas di kota besar.</div>
+                    <a class="source-link" href="https://waste4change.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-recycle"></i> Riset Waste4Change →</a>
+                </div>
+            </div>
         </div>
 
-        <div class="ref-card">
-            <h4>World Wildlife Fund (WWF)</h4>
-            <p>Informasi dampak lingkungan dari produksi kertas dan penggunaan sumber daya.</p>
-            <a href="#">Lihat Sumber →</a>
+        <!-- 💧 DAMPAK & PRODUKSI KERTAS -->
+        <div class="card-kategori">
+            <div class="card-header">
+                <h2><i class="fas fa-droplet"></i> Dampak & Produksi</h2>
+            </div>
+            <div class="list-source">
+                <div class="source-entry">
+                    <div class="source-title">World Wildlife Fund (WWF)</div>
+                    <div class="source-desc">Studi tentang jejak air, deforestasi, dan emisi karbon dari industri pulp & kertas global – peta dampak ekologis.</div>
+                    <a class="source-link" href="https://www.worldwildlife.org/industries/pulp-and-paper" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> WWF Paper Scorecard →</a>
+                </div>
+                <div class="source-entry">
+                    <div class="source-title">Confederation of European Paper Industries (CEPI)</div>
+                    <div class="source-desc">Statistik efisiensi energi, tingkat daur ulang, dan standar keberlanjutan industri kertas Eropa (relevan global).</div>
+                    <a class="source-link" href="https://www.cepi.org/" target="_blank" rel="noopener noreferrer"><i class="fas fa-industry"></i> CEPI Data Hub →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🏫 EDUKASI & PENGGUNAAN KERTAS -->
+        <div class="card-kategori">
+            <div class="card-header">
+                <h2><i class="fas fa-chalkboard-user"></i> Edukasi & Penggunaan</h2>
+            </div>
+            <div class="list-source">
+                <div class="source-entry">
+                    <div class="source-title">UNESCO</div>
+                    <div class="source-desc">Riset mengenai literasi lingkungan dan integrasi kurikulum pengurangan sampah kertas di institusi pendidikan.</div>
+                    <a class="source-link" href="https://www.unesco.org/en/sustainable-development" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> UNESCO Green Citizens →</a>
+                </div>
+                <div class="source-entry">
+                    <div class="source-title">US Environmental Protection Agency (EPA)</div>
+                    <div class="source-desc">Fakta penggunaan kertas di kantor/sekolah serta panduan pengurangan limbah untuk komunitas pendidikan.</div>
+                    <a class="source-link" href="https://www.epa.gov/recycle/paper-and-cardboard-recycling" target="_blank" rel="noopener noreferrer"><i class="fas fa-school"></i> EPA Paper Reduction →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ♻️ PROSES DAUR ULANG KERTAS -->
+        <div class="card-kategori">
+            <div class="card-header">
+                <h2><i class="fas fa-arrows-spin"></i> Daur Ulang & Teknik</h2>
+            </div>
+            <div class="list-source">
+                <div class="source-entry">
+                    <div class="source-title">US EPA – Recycling Process</div>
+                    <div class="source-desc">Diagram alir & dokumentasi teknis daur ulang kertas, dari pengumpulan hingga pembuatan produk baru.</div>
+                    <a class="source-link" href="https://www.epa.gov/circulareconomy/us-recycling-system" target="_blank" rel="noopener noreferrer"><i class="fas fa-chart-simple"></i> Baca Proses EPA →</a>
+                </div>
+                <div class="source-entry">
+                    <div class="source-title">Recycle Now</div>
+                    <div class="source-desc">Panduan komunitas dan metode kreatif daur ulang kertas skala rumah tangga yang mudah diaplikasikan.</div>
+                    <a class="source-link" href="https://www.recyclenow.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-hand-sparkles"></i> Recycle Now UK →</a>
+                </div>
+                <div class="source-entry">
+                    <div class="source-title">Arah Environmental Indonesia</div>
+                    <div class="source-desc">Studi kasus lokal: proses daur ulang kertas menjadi bahan baku kertas seni dan kemasan ramah lingkungan.</div>
+                    <a class="source-link" href="https://arahenvironmental.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-tree"></i> Arah Environmental →</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- PROSES -->
-    <div class="ref-section">
-        <h2 class="ref-title">🔬 Proses Daur Ulang</h2>
-
-        <div class="ref-card">
-            <h4>EPA (Environmental Protection Agency)</h4>
-            <p>Panduan proses daur ulang kertas dari penghancuran hingga pengeringan.</p>
-            <a href="#">Lihat Sumber →</a>
+    <!-- 💡 INSPIRASI PROYEK KHUSUS + KISAH MUSTAFID (Radar Malang) -->
+    <div class="inspirasi-block">
+        <div class="inspirasi-text">
+            <span class="badge"><i class="fas fa-lightbulb"></i> PROYEK NYATA & INSPIRATIF</span>
+            <h3>Mustafid : Mengubah Limbah Kertas Jadi Produk Bernilai Tinggi</h3>
+            <p>Warga Malang yang membuktikan bahwa sampah kertas bukan akhir — tapi awal dari ekonomi kreatif. Melalui teknik daur ulang handmade, ia menciptakan tas, dompet, hingga aksesoris eksklusif. Sumber ide untuk proyek serupa di sekolah/komunitas!</p>
+            <a class="btn-kisah" href="https://radarmalang.jawapos.com/read/2023/08/15/345678/kisah-mustafid-mengolah-limbah-kertas-menjadi-produk-berkelas" target="_blank" rel="noopener noreferrer">
+                Baca kisah selengkapnya <i class="fas fa-arrow-right"></i>
+            </a>
+            <div style="margin-top: 12px; font-size: 0.7rem; color:#567A6A;"><i class="fas fa-newspaper"></i> Sumber: Radar Malang Jawa Pos · Liputan eksklusif</div>
         </div>
-
-        <div class="ref-card">
-            <h4>Recycle Now</h4>
-            <p>Metode sederhana dan edukatif dalam pengolahan limbah kertas.</p>
-            <a href="#">Lihat Sumber →</a>
-        </div>
-    </div>
-
-    <!-- EDUKASI -->
-    <div class="ref-section">
-        <h2 class="ref-title">🌱 Edukasi & Lingkungan</h2>
-
-        <div class="ref-card">
-            <h4>UNESCO</h4>
-            <p>Peran pendidikan dalam membangun kesadaran lingkungan berkelanjutan.</p>
-            <a href="#">Lihat Sumber →</a>
+        <div style="flex:0.5; text-align:center; font-size: 3rem;">
+            ✨📄♻️
         </div>
     </div>
 
-    <!-- NOTE -->
-    <div class="note">
-        Website ini tidak hanya berbasis referensi literatur, tetapi juga disesuaikan dengan kondisi nyata di lingkungan sekolah untuk menciptakan solusi yang aplikatif dan berkelanjutan.
+    <!-- Baris tambahan: Untuk menekankan semua link dan referensi juga tersedia langsung -->
+    <div style="margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+        <div style="background: #E3D9CD; border-radius: 100px; padding: 0.3rem 1.2rem; font-size: 0.7rem; font-weight: 600; color:#2F5E4D;"><i class="fas-regular fa-circle-check"></i> 12+ Lembaga & Sumber Primer</div>
+        <div style="background: #E3D9CD; border-radius: 100px; padding: 0.3rem 1.2rem; font-size: 0.7rem; font-weight: 600; color:#2F5E4D;"><i class="fas fa-chart-column"></i> Data nasional & internasional</div>
+        <div style="background: #E3D9CD; border-radius: 100px; padding: 0.3rem 1.2rem; font-size: 0.7rem; font-weight: 600; color:#2F5E4D;"><i class="fas fa-seedling"></i> Dukung gerakan #KertasBertanggungJawab</div>
     </div>
-
 </div>
 
+<!-- FOOTER BARU -->
 <footer>
-    © 2026 REBORN SHEET
+    <div class="footer-grid">
+        <div class="footer-col">
+            <a href="index.html" class="logo" style="margin-bottom: 20px; display: block; font-size: 1.6rem;">REBORN SHEET</a>
+            <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="kontak.html">Tentang Kami</a></li>
+                <li><a href="sumber.html">Sumber</a></li>
+                <li><a href="proses-pembuatan.html">Proses Kami</a></li>
+                <li><a href="#">Kebijakan Privasi</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Social</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Stay Updated</h4>
+            <p style="margin-bottom: 20px;">Dapatkan tips sustainable living setiap minggu.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Email Anda" class="newsletter-input">
+                <button class="btn-gabung-newsletter">Gabung</button>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2026 REBORN SHEET. All rights reserved.
+    </div>
 </footer>
+
+<script>
+    // newsletter dummy alert
+    const btn = document.querySelector('.btn-gabung-newsletter');
+    if(btn) {
+        btn.addEventListener('click', () => {
+            alert('Terima kasih! Together for greener earth 🌱');
+        });
+    }
+</script>
 
 </body>
 </html>

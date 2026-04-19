@@ -32,7 +32,7 @@
             line-height: 1.6;
         }
 
-        /* --- NAVIGATION --- */
+       /* --- NAVIGATION --- */
         nav {
             background: rgba(255, 255, 255, 0.95);
             height: 80px;
@@ -46,13 +46,8 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--deep-forest);
-            text-decoration: none;
-        }
+        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
+
 
         .nav-links {
             display: flex;
@@ -80,7 +75,11 @@
         .nav-links>li:hover>a {
             color: var(--sage);
         }
-
+        .logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
         /* --- MEGA MENU --- */
         .mega-menu {
             position: absolute;
@@ -434,49 +433,28 @@
 <body>
 
 <nav>
-    <a href="index.html" class="logo">REBORN SHEET</a>
-    <ul class="nav-links">
-        <li><a href="index.html">Beranda</a></li>
-        <li>
-            <a href="#">Shop</a>
-            <div class="mega-menu">
-                <div class="mega-col">
-                    <h4>Koleksi Kertas</h4>
-                    <ul>
-                        <li><a href="kertas-benih.html">Kertas Benih</a></li>
-                        <li><a href="kertas-bunga.html">Kertas Kelopak Bunga</a></li>
-                        <li><a href="serat-bambu.html">Serat Bambu</a></li>
-                    </ul>
-                </div>
-                <div class="mega-col">
-                    <h4>Alat Tulis</h4>
-                    <ul>
-                        <li><a href="journal.html">Journal Etis</a></li>
-                        <li><a href="kartu.html">Kartu Ucapan</a></li>
-                        <li><a href="sketchbook.html">Sketchbook</a></li>
-                    </ul>
-                </div>
-                <div class="mega-col">
-                    <h4>Terlaris</h4>
-                    <ul>
-                        <li><a href="#">Bundling Kit</a></li>
-                        <li><a href="#">Custom Order</a></li>
-                    </ul>
-                </div>
-                <div class="mega-col" style="background: var(--soft-gray); padding: 20px; border-radius: 10px;">
-                    <h4>Sustainable Choice</h4>
-                    <p style="font-size: 12px; color: #666;">Setiap lembar kertas yang kamu beli membantu kami menanam kembali hutan.</p>
-                </div>
-            </div>
-        </li>
-        <li><a href="masalah.html">Masalah</a></li>
-        <li><a href="kalkulator.html">Kalkulator</a></li>
-        <li><a href="proses-pembuatan.html">Edukasi</a></li>
-        <li><a href="sumber.html">Sumber</a></li>
-        <li><a href="filosofi.html">Filosofi</a></li>
-        <li><a href="kontak.html">Kontak</a></li>
-    </ul>
-</nav>
+        <a href="index.html" class="logo">
+    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 50px;">
+</a>
+        <ul class="nav-links">
+
+            <li><a href="index.html">Beranda</a></li>
+            <li>
+                <a href="kertas-benih.html">Shop</a>
+            </li>
+            <li><a href="masalah.html">Masalah</a></li>
+            <li><a href="kalkulator.html">Kalkulator</a></li>
+
+            <!-- EDUKASI (disederhanakan biar cepat & aman deadline) -->
+            <li>
+                <a href="proses-pembuatan.html">Edukasi</a>
+            </li>
+            <li><a href="sumber.html">Sumber</a></li>
+            <li><a href="filosofi.html">Filosofi</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+
+    </nav>
 
 <!-- Product Hero -->
 <div class="product-hero">
@@ -589,7 +567,9 @@
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
-            <a href="index.html" class="logo" style="margin-bottom: 20px; display: block;">REBORN SHEET</a>
+            <a href="index.html" class="logo">
+    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 45px;">
+</a>
             <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
         </div>
         <div class="footer-col">

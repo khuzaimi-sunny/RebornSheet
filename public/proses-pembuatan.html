@@ -181,11 +181,53 @@
         .step-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
         .step-text p { color: #666; font-size: 1rem; line-height: 1.8; }
 
+        /* Sub-list styling untuk detail proses */
+        .step-text ul {
+            margin-top: 15px;
+            padding-left: 20px;
+            list-style: none;
+        }
+        .step-text ul li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+        .step-text ul li::before {
+            content: "•";
+            color: var(--sage);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .step-text .note {
+            background: var(--soft-gray);
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--deep-forest);
+            border-left: 3px solid var(--sage);
+        }
+        .step-text .highlight {
+            color: var(--sage);
+            font-weight: 600;
+        }
+
         @media (max-width: 992px) {
             .process-section::before, .step-number { display: none; }
             .step-frame, .step-frame:nth-child(even) { flex-direction: column; gap: 30px; }
             .step-img { height: 300px; width: 100%; }
         }
+        /* Make peleburan2.jpeg display as small landscape */
+.img-landscape {
+    width: 100%;
+    max-width: 400px; /* Small width */
+    height: 250px; /* Landscape ratio (16:10) */
+    object-fit: cover; /* Crops to fit landscape without distortion */
+    border-radius: 12px;
+}
     </style>
 </head>
 <body>
@@ -278,62 +320,109 @@
 </section>
 
 <section class="process-section">
-    <!-- Step 1 -->
+    <!-- Step 1: Penghancuran -->
     <div class="step-frame">
         <div class="step-number">1</div>
-        <img src="https://unsplash.com" class="step-img">
+        <img src="peleburan.jpeg" class="step-img" alt="Penghancuran kertas">
         <div class="step-text">
-            <span class="step-tag">Eksplorasi</span>
-            <h2>Pemilihan Serat Alami</h2>
-            <p>Kami mencari serat organik terbaik dari petani lokal untuk memastikan bahan dasar ramah lingkungan.</p>
+            <span class="step-tag">Tahap 1 — Vrida</span>
+            <h2>Penghancuran</h2>
+            <p>Kertas yang sudah dikumpulkan akan dipisah sesuai kriteria warna:</p>
+            <ul>
+                <li>Putih</li>
+                <li>Abu</li>
+                <li>Ivory</li>
+                <li>Coklat susu</li>
+                <li>Warna selain di atas (diproses terpisah)</li>
+            </ul>
+            <p>Lalu kertas tersebut dipotong menjadi potongan kecil-kecil untuk memudahkan proses selanjutnya.</p>
+            <div class="note">
+                <i class="fas fa-info-circle"></i> <span class="highlight">Catatan:</span> Pemisahan berdasarkan warna membantu menghasilkan produk akhir dengan kualitas dan estetika yang lebih baik.
+            </div>
         </div>
     </div>
 
-    <!-- Step 2 -->
+    <!-- Step 2: Peleburan -->
     <div class="step-frame">
         <div class="step-number">2</div>
-        <img src="https://unsplash.com" class="step-img">
+        <img src="peleburan2.jpeg" alt="Peleburan kertas">
         <div class="step-text">
-            <span class="step-tag">Produksi</span>
-            <h2>Penenunan Tradisional</h2>
-            <p>Menggunakan alat tenun tangan untuk menciptakan tekstur kain yang unik dan bernilai seni tinggi.</p>
+            <span class="step-tag">Tahap 2 — Vrida</span>
+            <h2>Peleburan</h2>
+            <p>Kertas yang telah dipotong kecil-kecil dimasukkan ke ember, lalu akan direndam air cuka dengan perbandingan:</p>
+            <ul>
+                <li>Air panas: <span class="highlight">10 liter</span></li>
+                <li>Cuka: <span class="highlight">3 sendok makan</span></li>
+            </ul>
+            <p>Didiamkan selama <span class="highlight">12 jam</span>. Kemudian kertas yang sudah didiamkan tersebut dibilas dengan air dingin sebanyak dua kali.</p>
+            <p>Lalu kertas lembek tersebut diblender dengan air bersih dengan rasio <span class="highlight">kertas : air = 1 : 3</span> hingga menjadi bubur dan tidak ada serat kasar kertas yang tersisa.</p>
+            <div class="note">
+                <i class="fas fa-flask"></i> <span class="highlight">Fungsi cuka:</span> Membantu melunakkan serat kertas dan menetralkan zat kimia pada tinta/pewarna.
+            </div>
         </div>
     </div>
 
-    <!-- Step 3 -->
+    <!-- Step 3: Pembentukan (Kertas) -->
     <div class="step-frame">
         <div class="step-number">3</div>
-        <img src="https://unsplash.com" class="step-img">
+        <img src="https://images.unsplash.com/photo-1586075010620-2276188dc996?auto=format&fit=crop&w=800&q=80" class="step-img" alt="Pembentukan kertas">
         <div class="step-text">
-            <span class="step-tag">Pewarnaan</span>
-            <h2>Pigmen Nabati</h2>
-            <p>Warna lembut kami berasal dari akar dan daun, tanpa limbah kimia yang merusak air.</p>
+            <span class="step-tag">Tahap 3a — Pembentukan</span>
+            <h2>Pembentukan Kertas Lembaran</h2>
+            <p>Dikarenakan output produk terdapat kertas dan aksesoris dari kertas, sehingga metode pembentukannya juga berbeda.</p>
+            <p><span class="highlight">Untuk Kertas Lembaran:</span></p>
+            <ul>
+                <li>Bubur kertas dimasukkan ke dalam baskom dengan rasio <span class="highlight">1 : 15</span> dan diaduk hingga rata</li>
+                <li>Cetakan kertas dimasukkan ke dalam baskom dan diangkat secara perlahan dan horizontal</li>
+                <li>Kertas yang sudah tercetak akan ditaruh di <span class="highlight">kain tahu yang lembab</span> dan dijemur sampai kering</li>
+            </ul>
+            <div class="note">
+                <i class="fas fa-hand-peace"></i> <span class="highlight">Tips:</span> Pengangkatan cetakan secara horizontal dan perlahan menghasilkan ketebalan kertas yang merata.
+            </div>
         </div>
     </div>
 
-    <!-- Step 4 -->
+    <!-- Step 4: Pembentukan Aksesoris -->
     <div class="step-frame">
         <div class="step-number">4</div>
-        <img src="https://unsplash.com" class="step-img">
+        <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=800&q=80" class="step-img" alt="Pembentukan aksesoris">
         <div class="step-text">
-            <span class="step-tag">Detailing</span>
-            <h2>Jahitan Presisi</h2>
-            <p>Setiap potongan kain disatukan dengan teliti oleh penjahit ahli dengan prinsip zero-waste.</p>
+            <span class="step-tag">Tahap 3b — Pembentukan</span>
+            <h2>Pembentukan Aksesoris Kertas</h2>
+            <p><span class="highlight">Untuk Aksesoris Kertas:</span></p>
+            <ul>
+                <li>Bubur kertas akan disaring dengan kain tahu</li>
+                <li>Lalu ditambahkan lem (perekat alami) sesuai kebutuhan</li>
+                <li>Dibentuk sesuai yang diinginkan (bros, gantungan kunci, hiasan dinding, dll)</li>
+                <li>Kemudian dijemur hingga mengeras</li>
+            </ul>
+            <div class="note">
+                <i class="fas fa-gem"></i> <span class="highlight">Kreasi tak terbatas:</span> Dari limbah kertas, kami bisa menciptakan berbagai aksesoris unik bernilai seni tinggi!
+            </div>
         </div>
     </div>
 
-    <!-- Step 5 -->
+    <!-- Step 5: Finishing & Produk Jadi -->
     <div class="step-frame">
         <div class="step-number">5</div>
-        <img src="https://unsplash.com" class="step-img">
+        <img src="https://images.unsplash.com/photo-1603484477859-abe6a73f9366?auto=format&fit=crop&w=800&q=80" class="step-img" alt="Produk jadi">
         <div class="step-text">
-            <span class="step-tag">Distribusi</span>
-            <h2>Kemasan Ramah Lingkungan</h2>
-            <p>Produk dikemas menggunakan bahan biodegradable yang aman bagi bumi.</p>
+            <span class="step-tag">Tahap Akhir</span>
+            <h2>Finishing & Siap Pakai</h2>
+            <p>Setelah melalui proses pengeringan sempurna, produk kertas dan aksesoris siap melalui tahap finishing:</p>
+            <ul>
+                <li>Pemotongan sesuai ukuran standar (untuk kertas)</li>
+                <li>Pengamplasan tepian (untuk aksesoris)</li>
+                <li>Quality control sebelum dikemas</li>
+                <li>Pengemasan dengan bahan ramah lingkungan</li>
+            </ul>
+            <p>Hasilnya? <span class="highlight">Kertas daur ulang berkualitas</span> dan <span class="highlight">aksesoris unik</span> yang siap menemani aktivitasmu sehari-hari! 🌿</p>
+            <div class="note">
+                <i class="fas fa-heart"></i> <span class="highlight">Setiap produk</span> adalah karya tangan yang autentik — tidak ada dua produk yang persis sama.
+            </div>
         </div>
     </div>
 </section>
 
 </body>
 </html>
-

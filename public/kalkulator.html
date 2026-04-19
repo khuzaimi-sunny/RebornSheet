@@ -137,6 +137,16 @@
         }
         .input-group input:focus, .input-group select:focus { border-color: var(--sage); }
 
+        .info-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .info-row .input-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
         .calc-btn {
             width: 100%; background: var(--deep-forest); color: white; padding: 18px;
             border: none; border-radius: 50px; font-weight: 600; text-transform: uppercase;
@@ -262,6 +272,7 @@
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .result-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+            .info-row { flex-direction: column; gap: 25px; }
         }
         /* --- FAKTA SECTION BARU --- */
 .facts-section {
@@ -447,36 +458,46 @@
 <main class="calc-wrapper">
     <div class="calc-container">
         <div class="calc-header">
-            <p>🌿 Hitung Dampak Positifmu</p>
-            <h1>Kalkulator Lembar</h1>
+            <p>🌿 Hitung Nilai Kertas Bekasmu</p>
+            <h1>Kalkulator Daur Ulang</h1>
         </div>
 
         <div class="calc-card">
             <div class="input-group">
-                <label><i class="fas fa-file-alt"></i> Jenis Limbah Kertas</label>
-                <select id="jenisKertas">
-                    <option value="45">Kertas HVS / Kantor (45 lembar/kg)</option>
-                    <option value="60">Koran / Majalah (60 lembar/kg)</option>
-                    <option value="35">Kardus / Dus (35 lembar/kg)</option>
-                    <option value="50">Campuran Kertas Bekas (50 lembar/kg)</option>
+                <label><i class="fas fa-file-alt"></i> Jenis Kertas</label>
+                <select id="jenisKertas" onchange="updateBeratPerLembar()">
+                    <option value="4.37">📄 Kertas HVS A4 70gsm (4.37 gram/lembar)</option>
+                    <option value="5.0">📄 Kertas HVS A4 80gsm (5.0 gram/lembar)</option>
+                    <option value="3.5">📰 Kertas Koran (3.5 gram/lembar)</option>
+                    <option value="60">📦 Kardus / Dus Besar (60 gram/lembar)</option>
+                    <option value="20">📦 Kardus Tipis (20 gram/lembar)</option>
+                    <option value="4.0">📘 Kertas Buku Tulis (4.0 gram/lembar)</option>
+                    <option value="5.5">📃 Kertas Folio (5.5 gram/lembar)</option>
+                    <option value="custom">⚙️ Custom (isi sendiri)</option>
                 </select>
+                <small style="font-size: 10px; color: #888; display: block; margin-top: 5px;">*Data berat per lembar berdasarkan sumber terpercaya [citation:3][citation:7][citation:10]</small>
             </div>
 
-            <div class="input-group">
-                <label><i class="fas fa-weight-hanging"></i> Jumlah Lembar Kertas</label>
-                <input type="number" id="jumlahLembar" placeholder="Masukkan jumlah lembar kertas bekas" min="1">
-                <small style="font-size: 10px; color: #888;">*Misal: 100 lembar = 1 rim kecil</small>
+            <div class="info-row">
+                <div class="input-group">
+                    <label><i class="fas fa-weight-hanging"></i> Berat Total (gram)</label>
+                    <input type="number" id="beratTotal" placeholder="Contoh: 1000" min="1">
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-ruler"></i> Berat per Lembar (gram)</label>
+                    <input type="number" id="beratPerLembar" placeholder="Isi sendiri" min="0.1" step="0.1" value="4.37">
+                </div>
             </div>
 
             <button class="calc-btn" onclick="hitungDampak()">
-                <i class="fas fa-calculator"></i> Hitung Dampak & Nilai
+                <i class="fas fa-calculator"></i> Hitung Nilai & Dampak
             </button>
 
             <div id="hasilKalkulasi" class="result-display">
                 <div class="result-grid">
                     <div class="result-item">
-                        <h4>📄 Setara Berat</h4>
-                        <span id="estBerat">0</span> <small>gram</small>
+                        <h4>📄 Jumlah Lembar</h4>
+                        <span id="estLembar">0</span> <small>lembar</small>
                     </div>
                     <div class="result-item">
                         <h4>💧 Air Terselamatkan</h4>
@@ -540,6 +561,7 @@
         </div>
     </div>
 </section>
+
 <!-- FAKTA DAUR ULANG YANG PERLU KAMU TAHU -->
 <section class="facts-section">
     <div class="facts-header">
@@ -553,7 +575,7 @@
             <div class="fact-icon">🌳</div>
             <div class="fact-number">17</div>
             <div class="fact-label">Pohon Terselamatkan</div>
-            <div class="fact-desc">Setiap 1 ton kertas yang didaur ulang menyelamatkan 17 pohon dewasa dari penebangan [citation:9][citation:2]</div>
+            <div class="fact-desc">Setiap 1 ton kertas yang didaur ulang menyelamatkan 17 pohon dewasa dari penebangan</div>
             <div class="fact-source">Sumber: Various Environmental Studies</div>
         </div>
 
@@ -561,7 +583,7 @@
             <div class="fact-icon">💧</div>
             <div class="fact-number">80%</div>
             <div class="fact-label">Penghematan Air</div>
-            <div class="fact-desc">Produksi kertas daur ulang mengkonsumsi air hingga 80% lebih sedikit dibanding kertas dari serat perawan [citation:2][citation:3]</div>
+            <div class="fact-desc">Produksi kertas daur ulang mengkonsumsi air hingga 80% lebih sedikit dibanding kertas dari serat perawan</div>
             <div class="fact-source">Sumber: Blue Angel / IFEU Study</div>
         </div>
 
@@ -569,7 +591,7 @@
             <div class="fact-icon">⚡</div>
             <div class="fact-number">70%</div>
             <div class="fact-label">Hemat Energi</div>
-            <div class="fact-desc">Energi yang dibutuhkan untuk mendaur ulang kertas 70% lebih rendah daripada produksi dari kayu baru [citation:2][citation:3]</div>
+            <div class="fact-desc">Energi yang dibutuhkan untuk mendaur ulang kertas 70% lebih rendah daripada produksi dari kayu baru</div>
             <div class="fact-source">Sumber: RRI / Blue Angel</div>
         </div>
 
@@ -577,7 +599,7 @@
             <div class="fact-icon">🌍</div>
             <div class="fact-number">1.848</div>
             <div class="fact-label">kg CO₂ per Ton</div>
-            <div class="fact-desc">Jejak karbon kertas daur ulang (1.848 kg CO₂/ton) jauh lebih rendah dibanding kertas serat kayu (2.651 kg CO₂/ton) [citation:8]</div>
+            <div class="fact-desc">Jejak karbon kertas daur ulang (1.848 kg CO₂/ton) jauh lebih rendah dibanding kertas serat kayu (2.651 kg CO₂/ton)</div>
             <div class="fact-source">Sumber: Life Cycle Assessment Indonesia</div>
         </div>
 
@@ -585,7 +607,7 @@
             <div class="fact-icon">🏭</div>
             <div class="fact-number">74%</div>
             <div class="fact-label">Polusi Udara Berkurang</div>
-            <div class="fact-desc">Daur ulang kertas mengurangi emisi gas polutan hingga 74% dan polusi air hingga 35% [citation:2]</div>
+            <div class="fact-desc">Daur ulang kertas mengurangi emisi gas polutan hingga 74% dan polusi air hingga 35%</div>
             <div class="fact-source">Sumber: RRI.co.id</div>
         </div>
 
@@ -593,7 +615,7 @@
             <div class="fact-icon">📈</div>
             <div class="fact-number">Rp100M</div>
             <div class="fact-label">Potensi Ekonomi</div>
-            <div class="fact-desc">Penggunaan kertas daur ulang dapat meningkatkan keuntungan ekonomi hingga 100 miliar rupiah [citation:1]</div>
+            <div class="fact-desc">Penggunaan kertas daur ulang dapat meningkatkan keuntungan ekonomi hingga 100 miliar rupiah</div>
             <div class="fact-source">Sumber: Penelitian UAD</div>
         </div>
     </div>
@@ -601,11 +623,11 @@
     <div class="facts-cta">
         <div class="coffee-fact">
             <i class="fas fa-mug-hot"></i>
-            <p><strong>Tahukah Kamu?</strong> Dengan energi yang dihemat dari <strong>7 lembar kertas daur ulang</strong>, kamu bisa menyeduh <strong>1 liter kopi</strong>! ☕ [citation:3]</p>
+            <p><strong>Tahukah Kamu?</strong> Dengan energi yang dihemat dari <strong>7 lembar kertas daur ulang</strong>, kamu bisa menyeduh <strong>1 liter kopi</strong>! ☕</p>
         </div>
         <div class="light-fact">
             <i class="fas fa-lightbulb"></i>
-            <p><strong>250 lembar</strong> kertas daur ulang menghemat energi cukup untuk menyalakan <strong>lampu LED 11 watt selama 50 jam</strong> [citation:3]</p>
+            <p><strong>250 lembar</strong> kertas daur ulang menghemat energi cukup untuk menyalakan <strong>lampu LED 11 watt selama 50 jam</strong></p>
         </div>
     </div>
 </section>
@@ -649,50 +671,68 @@
 </footer>
 
 <script>
-    function hitungDampak() {
+    function updateBeratPerLembar() {
         const jenisSelect = document.getElementById('jenisKertas');
-        const lembarPerKg = parseInt(jenisSelect.value);
-        const jumlahLembar = parseInt(document.getElementById('jumlahLembar').value);
+        const beratPerLembarInput = document.getElementById('beratPerLembar');
+        const selectedValue = jenisSelect.value;
+
+        if (selectedValue !== 'custom') {
+            beratPerLembarInput.value = selectedValue;
+        } else {
+            beratPerLembarInput.value = '';
+            beratPerLembarInput.placeholder = 'Masukkan berat per lembar (gram)';
+        }
+    }
+
+    function hitungDampak() {
+        // Ambil nilai dari input
+        const beratTotalGram = parseFloat(document.getElementById('beratTotal').value);
+        const beratPerLembarGram = parseFloat(document.getElementById('beratPerLembar').value);
         const hasilDiv = document.getElementById('hasilKalkulasi');
 
-        if (isNaN(jumlahLembar) || jumlahLembar <= 0) {
-            alert("Masukkan jumlah lembar kertas yang valid (minimal 1 lembar)");
+        // Validasi input
+        if (isNaN(beratTotalGram) || beratTotalGram <= 0) {
+            alert("Masukkan berat total kertas yang valid (minimal 1 gram)");
             return;
         }
 
-        // Konversi lembar ke berat (gram)
-        const beratGram = (jumlahLembar / lembarPerKg) * 1000;
-        const beratKg = beratGram / 1000;
+        if (isNaN(beratPerLembarGram) || beratPerLembarGram <= 0) {
+            alert("Masukkan berat per lembar kertas yang valid");
+            return;
+        }
 
-        // Dampak per lembar (berdasarkan riset)
-        // - Air: 10 liter per kg
+        // PERHITUNGAN:
+        // Jumlah lembar = Berat total (gram) ÷ Berat per lembar (gram)
+        const jumlahLembar = beratTotalGram / beratPerLembarGram;
+        const jumlahLembarBulat = Math.floor(jumlahLembar);
+
+        // Nilai ekonomi = Jumlah lembar × Rp 15.000
+        const hargaPerLembar = 15000;
+        const nilaiEkonomi = jumlahLembarBulat * hargaPerLembar;
+
+        // Konversi ke kg untuk perhitungan dampak lingkungan
+        const beratKg = beratTotalGram / 1000;
+
+        // Dampak lingkungan
         const airLiter = beratKg * 10;
-
-        // - Pohon: 17 pohon per ton = 0.017 pohon per kg
         const pohon = beratKg * 0.017;
-
-        // - CO2: 1 kg kertas daur ulang hemat ~1.5 kg CO2
         const co2Kg = beratKg * 1.5;
-
-        // - Energi: 1 kg hemat ~4 kWh
         const energiKwh = beratKg * 4;
 
-        // - Nilai ekonomi produk jadi (per lembar hasil daur ulang dijual ~Rp 2.500)
-        const nilaiEkonomi = jumlahLembar * 2500;
-
         // Update tampilan
-        document.getElementById('estBerat').innerText = Math.round(beratGram);
-        document.getElementById('estAir').innerText = airLiter.toFixed(1);
-        document.getElementById('estPohon').innerText = pohon.toFixed(3);
-        document.getElementById('estNilai').innerText = 'Rp ' + nilaiEkonomi.toLocaleString('id-ID');
-        document.getElementById('estEnergi').innerText = energiKwh.toFixed(1);
-        document.getElementById('estCO2').innerText = co2Kg.toFixed(2);
+        document.getElementById('estLembar').innerHTML = jumlahLembarBulat;
+        document.getElementById('estAir').innerHTML = airLiter.toFixed(1);
+        document.getElementById('estPohon').innerHTML = pohon.toFixed(3);
+        document.getElementById('estNilai').innerHTML = 'Rp ' + nilaiEkonomi.toLocaleString('id-ID');
+        document.getElementById('estEnergi').innerHTML = energiKwh.toFixed(1);
+        document.getElementById('estCO2').innerHTML = co2Kg.toFixed(2);
 
         // Highlight text
-        document.getElementById('highlightLembar').innerText = jumlahLembar;
-        document.getElementById('highlightAir').innerText = airLiter.toFixed(1);
-        document.getElementById('highlightCO2').innerText = co2Kg.toFixed(2);
+        document.getElementById('highlightLembar').innerHTML = jumlahLembarBulat;
+        document.getElementById('highlightAir').innerHTML = airLiter.toFixed(1);
+        document.getElementById('highlightCO2').innerHTML = co2Kg.toFixed(2);
 
+        // Tampilkan hasil
         hasilDiv.style.display = 'block';
     }
 

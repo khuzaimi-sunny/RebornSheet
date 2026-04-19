@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filosofi | Reborn Sheets</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         :root {
@@ -24,11 +25,9 @@
             background-color: var(--paper-white);
             color: var(--deep-forest);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-
-               /* --- NAVIGATION --- */
+        /* --- NAVIGATION --- */
         nav {
             background: rgba(255, 255, 255, 0.95);
             height: 80px;
@@ -41,9 +40,6 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
         }
-
-        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
-
 
         .nav-links {
             display: flex;
@@ -71,11 +67,13 @@
         .nav-links>li:hover>a {
             color: var(--sage);
         }
+
         .logo img {
-    height: 50px;
-    width: auto;
-    display: block;
-}
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
         /* --- MEGA MENU --- */
         .mega-menu {
             position: absolute;
@@ -130,30 +128,84 @@
 
         /* --- HERO --- */
         .hero {
-            height: 70vh;
+            height: 60vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
                         url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; font-style: italic; }
-        .hero p { font-size: 1.1rem; max-width: 600px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 15px; }
+        .hero p { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; }
 
-        /* --- SECTION STYLE --- */
-        section { padding: 100px 10%; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .section-tag { color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 25px; }
+        /* --- SECTION UMUM --- */
+        section { padding: 80px 10%; }
+        .section-tag { color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; display: block; text-align: center; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
 
-        .meaning-box { background: var(--deep-forest); color: white; border-radius: 30px; padding: 80px 60px; text-align: center; }
-        .meaning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; }
-        .meaning-item b { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--sage); display: block; margin-bottom: 10px; }
+        /* --- THE WHY SECTION --- */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .why-text p { color: #555; margin-bottom: 20px; line-height: 1.8; }
+        .why-text .highlight { color: var(--sage); font-weight: 600; }
+        .logo-center {
+            background: var(--soft-gray);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+        }
+        .logo-center img { max-width: 80%; height: auto; margin-bottom: 20px; }
+        .logo-caption { font-size: 12px; color: #888; font-style: italic; }
 
-        .manifesto { background: var(--soft-gray); text-align: center; padding: 120px 10%; }
-        blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.5rem); max-width: 900px; margin: 0 auto; color: var(--deep-forest); line-height: 1.4; }
+        /* --- MAKNA LOGO (4 PILAR) --- */
+        .meaning-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .meaning-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(125,142,123,0.1);
+        }
+        .meaning-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(0,0,0,0.05); }
+        .meaning-icon { font-size: 2.8rem; margin-bottom: 20px; }
+        .meaning-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 10px; }
+        .meaning-card p { font-size: 13px; color: #666; line-height: 1.6; }
 
-        /* TAMBAHAN STYLE UNTUK CTA */
+        /* --- MANIFESTO --- */
+        .manifesto {
+            background: var(--deep-forest);
+            color: white;
+            text-align: center;
+            padding: 80px 10%;
+        }
+        .manifesto blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+        .manifesto p { margin-top: 30px; letter-spacing: 3px; font-size: 11px; color: var(--sage); }
+
+        /* --- CTA --- */
+        .cta-section { text-align: center; padding: 60px 10%; background: var(--soft-gray); }
         .cta-btn {
             display: inline-block;
             padding: 15px 40px;
@@ -164,279 +216,154 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 12px;
+            font-size: 11px;
             transition: var(--transition);
         }
-        .cta-btn:hover {
-            background: var(--sage);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
+        .cta-btn:hover { background: var(--sage); transform: translateY(-3px); }
 
         /* --- FOOTER --- */
-        footer { background: #f8f9f7; padding: 80px 10% 40px; border-top: 1px solid #eee; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 60px; }
-        .footer-col h4 { font-family: 'Playfair Display', serif; margin-bottom: 25px; font-size: 1.2rem; }
-        .footer-col p { font-size: 14px; color: #777; max-width: 250px; }
+        footer { background: #f8f9f7; padding: 60px 10% 30px; border-top: 1px solid #eee; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 40px; }
+        .footer-col h4 { font-family: 'Playfair Display', serif; margin-bottom: 20px; font-size: 1rem; }
+        .footer-col p, .footer-col ul li a { color: #777; font-size: 13px; text-decoration: none; }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
-        .footer-col ul li a:hover { color: var(--sage); }
+        .footer-col ul li { margin-bottom: 10px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #eee; font-size: 11px; color: #aaa; }
 
-        .newsletter-form { display: flex; flex-direction: column; gap: 12px; }
-        .newsletter-input { padding: 12px 25px; border: 1px solid #ddd; border-radius: 50px; outline: none; font-size: 14px; }
-        .btn-gabung-newsletter { background: transparent; color: var(--sage); padding: 12px 25px; border: 1.5px solid var(--sage); border-radius: 50px; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: var(--transition); }
-        .btn-gabung-newsletter:hover { background: var(--sage); color: white; }
-
-        .copyright { text-align: center; padding-top: 40px; border-top: 1px solid #eee; font-size: 12px; color: #aaa; }
-
-        @media (max-width: 768px) {
-            .grid-2, .meaning-grid, .footer-grid { grid-template-columns: 1fr; }
-            section { padding: 60px 5%; }
+        @media (max-width: 992px) {
+            .why-grid { grid-template-columns: 1fr; }
+            .meaning-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        .nav-links a.active {
-    pointer-events: none; /* Ini yang bikin link tidak bisa diklik */
-    cursor: default;      /* Kursor tetap panah, bukan tangan */
-    color: var(--sage);   /* Warna Hijau Sage khas Bloom Eco */
-    text-decoration: none;
-}
-/* --- STORYBOARD LOGO SECTION --- */
-.logo-storyboard {
-    background: #fdfbf7;
-    padding: 120px 8%;
-    position: relative;
-}
-
-.story-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* Membuat elemen saling menyambung */
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.story-frame {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    padding: 60px 0;
-    border-bottom: 1px solid rgba(125, 142, 123, 0.2);
-}
-
-.story-frame:last-child { border-bottom: none; }
-
-/* Membuat layout zig-zag */
-.story-frame:nth-child(even) { direction: rtl; }
-.story-frame:nth-child(even) .story-text { direction: ltr; }
-
-.story-visual {
-    position: relative;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-radius: 4px;
-}
-
-.story-visual img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    filter: sepia(20%); /* Memberi kesan kertas lama */
-}
-
-/* Label Frame (Frame 1, Frame 2, dst) */
-.frame-number {
-    font-family: monospace;
-    font-size: 11px;
-    color: var(--sage);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.story-text h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: var(--deep-forest);
-}
-
-.story-text p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.8;
-}
-
-/* Garis penghubung vertikal agar terasa seperti siklus */
-.story-container::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 200px;
-    bottom: 200px;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--sage), transparent);
-    opacity: 0.3;
-}
-
-@media (max-width: 768px) {
-    .story-frame { grid-template-columns: 1fr; gap: 40px; }
-    .story-container::before { display: none; }
-}
+        @media (max-width: 768px) {
+            .meaning-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
 
+<nav>
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Reborn Sheet Logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="kertas-benih.html">Shop</a></li>
+        <li><a href="masalah.html">Masalah</a></li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+        <li><a href="proses-pembuatan.html">Edukasi</a></li>
+        <li><a href="sumber.html">Sumber</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
 
- <nav>
-        <a href="index.html" class="logo">
-    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 50px;">
-</a>
-        <ul class="nav-links">
+<header class="hero">
+    <p>The Heart of Reborn Sheets</p>
+    <h1>Filosofi Kami</h1>
+</header>
 
-            <li><a href="index.html">Beranda</a></li>
-            <li>
-                <a href="kertas-benih.html">Shop</a>
-            </li>
-            <li><a href="masalah.html">Masalah</a></li>
-            <li><a href="kalkulator.html">Kalkulator</a></li>
-
-            <!-- EDUKASI (disederhanakan biar cepat & aman deadline) -->
-            <li>
-                <a href="proses-pembuatan.html">Edukasi</a>
-            </li>
-            <li><a href="sumber.html">Sumber</a></li>
-            <li><a href="filosofi.html">Filosofi</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-
-    </nav>
-
-    <header class="hero">
-        <p>The Heart of Reborn Sheets</p>
-        <h1>Filosofi Kami</h1>
-    </header>
-
-    <section class="grid-2">
-        <div>
-            <span class="section-tag">The Why</span>
-            <h2>Kehidupan Kedua untuk Setiap Lembar</h2>
+<!-- THE WHY - Menjelaskan Visi -->
+<section>
+    <div class="why-grid">
+        <div class="why-text">
+            <span class="section-tag" style="text-align: left;">The Why</span>
+            <h2 style="text-align: left; margin-bottom: 20px;">Kehidupan Kedua untuk Setiap Lembar</h2>
             <p>Kami percaya bahwa setiap lembar kertas tidak seharusnya berakhir sebagai limbah. Di tengah meningkatnya penggunaan kertas, kami melihat potensi yang terabaikan—bahwa sesuatu yang dianggap selesai, sebenarnya bisa dimulai kembali.</p>
-
-            <br>
             <p>Melalui platform digital, kami juga menghubungkan proses daur ulang ini dengan masyarakat agar lebih mudah diakses, dipahami, dan memiliki nilai ekonomi.</p>
-
-            <br>
-            <p><b>Reborn Sheets</b> hadir untuk mengubah cara pandang: bahwa limbah bukan akhir, melainkan awal dari nilai baru.</p>
+            <p><span class="highlight">Reborn Sheets</span> hadir untuk mengubah cara pandang: bahwa limbah bukan akhir, melainkan awal dari nilai baru.</p>
         </div>
-        <img src="logofull.png" alt="Daur Ulang">
-    </section>
-
-    <section class="logo-storyboard">
-    <div style="text-align: center; margin-bottom: 80px;">
-        <span class="section-tag">Visual Identity</span>
-        <h2>Filosofi di Balik Simbol</h2>
-        <p style="max-width: 600px; margin: 0 auto; color: #888;">Bagaimana sebuah logo bercerita tentang sebuah perjalanan dari limbah menjadi nadi kehidupan baru.</p>
-    </div>
-
-    <div class="story-container">
-        <div class="story-frame">
-            <div class="story-visual">
-                <img src="logobagian.png"The Waste">
-            </div>
-            <div class="story-text">
-                <span class="frame-number">Frame 01: The Waste</span>
-                <h3>Banyak yang melihatnya sebagai akhir.</h3>
-                <p>Kertas krem yang usang seringkali dianggap sebagai sisa yang tak lagi punya cerita. Di tahap ini, kita melihat kejujuran material yang menunggu untuk disentuh kembali.</p>
-            </div>
-        </div>
-
-        <div class="story-frame">
-            <div class="story-visual">
-                <img src="paperhancur.jpg" alt="The Rebirth">
-            </div>
-            <div class="story-text">
-                <span class="frame-number">Frame 02: The Rebirth</span>
-                <h3>Kami melihatnya sebagai awal yang baru.</h3>
-                <p>Proses daur ulang mengubah serat yang kusam menjadi lembaran bersih. Warna krem pada logo kami melambangkan kemurnian niat untuk memberikan kesempatan kedua pada setiap material.</p>
-            </div>
-        </div>
-
-        <div class="story-frame">
-            <div class="story-visual">
-                <img src="daurulangkertas2.jpeg" alt="The Life">
-            </div>
-            <div class="story-text">
-                <span class="frame-number">Frame 03: The Life</span>
-                <h3>Memberikan nadi pada setiap serat.</h3>
-                <p>Daun hijau di tengah logo bukan sekadar hiasan. Ia adalah simbol kehidupan (The Heartbeat). Bahwa dari material yang semula "mati", kita bisa menumbuhkan sesuatu yang bermanfaat bagi semesta.</p>
-            </div>
-        </div>
-
-        <div class="story-frame">
-            <div class="story-visual" style="display: flex; justify-content: center; align-items: center; background: var(--paper-white);">
-                <img src="logo-kamu.png" alt="Logo Reborn Sheets" style="width: 80%; height: auto; object-fit: contain; filter: none;">
-            </div>
-            <div class="story-text">
-                <span class="frame-number">Frame 04: The Sustainability</span>
-                <h3>Menjaga kebaikan untuk terus berputar.</h3>
-                <p>Lingkaran yang membingkai semuanya adalah janji keberlanjutan. Sebuah komitmen bahwa di Reborn Sheets, tidak ada yang benar-benar terbuang. Kebaikan akan terus mengalir dalam sebuah siklus yang harmonis.</p>
-            </div>
+        <div class="logo-center">
+            <img src="logofull.png" alt="Logo Reborn Sheets Full">
+            <p class="logo-caption">Logo Resmi Reborn Sheets — Simbol daur ulang dan kehidupan baru</p>
         </div>
     </div>
 </section>
 
-    <section class="manifesto">
-        <blockquote>
-            "Masa depan tidak ditentukan oleh apa yang kita buang, tetapi oleh apa yang kita pilih untuk gunakan kembali."
-        </blockquote>
-        <p style="margin-top: 30px; letter-spacing: 3px; font-weight: 600; font-size: 12px; color: var(--sage);">- REBORN SHEETS MANIFESTO -</p>
-    </section>
-
-    <div style="text-align:center; padding: 60px;">
-        <a href="produk.html" class="cta-btn">Lihat Produk Kami</a>
+<!-- MAKNA LOGO - 4 PILAR UTAMA (TANPA BANYAK GAMBAR) -->
+<section style="background: var(--soft-gray);">
+    <span class="section-tag">Visual Identity</span>
+    <h2>Makna di Balik Logo</h2>
+    <div class="meaning-grid">
+        <div class="meaning-card">
+            <div class="meaning-icon">♻️</div>
+            <h3>Daur Ulang</h3>
+            <p>Lingkaran tak berujung yang melambangkan proses berkelanjutan—dari limbah menjadi produk baru yang bernilai.</p>
+        </div>
+        <div class="meaning-card">
+            <div class="meaning-icon">🌿</div>
+            <h3>Kehidupan Baru</h3>
+            <p>Daun yang tumbuh di tengah logo adalah simbol bahwa dari material "mati" bisa lahir sesuatu yang bermanfaat.</p>
+        </div>
+        <div class="meaning-card">
+            <div class="meaning-icon">🤝</div>
+            <h3>Kolaborasi</h3>
+            <p>Warna krem netral merepresentasikan keterbukaan—kami mengajak semua pihak bergabung dalam gerakan ini.</p>
+        </div>
+        <div class="meaning-card">
+            <div class="meaning-icon">📄</div>
+            <h3>Kertas yang Jujur</h3>
+            <p>Tekstur dan warna alami pada logo menghormati bahan baku utama kami: serat kertas bekas yang autentik.</p>
+        </div>
     </div>
+</section>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="index.html" class="logo">
-    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 45px;">
-</a>
+<!-- MANIFESTO -->
+<section class="manifesto">
+    <blockquote>
+        "Masa depan tidak ditentukan oleh apa yang kita buang, tetapi oleh apa yang kita pilih untuk gunakan kembali."
+    </blockquote>
+    <p>— REBORN SHEETS MANIFESTO —</p>
+</section>
 
-                <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Proses Kami</a></li>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Pinterest</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Stay Updated</h4>
-                <p style="margin-bottom: 20px;">Dapatkan tips sustainable living setiap minggu.</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Email Anda" class="newsletter-input">
-                    <button class="btn-gabung-newsletter">Gabung</button>
-                </div>
+<!-- CTA -->
+<div class="cta-section">
+    <a href="kertas-benih.html" class="cta-btn">Lihat Produk Kami →</a>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Reborn Sheet Logo" style="height: 40px;">
+            </a>
+            <p style="margin-top: 15px;">Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="kontak.html">Tentang Kami</a></li>
+                <li><a href="proses-pembuatan.html">Proses Kami</a></li>
+                <li><a href="sumber.html">Sumber</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Social</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Stay Updated</h4>
+            <p>Dapatkan tips sustainable living setiap minggu.</p>
+            <div class="newsletter-form" style="margin-top: 15px; display: flex; gap: 8px;">
+                <input type="email" placeholder="Email Anda" style="padding: 10px; border-radius: 50px; border: 1px solid #ddd; flex: 1;">
+                <button style="background: var(--sage); color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer;">Gabung</button>
             </div>
         </div>
-        <div class="copyright">
-            © 2024 Reborn Sheets Eco-Project. All rights reserved.
-        </div>
-    </footer>
+    </div>
+    <div class="copyright">
+        © 2026 Reborn Sheets — Proyek Lingkungan oleh Tim 5
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.newsletter-form button').forEach(btn => {
+        btn.addEventListener('click', () => alert('🌿 Terima kasih! Bersama kita jaga bumi.'));
+    });
+</script>
 </body>
 </html>

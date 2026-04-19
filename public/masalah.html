@@ -400,75 +400,21 @@
         .mega-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
         .mega-col ul li a:hover { color: var(--earth-brown); padding-left: 5px; }
 
-        /* --- HERO --- */
+      /* --- HERO --- */
         .hero {
-    height: calc(100vh - 80px);
-    background: transparent; /* penting */
-}
-
-        .hero::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/recycled-paper.png');
-            opacity: 0.15; pointer-events: none;
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-top: 80px;
         }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-style: italic; }
 
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; font-style: italic; }
-        .hero p { font-size: 1.1rem; max-width: 600px; margin-bottom: 40px; font-weight: 300; }
-
-        .cta-btn {
-            background: var(--paper-white); color: var(--deep-forest); padding: 18px 40px;
-            text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 12px;
-            text-transform: uppercase; letter-spacing: 2px; transition: var(--transition);
-        }
-        .cta-btn:hover { background: var(--sage); color: white; transform: translateY(-3px); }
-.hero {
-    position: relative;
-    height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    color: white;
-
-    background:
-        linear-gradient(rgba(44, 51, 45, 0.65), rgba(44, 51, 45, 0.65)),
-        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
-
-    background-size: cover;
-    background-position: center;
-}
-.hero h1 {
-    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-.hero-desc {
-    color: rgba(255,255,255,0.9);
-}
-
-.section-tag {
-    color: rgba(255,255,255,0.75);
-}
-.section-tag {
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 4px;
-    font-size: 11px;
-}
-.hero h1,
-.hero p {
-    text-shadow: 0 2px 15px rgba(0,0,0,0.3);
-}
-
-.hero {
-    height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-main {
-    margin-top: 80px;
-}
 /* Container kartu statistik */
 .stat-card {
     background: var(--paper-white);
@@ -531,6 +477,7 @@ body::after {
     z-index: 9999;
 }
     </style>
+
 </head>
 <body>
 
@@ -559,12 +506,12 @@ body::after {
 
     </nav>
 
-<header class="hero">
+ <section class="hero"></section>
     <span class="section-tag">Analisis Masalah</span>
     <h1>Mengapa Satu Lembar<br>Begitu Berarti?</h1>
     <p class="hero-desc">Seringkali kita melihat kertas hanya sebagai benda sekali pakai. Di balik keputihannya, terdapat jejak lingkungan yang menuntut perhatian kita.</p>
+</section>
 
-</header>
     <main>
 
 

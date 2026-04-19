@@ -128,8 +128,8 @@
 
         /* --- HERO --- */
         .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
                         url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -141,13 +141,13 @@
             color: white;
             margin-top: 80px;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 15px; }
-        .hero p { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 15px; }
+        .hero p { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; }
 
         /* --- SECTION UMUM --- */
         section { padding: 80px 10%; }
         .section-tag { color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; display: block; text-align: center; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-align: center; margin-bottom: 40px; }
 
         /* --- THE WHY SECTION --- */
         .why-grid {
@@ -167,25 +167,25 @@
         .logo-center img { max-width: 80%; height: auto; margin-bottom: 20px; }
         .logo-caption { font-size: 12px; color: #888; font-style: italic; }
 
-        /* --- MAKNA LOGO (4 PILAR) --- */
+        /* --- MAKNA LOGO (3 PILAR SESUAI DESKRIPSI) --- */
         .meaning-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 20px;
         }
         .meaning-card {
             background: white;
-            padding: 35px 25px;
+            padding: 40px 25px;
             border-radius: 20px;
             text-align: center;
             transition: var(--transition);
             border: 1px solid rgba(125,142,123,0.1);
         }
         .meaning-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(0,0,0,0.05); }
-        .meaning-icon { font-size: 2.8rem; margin-bottom: 20px; }
-        .meaning-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 10px; }
-        .meaning-card p { font-size: 13px; color: #666; line-height: 1.6; }
+        .meaning-icon { font-size: 3rem; margin-bottom: 20px; }
+        .meaning-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 15px; }
+        .meaning-card p { font-size: 14px; color: #555; line-height: 1.7; }
 
         /* --- MANIFESTO --- */
         .manifesto {
@@ -196,7 +196,7 @@
         }
         .manifesto blockquote {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-style: italic;
             max-width: 800px;
             margin: 0 auto;
@@ -237,7 +237,7 @@
         @media (max-width: 768px) {
             .meaning-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -261,50 +261,45 @@
 
 <header class="hero">
     <p>The Heart of Reborn Sheets</p>
-    <h1>Filosofi Kami</h1>
+    <h1>Filosofi Logo</h1>
 </header>
 
 <!-- THE WHY - Menjelaskan Visi -->
 <section>
     <div class="why-grid">
         <div class="why-text">
-            <span class="section-tag" style="text-align: left;">The Why</span>
-            <h2 style="text-align: left; margin-bottom: 20px;">Kehidupan Kedua untuk Setiap Lembar</h2>
-            <p>Kami percaya bahwa setiap lembar kertas tidak seharusnya berakhir sebagai limbah. Di tengah meningkatnya penggunaan kertas, kami melihat potensi yang terabaikan—bahwa sesuatu yang dianggap selesai, sebenarnya bisa dimulai kembali.</p>
-            <p>Melalui platform digital, kami juga menghubungkan proses daur ulang ini dengan masyarakat agar lebih mudah diakses, dipahami, dan memiliki nilai ekonomi.</p>
-            <p><span class="highlight">Reborn Sheets</span> hadir untuk mengubah cara pandang: bahwa limbah bukan akhir, melainkan awal dari nilai baru.</p>
+            <span class="section-tag" style="text-align: left;">The Story Behind</span>
+            <h2 style="text-align: left; margin-bottom: 20px;">Dari Limbah Menjadi Kehidupan</h2>
+            <p>Kertas bekas warna krem yang awalnya dianggap tidak terpakai, ternyata bisa "hidup lagi" menjadi sesuatu yang berguna. Kami percaya bahwa setiap lembar kertas memiliki potensi untuk dimulai kembali.</p>
+            <p>Melalui proses daur ulang yang teliti, kami mengubah sesuatu yang dianggap "mati" menjadi produk yang bernilai dan bermanfaat bagi lingkungan.</p>
+            <p><span class="highlight">Reborn Sheets</span> hadir untuk mengubah cara pandang: bahwa limbah bukan akhir, melainkan awal dari kehidupan baru.</p>
         </div>
         <div class="logo-center">
             <img src="logofull.png" alt="Logo Reborn Sheets Full">
-            <p class="logo-caption">Logo Resmi Reborn Sheets — Simbol daur ulang dan kehidupan baru</p>
+            <p class="logo-caption">Logo Reborn Sheets — Dari yang sederhana, tumbuh kehidupan baru</p>
         </div>
     </div>
 </section>
 
-<!-- MAKNA LOGO - 4 PILAR UTAMA (TANPA BANYAK GAMBAR) -->
+<!-- MAKNA LOGO - SESUAI DESKRIPSI ANDA -->
 <section style="background: var(--soft-gray);">
-    <span class="section-tag">Visual Identity</span>
-    <h2>Makna di Balik Logo</h2>
+    <span class="section-tag">Makna di Balik Simbol</span>
+    <h2>Apa Arti Logo Kami?</h2>
     <div class="meaning-grid">
         <div class="meaning-card">
+            <div class="meaning-icon">📄➡️🌿</div>
+            <h3>Kertas Bekas yang Hidup Kembali</h3>
+            <p>Warna krem pada logo merepresentasikan kertas bekas yang awalnya dianggap tidak berguna. Tapi melalui proses daur ulang, ia bisa "hidup lagi" menjadi sesuatu yang bernilai dan bermanfaat.</p>
+        </div>
+        <div class="meaning-card">
+            <div class="meaning-icon">🌱</div>
+            <h3>Daun Hijau — Kehidupan Baru</h3>
+            <p>Daun hijau yang tumbuh di tengah logo adalah simbol bahwa dari hal yang sederhana dan terabaikan, bisa muncul kehidupan baru. Seperti benih yang tumbuh menjadi tanaman, kertas bekas pun bisa memberi manfaat.</p>
+        </div>
+        <div class="meaning-card">
             <div class="meaning-icon">♻️</div>
-            <h3>Daur Ulang</h3>
-            <p>Lingkaran tak berujung yang melambangkan proses berkelanjutan—dari limbah menjadi produk baru yang bernilai.</p>
-        </div>
-        <div class="meaning-card">
-            <div class="meaning-icon">🌿</div>
-            <h3>Kehidupan Baru</h3>
-            <p>Daun yang tumbuh di tengah logo adalah simbol bahwa dari material "mati" bisa lahir sesuatu yang bermanfaat.</p>
-        </div>
-        <div class="meaning-card">
-            <div class="meaning-icon">🤝</div>
-            <h3>Kolaborasi</h3>
-            <p>Warna krem netral merepresentasikan keterbukaan—kami mengajak semua pihak bergabung dalam gerakan ini.</p>
-        </div>
-        <div class="meaning-card">
-            <div class="meaning-icon">📄</div>
-            <h3>Kertas yang Jujur</h3>
-            <p>Tekstur dan warna alami pada logo menghormati bahan baku utama kami: serat kertas bekas yang autentik.</p>
+            <h3>Lingkaran Tak Berujung</h3>
+            <p>Lingkaran pada logo menunjukan bahwa proses daur ulang itu terus berjalan dan tidak pernah berhenti. Dari limbah menjadi produk, lalu bisa didaur ulang lagi — sebuah siklus yang berkelanjutan.</p>
         </div>
     </div>
 </section>
@@ -312,9 +307,9 @@
 <!-- MANIFESTO -->
 <section class="manifesto">
     <blockquote>
-        "Masa depan tidak ditentukan oleh apa yang kita buang, tetapi oleh apa yang kita pilih untuk gunakan kembali."
+        "Dari hal kecil yang terabaikan, bisa tumbuh sesuatu yang besar dan bermanfaat bagi lingkungan."
     </blockquote>
-    <p>— REBORN SHEETS MANIFESTO —</p>
+    <p>— REBORN SHEETS —</p>
 </section>
 
 <!-- CTA -->

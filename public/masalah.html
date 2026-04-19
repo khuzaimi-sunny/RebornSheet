@@ -13,24 +13,19 @@
             --earth-brown: #a67c52;
             --soft-gray: #f4f4f2;
             --line-color: rgba(44, 51, 45, 0.1);
+            --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-    font-family: 'Inter', sans-serif;
-    color: var(--deep-forest);
-    line-height: 1.7;
-    background: var(--paper-white); /* putih normal */
-}
-        /* --- FRAME DEKORATIF HALAMAN --- */
-   .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.2);
-}
-    /* --- NAVIGATION --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--deep-forest);
+            line-height: 1.7;
+            background: var(--paper-white);
+        }
+
+        /* --- NAVIGATION --- */
         nav {
             background: rgba(255, 255, 255, 0.95);
             height: 80px;
@@ -43,9 +38,6 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
         }
-
-        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
-
 
         .nav-links {
             display: flex;
@@ -73,11 +65,13 @@
         .nav-links>li:hover>a {
             color: var(--sage);
         }
+
         .logo img {
-    height: 50px;
-    width: auto;
-    display: block;
-}
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
         /* --- MEGA MENU --- */
         .mega-menu {
             position: absolute;
@@ -95,6 +89,7 @@
             transform: translateY(10px);
             transition: var(--transition);
             border-bottom: 4px solid var(--sage);
+            z-index: 999;
         }
 
         .nav-links>li:hover .mega-menu {
@@ -130,505 +125,464 @@
             padding-left: 5px;
         }
 
-        /* --- HERO SECTION --- */
-        .problem-hero {
-            padding: 60px 15% 100px;
+        /* --- HEADER SECTION (DIPERBAIKI) --- */
+        .problem-header {
+            padding: 140px 10% 60px;
             text-align: center;
+            background: transparent;
         }
-        .section-tag { color: var(--earth-brown); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 20px; }
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; margin-bottom: 30px; }
-        .hero-desc { max-width: 700px; margin: 0 auto; color: #666; font-size: 1.1rem; }
 
-        /* --- ILMIAH STATS (The "Facts" Bar) --- */
+        .section-tag {
+            color: var(--sage);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .problem-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* --- STATS GRID --- */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
+            gap: 1px;
             background: var(--line-color);
-            border: 1px solid var(--line-color);
-            margin: 50px 0;
+            margin: 50px auto;
+            max-width: 1200px;
         }
-        .stat-card { background: var(--paper-white); padding: 40px; text-align: center; }
-        .stat-card h2 { font-family: 'Playfair Display', serif; color: var(--sage); font-size: 2.5rem; margin-bottom: 10px; }
-        .stat-card p { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #888; }
 
-        /* --- MAIN CONTENT (The 3 Problems) --- */
-        .content-wrapper { padding: 0 10% 100px; }
+        .stat-card {
+            background: var(--paper-white);
+            padding: 45px 30px;
+            text-align: center;
+        }
+
+        .stat-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--sage);
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: var(--deep-forest);
+        }
+
+        .stat-desc {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+            max-width: 260px;
+            margin: 0 auto;
+        }
+
+        /* --- MAIN CONTENT (3 PROBLEMS) --- */
+        .content-wrapper {
+            padding: 0 10% 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
         .problem-item {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 70px;
             align-items: center;
-            margin-bottom: 120px;
+            margin-bottom: 100px;
         }
-        .problem-item:nth-child(even) { direction: rtl; }
-        .problem-item:nth-child(even) .problem-text { direction: ltr; }
+
+        .problem-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .problem-item:nth-child(even) .problem-text {
+            direction: ltr;
+        }
 
         .problem-img-frame {
             position: relative;
-            padding: 15px;
-            border: 1px solid var(--line-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.05);
         }
-        .problem-img-frame img { width: 100%; height: 450px; object-fit: cover; filter: grayscale(30%); }
 
-        .problem-text h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px; position: relative; }
-        .problem-text h3::after { content: ""; position: absolute; left: 0; bottom: -10px; width: 40px; height: 2px; background: var(--sage); }
-        .problem-text p { color: #555; margin-bottom: 20px; }
+        .problem-img-frame img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .problem-img-frame:hover img {
+            transform: scale(1.03);
+        }
+
+        .problem-text .section-tag {
+            text-align: left;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .problem-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .problem-text h3::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--sage);
+        }
+
+        .problem-text p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
 
         .scientific-note {
             background: var(--soft-gray);
-            padding: 20px;
+            padding: 18px 22px;
             border-left: 3px solid var(--sage);
-            font-size: 14px;
+            font-size: 13px;
             font-style: italic;
-            color: #777;
+            color: #666;
+            border-radius: 0 12px 12px 0;
         }
 
-        /* --- FOOTER CTA --- */
+        /* --- SOLUTION BOX --- */
         .transition-box {
             background: var(--deep-forest);
             color: white;
             padding: 80px 10%;
             text-align: center;
-            border-radius: 40px 40px 0 0;
-        }
-        .transition-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
-        .cta-btn {
-            display: inline-block; padding: 15px 40px; background: var(--sage); color: white;
-            text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 30px;
-            transition: 0.3s;
-        }
-        .cta-btn:hover { background: var(--earth-brown); transform: translateY(-3px); }
-
-        @media (max-width: 768px) {
-            .problem-item, .stats-grid { grid-template-columns: 1fr; }
-            .problem-item { gap: 40px; }
-            .problem-item:nth-child(even) { direction: ltr; }
-        }
-               /* --- KHUSUS HALAMAN MASALAH (STYLE BARU) --- */
-       .problem-header {
-    padding: 180px 10% 80px;
-    text-align: center;
-    background: transparent;
-}
-
-        .section-tag { color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 3px; margin-bottom: 20px; display: block; }
-
-
-
-
-
-
-        .scientific-frame {
-            max-width: 1000px;
-            margin: 0 auto;
-            border: 1px solid rgba(0,0,0,0.05);
-            padding: 60px;
-            position: relative;
-            background: white;
         }
 
-       /* Hiasan Sudut */
-        .scientific-frame::before {
-            content: "ID: 404-WASTE";
-            position: absolute; top: 10px; left: 15px;
-            font-size: 10px; color: #ccc; font-family: monospace;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 60px;
-            text-align: left;
-        }
-
-        .problem-box h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--deep-forest);
-        }
-
-        .problem-box p { color: #666; font-size: 0.95rem; line-height: 1.8; }
-
-        .stat-highlight {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+        .transition-box .section-tag {
             color: var(--sage);
-            display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .transition-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .transition-box p {
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--sage);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 30px;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background: var(--earth-brown);
+            transform: translateY(-3px);
         }
 
         /* --- FOOTER --- */
-        footer { background: #f8f9f7; padding: 80px 10% 40px; border-top: 1px solid #eee; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 60px; }
-        .footer-col h4 { font-family: 'Playfair Display', serif; margin-bottom: 25px; font-size: 1.2rem; }
-        .footer-col p { font-size: 14px; color: #777; max-width: 250px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
-        .footer-col ul li a:hover { color: var(--sage); }
+        footer {
+            background: #f8f9f7;
+            padding: 60px 10% 30px;
+            border-top: 1px solid #eee;
+        }
 
-        .copyright { text-align: center; padding-top: 40px; border-top: 1px solid #eee; font-size: 12px; color: #aaa; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col p, .footer-col ul li a {
+            color: #777;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--sage);
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .newsletter-input {
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .btn-gabung-newsletter {
+            background: transparent;
+            color: var(--sage);
+            padding: 12px 20px;
+            border: 1.5px solid var(--sage);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-gabung-newsletter:hover {
+            background: var(--sage);
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .problem-item {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .problem-item:nth-child(even) {
+                direction: ltr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
 
         @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr; }
-            .impact-bg { flex-direction: column; margin: 0; border-radius: 0; }
-            .impact-img { width: 100%; height: 300px; border-radius: 0; }
+            .problem-header {
+                padding: 120px 5% 40px;
+            }
+            .content-wrapper {
+                padding: 0 5% 60px;
+            }
+            .problem-img-frame img {
+                height: 260px;
+            }
+            .problem-text h3 {
+                font-size: 1.5rem;
+            }
         }
-        /* Letakkan ini di dalam tag <style> */
-.mega-col h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    color: var(--sage);
-    border-bottom: 1px solid #eee; /* Garis tipis di bawah judul agar rapi */
-    padding-bottom: 8px;
-}
-/* Styling Newsletter agar persis gambar dengan warna Sage */
-.newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.newsletter-input {
-    padding: 12px 25px;
-    border: 1px solid #ddd;
-    border-radius: 50px;
-    outline: none;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-}
-
-.btn-gabung-newsletter {
-    background: transparent;
-    color: var(--sage); /* Warna Hijau Sage */
-    padding: 12px 25px;
-    border: 1.5px solid var(--sage); /* Outline Hijau Sage */
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 11px;
-    text-transform: uppercase; /* Huruf Kapital */
-    letter-spacing: 3px; /* Spasi antar huruf agar identik dengan gambar */
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.btn-gabung-newsletter:hover {
-    background: var(--sage);
-    color: white;
-}
-   /* --- NAVIGATION --- */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            height: 80px;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
-        }
-
-        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--deep-forest);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin-left: auto;
-            height: 100%;
-        }
-
-        .nav-links > li { display: flex; align-items: center; }
-
-        .nav-links > li > a {
-            text-decoration: none;
-            color: var(--deep-forest);
-            padding: 0 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-
-        .nav-links > li:hover > a { color: var(--sage); }
-
-        /* --- MEGA MENU --- */
-        .mega-menu {
-            position: absolute;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background: white;
-            padding: 40px 10%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: var(--transition);
-            border-bottom: 4px solid var(--sage);
-        }
-
-        .nav-links > li:hover .mega-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .mega-col h4 { font-size: 13px; margin-bottom: 15px; color: var(--sage); text-transform: uppercase; }
-        .mega-col ul { list-style: none; }
-        .mega-col ul li { margin-bottom: 8px; }
-        .mega-col ul li a { text-decoration: none; color: #777; font-size: 14px; transition: var(--transition); }
-        .mega-col ul li a:hover { color: var(--earth-brown); padding-left: 5px; }
-
-      /* --- HERO --- */
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            margin-top: 80px;
-        }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-style: italic; }
-
-/* Container kartu statistik */
-.stat-card {
-    background: var(--paper-white);
-    padding: 60px 40px; /* Ruang lebih luas agar teks tidak sesak */
-    text-align: center;
-    border-right: 1px solid var(--line-color); /* Garis pemisah antar kolom */
-}
-
-.stat-card:last-child { border-right: none; }
-
-/* Angka Besar (10L, 45%) */
-.stat-card h2 {
-    font-family: 'Playfair Display', serif;
-    color: var(--sage);
-    font-size: 3rem;
-    margin-bottom: 15px;
-    font-weight: 400;
-}
-
-/* Label (Air per Lembar, dll) */
-.stat-label {
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    color: var(--deep-forest);
-}
-
-/* Teks Penjelasan Baru */
-.stat-desc {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.8;
-    max-width: 280px;
-    margin: 0 auto;
-}
-.problem-item {
-    position: relative;
-}
-
-.problem-item::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    width: 100px;
-    height: 100px;
-    border-top: 1px solid var(--sage);
-    border-left: 1px solid var(--sage);
-    opacity: 0.5;
-}
-body::after {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
-    opacity: 0.4;
-    pointer-events: none;
-    z-index: 9999;
-}
     </style>
-
 </head>
 <body>
 
+<nav>
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Reborn Sheet Logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="kertas-benih.html">Shop</a></li>
+        <li><a href="masalah.html">Masalah</a></li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+        <li><a href="proses-pembuatan.html">Edukasi</a></li>
+        <li><a href="sumber.html">Sumber</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
 
-   <nav>
-        <a href="index.html" class="logo">
-    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 50px;">
-</a>
-        <ul class="nav-links">
-
-            <li><a href="index.html">Beranda</a></li>
-            <li>
-                <a href="kertas-benih.html">Shop</a>
-            </li>
-            <li><a href="masalah.html">Masalah</a></li>
-            <li><a href="kalkulator.html">Kalkulator</a></li>
-
-            <!-- EDUKASI (disederhanakan biar cepat & aman deadline) -->
-            <li>
-                <a href="proses-pembuatan.html">Edukasi</a>
-            </li>
-            <li><a href="sumber.html">Sumber</a></li>
-            <li><a href="filosofi.html">Filosofi</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-
-    </nav>
-
- <section class="hero"></section>
+<!-- HEADER - DIPERBAIKI, TEKS DI TENGAH -->
+<header class="problem-header">
     <span class="section-tag">Analisis Masalah</span>
     <h1>Mengapa Satu Lembar<br>Begitu Berarti?</h1>
     <p class="hero-desc">Seringkali kita melihat kertas hanya sebagai benda sekali pakai. Di balik keputihannya, terdapat jejak lingkungan yang menuntut perhatian kita.</p>
-</section>
+</header>
 
-    <main>
-
-
-       <div class="stats-grid">
-    <div class="stat-card">
-        <h2>10 Liter</h2>
-        <p class="stat-label">Air per Lembar A4</p>
-        <p class="stat-desc">Memproduksi satu lembar kertas baru membutuhkan rata-rata 10 liter air. Membuangnya secara cuma-cuma adalah pemborosan sumber daya air global yang kian menipis.</p>
+<main>
+    <!-- STATISTIK 3 KOLOM -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h2>10 Liter</h2>
+            <p class="stat-label">Air per Lembar A4</p>
+            <p class="stat-desc">Memproduksi satu lembar kertas baru membutuhkan rata-rata 10 liter air. Membuangnya secara cuma-cuma adalah pemborosan sumber daya air global.</p>
+        </div>
+        <div class="stat-card">
+            <h2>45%</h2>
+            <p class="stat-label">Limbah yang Terlupakan</p>
+            <p class="stat-desc">Hampir setengah dari total sampah harian di institusi adalah kertas. Tanpa pemisahan, material ini berakhir di TPA dan melepaskan gas metana berbahaya.</p>
+        </div>
+        <div class="stat-card">
+            <h2>324 Kg</h2>
+            <p class="stat-label">Jejak per Tahun</p>
+            <p class="stat-desc">Estimasi rata-rata limbah kertas yang dihasilkan per orang. Reborn Sheet hadir untuk memutus siklus konsumsi-buang yang tidak berkelanjutan.</p>
+        </div>
     </div>
 
-    <div class="stat-card">
-        <h2>45%</h2>
-        <p class="stat-label">Limbah yang Terlupakan</p>
-        <p class="stat-desc">Hampir setengah dari total sampah harian di institusi adalah kertas. Tanpa pemisahan, material ini berakhir di TPA dan melepaskan gas metana berbahaya.</p>
-    </div>
-
-    <div class="stat-card">
-        <h2>324 Kg</h2>
-        <p class="stat-label">Jejak Per Tahun</p>
-        <p class="stat-desc">Estimasi rata-rata limbah kertas yang dihasilkan per orang. Reborn Sheet hadir untuk memutus siklus konsumsi-buang yang tidak berkelanjutan ini.</p>
-    </div>
-</div>
-
-
-        <div class="content-wrapper">
-
-            <div class="problem-item">
-                <div class="problem-img-frame">
-                    <img src="gambarsampah1.jpg" alt="Limbah Kertas">
-                </div>
-                <div class="problem-text">
-                    <span class="section-tag" style="letter-spacing: 1px;">Kesadaran yang Terabaikan</span>
-                    <h3>kurangnya kesadaran dalam mengelola kertas</h3>
-                    <p>Tumpukan kertas bekas tugas dan fotokopi di sekolah saat ini masih sering terbuang sia-sia tanpa adanya proses pemilahan yang tepat dikarenakan banyak masyarakat belum menyadari nilai una yang tinggi dari kertas yang diolah secara benar </p>
-                    <div class="scientific-note">
-                        "Erosi nilai pada material organik mempercepat siklus konsumsi-buang yang tidak berkelanjutan."
-                    </div>
+    <!-- 3 MASALAH UTAMA -->
+    <div class="content-wrapper">
+        <div class="problem-item">
+            <div class="problem-img-frame">
+                <img src="gambarsampah1.jpg" alt="Limbah Kertas">
+            </div>
+            <div class="problem-text">
+                <span class="section-tag">Kesadaran yang Terabaikan</span>
+                <h3>Kurangnya kesadaran dalam mengelola kertas</h3>
+                <p>Tumpukan kertas bekas tugas dan fotokopi di sekolah saat ini masih sering terbuang sia-sia tanpa adanya proses pemilahan yang tepat. Banyak masyarakat belum menyadari nilai jual yang tinggi dari kertas yang diolah secara benar.</p>
+                <div class="scientific-note">
+                    "Erosi nilai pada material organik mempercepat siklus konsumsi-buang yang tidak berkelanjutan."
                 </div>
             </div>
-
-            <div class="problem-item">
-                <div class="problem-img-frame">
-                    <img src="gambarsampah2.jpg" alt="Mixed Waste">
-                </div>
-                <div class="problem-text">
-                    <span class="section-tag" style="letter-spacing: 1px;">Sistem yang Tidak Terarah</span>
-                    <h3> Sistem Pengumpulan Kertas yang tidak Terstruktur</h3>
-                    <p>Kondisi di lingkungan masyarakat saat ini belum memiliki wadah khusus untuk mengumpulkan kertas bekas sehinggakertas-kertas tersebut berakhir di tempat sampah umum dalam keadaan tercampur plastik serta sisa makanan, yang membuatnya tidak lagi layak untuk didaur ulang</p>
-                    <div class="scientific-note">
-                        Kertas yang terkontaminasi di TPA menghasilkan gas metana, yang 25x lebih berbahaya dari CO2 bagi atmosfer.
-                    </div>
-                </div>
-            </div>
-
-            <div class="problem-item">
-                <div class="problem-img-frame">
-                    <img src="gambar3.jpg" alt="Lack of Education">
-                </div>
-                <div class="problem-text">
-                    <span class="section-tag" style="letter-spacing: 1px;">Edukasi yang Tidak Tersampaikan</span>
-                    <h3>Media Edukasi dan Promosi yang tidak Sistematis</h3>
-                    <p>Minimnya media informasi digital seperti poster dan platform digital di sekolah mengakibatkan kurangnya informasi mengenai daur ulang di kalangan siswi dan membuat proram lingkungan menjadi sulit dikenali dan cenderung berjalan di tempat tanpa partisipasi yang signifikan</p>
-                    <div class="scientific-note">
-                        Pembelajaran kinetik (praktik langsung) meningkatkan retensi kesadaran lingkungan hingga 70% dibandingkan sekadar teori.
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <section class="transition-box">
-            <span class="section-tag" style="color: var(--sage);">The Solution</span>
-            <h2>Mengubah Narasi Menjadi Aksi</h2>
-            <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">Reborn Sheet hadir bukan hanya untuk mendaur ulang, tapi untuk mengembalikan martabat selembar kertas sebagai media seni yang berharga.</p>
-            <a href="index.html#produk" class="cta-btn">Lihat Bagaimana Kami Memulai</a>
-        </section>
-    </main>
- <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="index.html" class="logo">
-    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 45px;">
-</a>
-                <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
+        <div class="problem-item">
+            <div class="problem-img-frame">
+                <img src="gambarsampah2.jpg" alt="Mixed Waste">
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Proses Kami</a></li>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
+            <div class="problem-text">
+                <span class="section-tag">Sistem yang Tidak Terarah</span>
+                <h3>Sistem pengumpulan kertas yang tidak terstruktur</h3>
+                <p>Kondisi di lingkungan masyarakat saat ini belum memiliki wadah khusus untuk mengumpulkan kertas bekas sehingga kertas-kertas tersebut berakhir di tempat sampah umum dalam keadaan tercampur plastik serta sisa makanan, yang membuatnya tidak lagi layak untuk didaur ulang.</p>
+                <div class="scientific-note">
+                    Kertas yang terkontaminasi di TPA menghasilkan gas metana, yang 25x lebih berbahaya dari CO₂ bagi atmosfer.
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Pinterest</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-             <div class="footer-col">
-    <h4>Stay Updated</h4>
-    <p style="margin-bottom: 20px;">Dapatkan tips sustainable living setiap minggu.</p>
-
-    <div class="newsletter-form">
-        <input type="email" placeholder="Email Anda" class="newsletter-input">
-
-        <button class="btn-gabung-newsletter">Gabung</button>
-    </div>
-    </div>  <!-- close footer-col -->
-        </div>  <!-- close footer-grid -->
-        <div class="copyright">
-            © 2026 REBORN SHEET. All rights reserved.
         </div>
-    </footer>
 
+        <div class="problem-item">
+            <div class="problem-img-frame">
+                <img src="gambar3.jpg" alt="Lack of Education">
+            </div>
+            <div class="problem-text">
+                <span class="section-tag">Edukasi yang Tidak Tersampaikan</span>
+                <h3>Media edukasi dan promosi yang tidak sistematis</h3>
+                <p>Minimnya media informasi digital seperti poster dan platform digital di sekolah mengakibatkan kurangnya informasi mengenai daur ulang di kalangan siswi dan membuat program lingkungan menjadi sulit dikenali dan cenderung berjalan di tempat tanpa partisipasi yang signifikan.</p>
+                <div class="scientific-note">
+                    Pembelajaran kinetik (praktik langsung) meningkatkan retensi kesadaran lingkungan hingga 70% dibandingkan sekadar teori.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOLUSI BOX -->
+    <section class="transition-box">
+        <span class="section-tag">The Solution</span>
+        <h2>Mengubah Narasi Menjadi Aksi</h2>
+        <p>Reborn Sheet hadir bukan hanya untuk mendaur ulang, tapi untuk mengembalikan martabat selembar kertas sebagai media seni yang berharga.</p>
+        <a href="index.html#produk" class="cta-btn">Lihat Bagaimana Kami Memulai →</a>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Reborn Sheet Logo" style="height: 40px;">
+            </a>
+            <p style="margin-top: 15px;">Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="kontak.html">Tentang Kami</a></li>
+                <li><a href="proses-pembuatan.html">Proses Kami</a></li>
+                <li><a href="sumber.html">Sumber</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Social</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Stay Updated</h4>
+            <p style="margin-bottom: 15px;">Dapatkan tips sustainable living setiap minggu.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Email Anda" class="newsletter-input">
+                <button class="btn-gabung-newsletter">Gabung</button>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2026 REBORN SHEET. All rights reserved.
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.btn-gabung-newsletter').forEach(btn => {
+        btn.addEventListener('click', () => alert('🌿 Terima kasih! Bersama kita jaga bumi.'));
+    });
+</script>
 </body>
 </html>

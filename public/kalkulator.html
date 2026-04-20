@@ -26,7 +26,7 @@
             background: var(--paper-white);
         }
 
-         /* --- NAVIGATION --- */
+        /* --- NAVIGATION --- */
         nav {
             background: rgba(255, 255, 255, 0.95);
             height: 80px;
@@ -39,9 +39,6 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
         }
-
-        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
-
 
         .nav-links {
             display: flex;
@@ -69,11 +66,13 @@
         .nav-links>li:hover>a {
             color: var(--sage);
         }
+
         .logo img {
-    height: 50px;
-    width: auto;
-    display: block;
-}
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
         /* --- MEGA MENU --- */
         .mega-menu {
             position: absolute;
@@ -91,6 +90,7 @@
             transform: translateY(10px);
             transition: var(--transition);
             border-bottom: 4px solid var(--sage);
+            z-index: 999;
         }
 
         .nav-links>li:hover .mega-menu {
@@ -128,7 +128,7 @@
 
         /* --- CALCULATOR SECTION --- */
         .calc-wrapper { padding: 140px 20px 80px 20px; display: flex; justify-content: center; min-height: 80vh; }
-        .calc-container { width: 100%; max-width: 650px; animation: fadeIn 0.8s ease-out; }
+        .calc-container { width: 100%; max-width: 550px; animation: fadeIn 0.8s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .calc-header { text-align: center; margin-bottom: 30px; }
@@ -147,7 +147,8 @@
         .input-group label { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; letter-spacing: 1px; }
         .input-group select, .input-group input {
             width: 100%; padding: 15px; border: 1px solid rgba(125, 142, 123, 0.2);
-            border-radius: 12px; background: var(--paper-white); font-family: 'Inter', sans-serif; outline: none; transition: var(--transition);
+            border-radius: 12px; background: var(--paper-white); font-family: 'Inter', sans-serif; outline: none;
+            transition: var(--transition);
         }
         .input-group input:focus, .input-group select:focus { border-color: var(--sage); }
 
@@ -159,21 +160,24 @@
         .calc-btn:hover { background: var(--sage); transform: translateY(-3px); }
 
         .result-display { margin-top: 30px; display: none; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.05); }
-        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .result-item { background: var(--soft-gray); padding: 20px; border-radius: 15px; text-align: center; }
-        .result-item h4 { font-size: 10px; color: var(--sage); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
-        .result-item span { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--deep-forest); }
-        .result-item small { font-size: 11px; color: #888; }
-
-        .impact-note {
-            margin-top: 25px;
+        .result-box {
             background: linear-gradient(135deg, #E8F0E8, #F5F0E8);
-            padding: 20px;
+            padding: 30px;
             border-radius: 20px;
             text-align: center;
         }
-        .impact-note p { font-size: 13px; color: #4a6b5e; margin-bottom: 5px; }
-        .impact-note i { color: var(--sage); margin-right: 8px; }
+        .result-box h4 { font-size: 11px; color: var(--sage); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        .result-box .nilai { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--sage); margin-top: 10px; }
+        .result-box .detail { font-size: 13px; color: #666; margin-top: 8px; }
+        .info-note {
+            margin-top: 20px;
+            background: var(--soft-gray);
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+        .info-note i { color: var(--sage); margin-right: 5px; }
 
         /* --- INFO SECTION --- */
         .info-section {
@@ -201,22 +205,22 @@
         /* --- FOOTER --- */
         footer {
             background: #f8f9f7;
-            padding: 80px 8% 40px;
+            padding: 60px 8% 30px;
             border-top: 1px solid #eee;
         }
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 50px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         .footer-col h4 {
             font-family: 'Playfair Display', serif;
-            margin-bottom: 25px;
-            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
         .footer-col p {
-            font-size: 14px;
+            font-size: 13px;
             color: #777;
             max-width: 250px;
         }
@@ -224,12 +228,12 @@
             list-style: none;
         }
         .footer-col ul li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .footer-col ul li a {
             text-decoration: none;
             color: #777;
-            font-size: 14px;
+            font-size: 13px;
             transition: var(--transition);
         }
         .footer-col ul li a:hover {
@@ -238,25 +242,25 @@
         .newsletter-form {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         .newsletter-input {
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: 1px solid #ddd;
             border-radius: 50px;
             outline: none;
-            font-size: 14px;
+            font-size: 13px;
         }
         .btn-gabung-newsletter {
             background: transparent;
             color: var(--sage);
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: 1.5px solid var(--sage);
             border-radius: 50px;
             font-weight: 600;
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             cursor: pointer;
             transition: var(--transition);
         }
@@ -266,176 +270,35 @@
         }
         .copyright {
             text-align: center;
-            padding-top: 40px;
+            padding-top: 30px;
             border-top: 1px solid #eee;
-            font-size: 12px;
+            font-size: 11px;
             color: #aaa;
         }
 
         @media (max-width: 768px) {
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .result-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
-        /* --- FAKTA SECTION BARU --- */
-.facts-section {
-    padding: 80px 8%;
-    background: linear-gradient(135deg, #F0F4EE 0%, #E8EDE4 100%);
-}
-
-.facts-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.facts-badge {
-    display: inline-block;
-    background: var(--sage);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-}
-
-.facts-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--deep-forest);
-    margin-bottom: 12px;
-}
-
-.facts-header p {
-    color: #5a6b60;
-    font-size: 0.95rem;
-}
-
-.facts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.fact-card {
-    background: white;
-    border-radius: 28px;
-    padding: 28px 24px;
-    text-align: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-    transition: var(--transition);
-    border: 1px solid rgba(125, 142, 123, 0.15);
-}
-
-.fact-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
-}
-
-.fact-icon {
-    font-size: 42px;
-    margin-bottom: 12px;
-}
-
-.fact-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.6rem;
-    font-weight: 800;
-    color: var(--sage);
-    line-height: 1.1;
-}
-
-.fact-label {
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--deep-forest);
-    margin: 12px 0 8px;
-}
-
-.fact-desc {
-    font-size: 0.85rem;
-    color: #555;
-    line-height: 1.5;
-    margin-bottom: 12px;
-}
-
-.fact-source {
-    font-size: 0.7rem;
-    color: #aaa;
-    font-style: italic;
-}
-
-.facts-cta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.coffee-fact, .light-fact {
-    background: var(--deep-forest);
-    color: white;
-    padding: 25px 30px;
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: var(--transition);
-}
-
-.coffee-fact i, .light-fact i {
-    font-size: 42px;
-    color: var(--sage);
-}
-
-.coffee-fact p, .light-fact p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.coffee-fact strong, .light-fact strong {
-    color: var(--sage);
-}
-
-@media (max-width: 768px) {
-    .facts-section { padding: 60px 5%; }
-    .facts-header h2 { font-size: 1.8rem; }
-    .facts-grid { grid-template-columns: 1fr; }
-    .coffee-fact, .light-fact { flex-direction: column; text-align: center; }
-}
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="logo">
-    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 50px;">
-</a>
-        <ul class="nav-links">
-
-            <li><a href="index.html">Beranda</a></li>
-            <li>
-                <a href="kertas-benih.html">Shop</a>
-            </li>
-            <li><a href="masalah.html">Masalah</a></li>
-            <li><a href="kalkulator.html">Kalkulator</a></li>
-
-            <!-- EDUKASI (disederhanakan biar cepat & aman deadline) -->
-            <li>
-                <a href="proses-pembuatan.html">Edukasi</a>
-            </li>
-            <li><a href="sumber.html">Sumber</a></li>
-            <li><a href="filosofi.html">Filosofi</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-
-    </nav>
+<nav>
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Reborn Sheet Logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="kertas-benih.html">Shop</a></li>
+        <li><a href="masalah.html">Masalah</a></li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+        <li><a href="proses-pembuatan.html">Edukasi</a></li>
+        <li><a href="sumber.html">Sumber</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
 
 <main class="calc-wrapper">
     <div class="calc-container">
@@ -447,69 +310,43 @@
         <div class="calc-card">
             <div class="input-group">
                 <label><i class="fas fa-file-alt"></i> Jenis Kertas</label>
-                <select id="jenisKertas" onchange="updateBeratPerLembar()">
-                    <option value="4.37|15000">📄 Kertas HVS A4 70gsm (4.37 gram/lembar)</option>
-                    <option value="5.0|18000">📄 Kertas HVS A4 80gsm (5.0 gram/lembar)</option>
-                    <option value="3.5|8000">📰 Kertas Koran (3.5 gram/lembar)</option>
-                    <option value="60|5000">📦 Kardus / Dus Besar (60 gram/lembar)</option>
-                    <option value="20|4000">📦 Kardus Tipis (20 gram/lembar)</option>
-                    <option value="4.0|12000">📘 Kertas Buku Tulis (4.0 gram/lembar)</option>
-                    <option value="5.5|14000">📃 Kertas Folio (5.5 gram/lembar)</option>
-                    <option value="custom|custom">⚙️ Custom (isi sendiri)</option>
+                <select id="jenisKertas">
+                    <option value="hvs">📄 Kertas HVS / Kantor</option>
+                    <option value="koran">📰 Koran / Majalah</option>
+                    <option value="kardus">📦 Kardus / Dus</option>
+                    <option value="campuran">📘 Campuran Kertas Bekas</option>
                 </select>
-                <small style="font-size: 10px; color: #888; display: block; margin-top: 5px;">*Harga jual produk daur ulang berbeda per jenis kertas</small>
+                <small style="font-size: 10px; color: #888; display: block; margin-top: 5px;">*Pilih jenis kertas yang akan dijual</small>
             </div>
 
             <div class="input-group">
-                <label><i class="fas fa-weight-hanging"></i> Berat Total Kertas Bekas (gram)</label>
-                <input type="number" id="beratTotal" placeholder="Masukkan berat total kertas bekas" min="1">
-                <small style="font-size: 10px; color: #888;">*Contoh: 500 gram, 1000 gram (1 kg), 2000 gram</small>
+                <label><i class="fas fa-weight-hanging"></i> Berat Total Kertas (gram)</label>
+                <input type="number" id="beratTotal" placeholder="Contoh: 1000" min="1">
+                <small style="font-size: 10px; color: #888; display: block; margin-top: 5px;">*Timbang semua kertas yang ingin dijual (1 kg = 1000 gram)</small>
             </div>
 
-            <div class="input-group" id="customBeratGroup" style="display: none;">
+            <div class="input-group">
                 <label><i class="fas fa-ruler"></i> Berat per Lembar (gram)</label>
-                <input type="number" id="beratPerLembarCustom" placeholder="Masukkan berat per lembar" min="0.1" step="0.1">
+                <input type="number" id="beratPerLembar" placeholder="Contoh: 4" min="0.1" step="0.1" value="4">
+                <small style="font-size: 10px; color: #888; display: block; margin-top: 5px;">*Estimasi: HVS 4-5 gram, Koran 3-4 gram, Kardus 50-100 gram</small>
             </div>
 
-            <button class="calc-btn" onclick="hitungDampak()">
-                <i class="fas fa-calculator"></i> Hitung Nilai & Dampak
+            <button class="calc-btn" onclick="hitungNilai()">
+                <i class="fas fa-calculator"></i> Hitung Nilai
             </button>
 
             <div id="hasilKalkulasi" class="result-display">
-                <div class="result-grid">
-                    <div class="result-item">
-                        <h4>📄 Jumlah Lembar</h4>
-                        <span id="estLembar">0</span> <small>lembar</small>
-                    </div>
-                    <div class="result-item">
-                        <h4>💰 Nilai Jual Produk</h4>
-                        <span id="estNilai">Rp 0</span>
-                    </div>
-                    <div class="result-item">
-                        <h4>💧 Air Terselamatkan</h4>
-                        <span id="estAir">0</span> <small>liter</small>
+                <div class="result-box">
+                    <h4>💰 Kamu akan mendapatkan</h4>
+                    <div class="nilai" id="estNilai">Rp 0</div>
+                    <div class="detail">
+                        Dari <strong><span id="estLembar">0</span> lembar</strong> kertas <span id="estJenis">HVS</span><br>
+                        (Berat total <span id="estBerat">0</span> gram ÷ <span id="estBeratLembar">4</span> gram/lembar)
                     </div>
                 </div>
-
-                <div class="result-grid" style="margin-top: 15px;">
-                    <div class="result-item">
-                        <h4>🌳 Pohon Terlindungi</h4>
-                        <span id="estPohon">0</span> <small>pohon</small>
-                    </div>
-                    <div class="result-item">
-                        <h4>⚡ Energi Hemat</h4>
-                        <span id="estEnergi">0</span> <small>kWh</small>
-                    </div>
-                    <div class="result-item">
-                        <h4>🌍 CO₂ Terserap</h4>
-                        <span id="estCO2">0</span> <small>kg</small>
-                    </div>
-                </div>
-
-                <div class="impact-note">
-                    <i class="fas fa-seedling"></i>
-                    <p><strong>Dari <span id="highlightBerat">0</span> gram limbah <span id="highlightJenis">kertas</span> → menjadi <span id="highlightLembar">0</span> lembar produk baru senilai <strong id="highlightNilai">Rp 0</strong></strong></p>
-                    <p style="margin-top: 8px;">🌱 Setiap lembar yang didaur ulang menyelamatkan bumi!</p>
+                <div class="info-note">
+                    <i class="fas fa-info-circle"></i> Harga per lembar: <strong>Rp 150</strong><br>
+                    *Harga dapat berubah sewaktu-waktu sesuai kebijakan Reborn Sheet
                 </div>
             </div>
         </div>
@@ -519,94 +356,24 @@
 <section class="info-section">
     <div style="max-width: 800px; margin: 0 auto;">
         <p style="color: var(--sage); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;">Kenapa Ini Penting?</p>
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 20px 0;">Dampak Per Lembar Kertas</h2>
-        <p>Setiap lembar kertas yang didaur ulang memberikan kontribusi nyata bagi lingkungan. Hitung sendiri dampaknya!</p>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 20px 0;">Setiap Lembar Bernilai</h2>
+        <p>Dengan menjual kertas bekas ke Reborn Sheet, kamu tidak hanya mendapat uang, tapi juga ikut menyelamatkan lingkungan!</p>
     </div>
     <div class="info-grid">
         <div class="info-box">
             <i class="fas fa-tint"></i>
             <h3>Hemat Air</h3>
-            <p>Setiap 1 kg kertas daur ulang menghemat 10 liter air. Bayangkan jika semua orang ikut serta!</p>
+            <p>Setiap 1 kg kertas daur ulang menghemat 10 liter air.</p>
         </div>
         <div class="info-box">
             <i class="fas fa-tree"></i>
             <h3>Selamatkan Pohon</h3>
-            <p>1 ton kertas daur ulang = 17 pohon dewasa terselamatkan dari penebangan.</p>
+            <p>1 ton kertas daur ulang = 17 pohon terselamatkan.</p>
         </div>
         <div class="info-box">
             <i class="fas fa-bolt"></i>
             <h3>Hemat Energi</h3>
-            <p>Daur ulang kertas menghemat energi hingga 60% dibanding produksi dari bahan baku baru.</p>
-        </div>
-    </div>
-</section>
-
-<!-- FAKTA DAUR ULANG YANG PERLU KAMU TAHU -->
-<section class="facts-section">
-    <div class="facts-header">
-        <span class="facts-badge"><i class="fas fa-chart-line"></i> Berdasarkan Riset</span>
-        <h2>📊 Fakta Daur Ulang yang Perlu Kamu Tahu</h2>
-        <p>Data berikut dirangkum dari berbagai penelitian dan lembaga lingkungan terpercaya</p>
-    </div>
-
-    <div class="facts-grid">
-        <div class="fact-card">
-            <div class="fact-icon">🌳</div>
-            <div class="fact-number">17</div>
-            <div class="fact-label">Pohon Terselamatkan</div>
-            <div class="fact-desc">Setiap 1 ton kertas yang didaur ulang menyelamatkan 17 pohon dewasa dari penebangan</div>
-            <div class="fact-source">Sumber: Various Environmental Studies</div>
-        </div>
-
-        <div class="fact-card">
-            <div class="fact-icon">💧</div>
-            <div class="fact-number">80%</div>
-            <div class="fact-label">Penghematan Air</div>
-            <div class="fact-desc">Produksi kertas daur ulang mengkonsumsi air hingga 80% lebih sedikit dibanding kertas dari serat perawan</div>
-            <div class="fact-source">Sumber: Blue Angel / IFEU Study</div>
-        </div>
-
-        <div class="fact-card">
-            <div class="fact-icon">⚡</div>
-            <div class="fact-number">70%</div>
-            <div class="fact-label">Hemat Energi</div>
-            <div class="fact-desc">Energi yang dibutuhkan untuk mendaur ulang kertas 70% lebih rendah daripada produksi dari kayu baru</div>
-            <div class="fact-source">Sumber: RRI / Blue Angel</div>
-        </div>
-
-        <div class="fact-card">
-            <div class="fact-icon">🌍</div>
-            <div class="fact-number">1.848</div>
-            <div class="fact-label">kg CO₂ per Ton</div>
-            <div class="fact-desc">Jejak karbon kertas daur ulang (1.848 kg CO₂/ton) jauh lebih rendah dibanding kertas serat kayu (2.651 kg CO₂/ton)</div>
-            <div class="fact-source">Sumber: Life Cycle Assessment Indonesia</div>
-        </div>
-
-        <div class="fact-card">
-            <div class="fact-icon">🏭</div>
-            <div class="fact-number">74%</div>
-            <div class="fact-label">Polusi Udara Berkurang</div>
-            <div class="fact-desc">Daur ulang kertas mengurangi emisi gas polutan hingga 74% dan polusi air hingga 35%</div>
-            <div class="fact-source">Sumber: RRI.co.id</div>
-        </div>
-
-        <div class="fact-card">
-            <div class="fact-icon">📈</div>
-            <div class="fact-number">Rp100M</div>
-            <div class="fact-label">Potensi Ekonomi</div>
-            <div class="fact-desc">Penggunaan kertas daur ulang dapat meningkatkan keuntungan ekonomi hingga 100 miliar rupiah</div>
-            <div class="fact-source">Sumber: Penelitian UAD</div>
-        </div>
-    </div>
-
-    <div class="facts-cta">
-        <div class="coffee-fact">
-            <i class="fas fa-mug-hot"></i>
-            <p><strong>Tahukah Kamu?</strong> Dengan energi yang dihemat dari <strong>7 lembar kertas daur ulang</strong>, kamu bisa menyeduh <strong>1 liter kopi</strong>! ☕</p>
-        </div>
-        <div class="light-fact">
-            <i class="fas fa-lightbulb"></i>
-            <p><strong>250 lembar</strong> kertas daur ulang menghemat energi cukup untuk menyalakan <strong>lampu LED 11 watt selama 50 jam</strong></p>
+            <p>Daur ulang kertas menghemat energi hingga 60%.</p>
         </div>
     </div>
 </section>
@@ -615,9 +382,9 @@
     <div class="footer-grid">
         <div class="footer-col">
             <a href="index.html" class="logo">
-    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 45px;">
-</a>
-            <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
+                <img src="logo.png" alt="Reborn Sheet Logo" style="height: 40px;">
+            </a>
+            <p style="margin-top: 15px;">Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
         </div>
         <div class="footer-col">
             <h4>Quick Links</h4>
@@ -625,8 +392,6 @@
                 <li><a href="kontak.html">Tentang Kami</a></li>
                 <li><a href="sumber.html">Sumber</a></li>
                 <li><a href="proses-pembuatan.html">Proses Kami</a></li>
-                <li><a href="#">Kebijakan Privasi</a></li>
-                <li><a href="#">FAQ</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -639,7 +404,7 @@
         </div>
         <div class="footer-col">
             <h4>Stay Updated</h4>
-            <p style="margin-bottom: 20px;">Dapatkan tips sustainable living setiap minggu.</p>
+            <p>Dapatkan tips sustainable living setiap minggu.</p>
             <div class="newsletter-form">
                 <input type="email" placeholder="Email Anda" class="newsletter-input">
                 <button class="btn-gabung-newsletter">Gabung</button>
@@ -652,102 +417,45 @@
 </footer>
 
 <script>
-    let currentBeratPerLembar = 4.37;
-    let currentHargaPerLembar = 15000;
-
-    function updateBeratPerLembar() {
-        const jenisSelect = document.getElementById('jenisKertas');
-        const selectedValue = jenisSelect.value;
-        const customBeratGroup = document.getElementById('customBeratGroup');
-
-        if (selectedValue !== 'custom|custom') {
-            customBeratGroup.style.display = 'none';
-            const [berat, harga] = selectedValue.split('|');
-            currentBeratPerLembar = parseFloat(berat);
-            currentHargaPerLembar = parseInt(harga);
-        } else {
-            customBeratGroup.style.display = 'block';
-            currentBeratPerLembar = 0;
-            currentHargaPerLembar = 0;
-        }
-    }
-
-    function hitungDampak() {
-        const jenisSelect = document.getElementById('jenisKertas');
-        const selectedValue = jenisSelect.value;
-        const beratTotalGram = parseFloat(document.getElementById('beratTotal').value);
+    function hitungNilai() {
+        // Ambil nilai dari input
+        const beratTotal = parseFloat(document.getElementById('beratTotal').value);
+        const beratPerLembar = parseFloat(document.getElementById('beratPerLembar').value);
         const hasilDiv = document.getElementById('hasilKalkulasi');
 
-        let beratPerLembarGram, hargaPerLembar;
-
-        if (selectedValue !== 'custom|custom') {
-            const [berat, harga] = selectedValue.split('|');
-            beratPerLembarGram = parseFloat(berat);
-            hargaPerLembar = parseInt(harga);
-        } else {
-            beratPerLembarGram = parseFloat(document.getElementById('beratPerLembarCustom').value);
-            hargaPerLembar = 0;
-            if (!isNaN(beratPerLembarGram) && beratPerLembarGram > 0) {
-                alert("Untuk Custom, silakan hitung sendiri nilai jual produk Anda.");
-            }
-        }
+        // Harga FIX Rp 150 per lembar
+        const HARGA_PER_LEMBAR = 150;
 
         // Validasi input
-        if (isNaN(beratTotalGram) || beratTotalGram <= 0) {
+        if (isNaN(beratTotal) || beratTotal <= 0) {
             alert("Masukkan berat total kertas yang valid (minimal 1 gram)");
             return;
         }
 
-        if (isNaN(beratPerLembarGram) || beratPerLembarGram <= 0) {
+        if (isNaN(beratPerLembar) || beratPerLembar <= 0) {
             alert("Masukkan berat per lembar kertas yang valid");
             return;
         }
 
         // PERHITUNGAN:
-        // Jumlah lembar = Berat total (gram) ÷ Berat per lembar (gram)
-        const jumlahLembar = beratTotalGram / beratPerLembarGram;
+        // Jumlah lembar = Berat total ÷ Berat per lembar
+        const jumlahLembar = beratTotal / beratPerLembar;
         const jumlahLembarBulat = Math.floor(jumlahLembar);
 
-        // Nilai ekonomi = Jumlah lembar × Harga per lembar (jika ada)
-        let nilaiEkonomi = 0;
-        if (selectedValue !== 'custom|custom') {
-            nilaiEkonomi = jumlahLembarBulat * hargaPerLembar;
-        }
+        // Nilai jual = Jumlah lembar × Rp 150
+        const totalNilai = jumlahLembarBulat * HARGA_PER_LEMBAR;
 
-        // Konversi ke kg untuk perhitungan dampak lingkungan
-        const beratKg = beratTotalGram / 1000;
-
-        // Dampak lingkungan
-        const airLiter = beratKg * 10;
-        const pohon = beratKg * 0.017;
-        const co2Kg = beratKg * 1.5;
-        const energiKwh = beratKg * 4;
-
-        // Ambil nama jenis kertas untuk ditampilkan
-        const jenisNama = jenisSelect.options[jenisSelect.selectedIndex]?.text.split(' - ')[0] || 'kertas';
+        // Ambil nama jenis kertas
+        const jenisSelect = document.getElementById('jenisKertas');
+        const jenisNama = jenisSelect.options[jenisSelect.selectedIndex].text.split(' ')[1] + ' ' + jenisSelect.options[jenisSelect.selectedIndex].text.split(' ')[2];
 
         // Update tampilan
+        document.getElementById('estNilai').innerHTML = 'Rp ' + totalNilai.toLocaleString('id-ID');
         document.getElementById('estLembar').innerHTML = jumlahLembarBulat;
+        document.getElementById('estJenis').innerHTML = jenisSelect.options[jenisSelect.selectedIndex].text.split(' ')[1] + ' ' + (jenisSelect.options[jenisSelect.selectedIndex].text.split(' ')[2] || '');
+        document.getElementById('estBerat').innerHTML = beratTotal;
+        document.getElementById('estBeratLembar').innerHTML = beratPerLembar;
 
-        if (selectedValue !== 'custom|custom') {
-            document.getElementById('estNilai').innerHTML = 'Rp ' + nilaiEkonomi.toLocaleString('id-ID');
-            document.getElementById('highlightNilai').innerHTML = 'Rp ' + nilaiEkonomi.toLocaleString('id-ID');
-        } else {
-            document.getElementById('estNilai').innerHTML = '🔄 Hitung sendiri';
-            document.getElementById('highlightNilai').innerHTML = 'dihitung sendiri';
-        }
-
-        document.getElementById('estAir').innerHTML = airLiter.toFixed(1);
-        document.getElementById('estPohon').innerHTML = pohon.toFixed(3);
-        document.getElementById('estEnergi').innerHTML = energiKwh.toFixed(1);
-        document.getElementById('estCO2').innerHTML = co2Kg.toFixed(2);
-
-        // Highlight text
-        document.getElementById('highlightBerat').innerHTML = beratTotalGram;
-        document.getElementById('highlightJenis').innerHTML = jenisNama;
-        document.getElementById('highlightLembar').innerHTML = jumlahLembarBulat;
-
-        // Tampilkan hasil
         hasilDiv.style.display = 'block';
     }
 

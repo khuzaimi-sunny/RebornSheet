@@ -280,6 +280,138 @@
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
             .nav-links { display: none; }
         }
+         /* --- FAKTA SECTION BARU --- */
+.facts-section {
+    padding: 80px 8%;
+    background: linear-gradient(135deg, #F0F4EE 0%, #E8EDE4 100%);
+}
+
+.facts-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.facts-badge {
+    display: inline-block;
+    background: var(--sage);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.facts-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--deep-forest);
+    margin-bottom: 12px;
+}
+
+.facts-header p {
+    color: #5a6b60;
+    font-size: 0.95rem;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.fact-card {
+    background: white;
+    border-radius: 28px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    transition: var(--transition);
+    border: 1px solid rgba(125, 142, 123, 0.15);
+}
+
+.fact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+}
+
+.fact-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.fact-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--sage);
+    line-height: 1.1;
+}
+
+.fact-label {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--deep-forest);
+    margin: 12px 0 8px;
+}
+
+.fact-desc {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.fact-source {
+    font-size: 0.7rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.facts-cta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.coffee-fact, .light-fact {
+    background: var(--deep-forest);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: var(--transition);
+}
+
+.coffee-fact i, .light-fact i {
+    font-size: 42px;
+    color: var(--sage);
+}
+
+.coffee-fact p, .light-fact p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.coffee-fact strong, .light-fact strong {
+    color: var(--sage);
+}
+
+@media (max-width: 768px) {
+    .facts-section { padding: 60px 5%; }
+    .facts-header h2 { font-size: 1.8rem; }
+    .facts-grid { grid-template-columns: 1fr; }
+    .coffee-fact, .light-fact { flex-direction: column; text-align: center; }
+}
     </style>
 </head>
 <body>
@@ -374,6 +506,75 @@
             <i class="fas fa-bolt"></i>
             <h3>Hemat Energi</h3>
             <p>Daur ulang kertas menghemat energi hingga 60%.</p>
+        </div>
+    </div>
+</section>
+<!-- FAKTA DAUR ULANG YANG PERLU KAMU TAHU -->
+<section class="facts-section">
+    <div class="facts-header">
+        <span class="facts-badge"><i class="fas fa-chart-line"></i> Berdasarkan Riset</span>
+        <h2>📊 Fakta Daur Ulang yang Perlu Kamu Tahu</h2>
+        <p>Data berikut dirangkum dari berbagai penelitian dan lembaga lingkungan terpercaya</p>
+    </div>
+
+    <div class="facts-grid">
+        <div class="fact-card">
+            <div class="fact-icon">🌳</div>
+            <div class="fact-number">17</div>
+            <div class="fact-label">Pohon Terselamatkan</div>
+            <div class="fact-desc">Setiap 1 ton kertas yang didaur ulang menyelamatkan 17 pohon dewasa dari penebangan</div>
+            <div class="fact-source">Sumber: Various Environmental Studies</div>
+        </div>
+
+        <div class="fact-card">
+            <div class="fact-icon">💧</div>
+            <div class="fact-number">80%</div>
+            <div class="fact-label">Penghematan Air</div>
+            <div class="fact-desc">Produksi kertas daur ulang mengkonsumsi air hingga 80% lebih sedikit dibanding kertas dari serat perawan</div>
+            <div class="fact-source">Sumber: Blue Angel / IFEU Study</div>
+        </div>
+
+        <div class="fact-card">
+            <div class="fact-icon">⚡</div>
+            <div class="fact-number">70%</div>
+            <div class="fact-label">Hemat Energi</div>
+            <div class="fact-desc">Energi yang dibutuhkan untuk mendaur ulang kertas 70% lebih rendah daripada produksi dari kayu baru</div>
+            <div class="fact-source">Sumber: RRI / Blue Angel</div>
+        </div>
+
+        <div class="fact-card">
+            <div class="fact-icon">🌍</div>
+            <div class="fact-number">1.848</div>
+            <div class="fact-label">kg CO₂ per Ton</div>
+            <div class="fact-desc">Jejak karbon kertas daur ulang (1.848 kg CO₂/ton) jauh lebih rendah dibanding kertas serat kayu (2.651 kg CO₂/ton)</div>
+            <div class="fact-source">Sumber: Life Cycle Assessment Indonesia</div>
+        </div>
+
+        <div class="fact-card">
+            <div class="fact-icon">🏭</div>
+            <div class="fact-number">74%</div>
+            <div class="fact-label">Polusi Udara Berkurang</div>
+            <div class="fact-desc">Daur ulang kertas mengurangi emisi gas polutan hingga 74% dan polusi air hingga 35%</div>
+            <div class="fact-source">Sumber: RRI.co.id</div>
+        </div>
+
+        <div class="fact-card">
+            <div class="fact-icon">📈</div>
+            <div class="fact-number">Rp100M</div>
+            <div class="fact-label">Potensi Ekonomi</div>
+            <div class="fact-desc">Penggunaan kertas daur ulang dapat meningkatkan keuntungan ekonomi hingga 100 miliar rupiah</div>
+            <div class="fact-source">Sumber: Penelitian UAD</div>
+        </div>
+    </div>
+
+    <div class="facts-cta">
+        <div class="coffee-fact">
+            <i class="fas fa-mug-hot"></i>
+            <p><strong>Tahukah Kamu?</strong> Dengan energi yang dihemat dari <strong>7 lembar kertas daur ulang</strong>, kamu bisa menyeduh <strong>1 liter kopi</strong>! ☕</p>
+        </div>
+        <div class="light-fact">
+            <i class="fas fa-lightbulb"></i>
+            <p><strong>250 lembar</strong> kertas daur ulang menghemat energi cukup untuk menyalakan <strong>lampu LED 11 watt selama 50 jam</strong></p>
         </div>
     </div>
 </section>

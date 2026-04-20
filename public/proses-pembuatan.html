@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proses Kami | REBORN SHEETS</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         :root {
@@ -27,7 +28,7 @@
             overflow-x: hidden;
         }
 
- /* --- NAVIGATION --- */
+        /* --- NAVIGATION --- */
         nav {
             background: rgba(255, 255, 255, 0.95);
             height: 80px;
@@ -40,9 +41,6 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
         }
-
-        /* LOGO BISA DIKLIK UNTUK REFRESH/HOME */
-
 
         .nav-links {
             display: flex;
@@ -70,11 +68,13 @@
         .nav-links>li:hover>a {
             color: var(--sage);
         }
+
         .logo img {
-    height: 50px;
-    width: auto;
-    display: block;
-}
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
         /* --- MEGA MENU --- */
         .mega-menu {
             position: absolute;
@@ -92,6 +92,7 @@
             transform: translateY(10px);
             transition: var(--transition);
             border-bottom: 4px solid var(--sage);
+            z-index: 999;
         }
 
         .nav-links>li:hover .mega-menu {
@@ -140,15 +141,14 @@
             color: white;
             margin-top: 80px;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-style: italic; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-style: italic; }
 
-        /* --- PROSES SECTION (YANG DIPERBAIKI) --- */
+        /* --- PROSES SECTION --- */
         .process-section {
-            padding: 100px 10%;
+            padding: 80px 8%;
             position: relative;
         }
 
-        /* Garis Tengah */
         .process-section::before {
             content: '';
             position: absolute;
@@ -163,24 +163,23 @@
         .step-frame {
             display: flex;
             align-items: center;
-            gap: 80px;
-            margin-bottom: 150px;
+            gap: 60px;
+            margin-bottom: 100px;
             position: relative;
         }
 
-        /* Membuat selang-seling */
         .step-frame:nth-child(even) {
             flex-direction: row-reverse;
         }
 
-        /* Bulatan Angka */
         .step-number {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             background: var(--sage);
             color: white;
-            width: 40px; height: 40px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -192,30 +191,53 @@
 
         .step-img {
             flex: 1;
-            height: 450px;
+            height: 380px;
             object-fit: cover;
             border-radius: 15px;
-            box-shadow: 15px 15px 0px var(--soft-gray);
+            box-shadow: 10px 10px 0px var(--soft-gray);
         }
 
-        .step-text { flex: 1; }
-        .step-tag { color: var(--earth-brown); font-size: 11px; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; display: block; margin-bottom: 10px; }
-        .step-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
-        .step-text p { color: #666; font-size: 1rem; line-height: 1.8; }
+        .step-text {
+            flex: 1;
+        }
 
-        /* Sub-list styling untuk detail proses */
+        .step-tag {
+            color: var(--earth-brown);
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .step-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .step-text p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
         .step-text ul {
-            margin-top: 15px;
+            margin: 10px 0;
             padding-left: 20px;
             list-style: none;
         }
+
         .step-text ul li {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
             color: #555;
             position: relative;
-            padding-left: 20px;
+            padding-left: 18px;
         }
+
         .step-text ul li::before {
             content: "•";
             color: var(--sage);
@@ -223,37 +245,26 @@
             position: absolute;
             left: 0;
         }
+
         .step-text .note {
             background: var(--soft-gray);
-            padding: 12px 18px;
-            border-radius: 12px;
-            margin-top: 15px;
-            font-size: 0.85rem;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-top: 12px;
+            font-size: 0.8rem;
             color: var(--deep-forest);
             border-left: 3px solid var(--sage);
         }
+
         .step-text .highlight {
             color: var(--sage);
             font-weight: 600;
         }
 
-        @media (max-width: 992px) {
-            .process-section::before, .step-number { display: none; }
-            .step-frame, .step-frame:nth-child(even) { flex-direction: column; gap: 30px; }
-            .step-img { height: 300px; width: 100%; }
-        }
-        /* Make peleburan2.jpeg display as small landscape */
-.img-landscape {
-    width: 100%;
-    max-width: 400px; /* Small width */
-    height: 250px; /* Landscape ratio (16:10) */
-    object-fit: cover; /* Crops to fit landscape without distortion */
-    border-radius: 12px;
-}
- /* --- FOOTER --- */
+        /* --- FOOTER --- */
         footer {
             background: #f8f9f7;
-            padding: 80px 10% 40px;
+            padding: 60px 8% 30px;
             border-top: 1px solid #eee;
         }
 
@@ -261,17 +272,17 @@
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 50px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .footer-col h4 {
             font-family: 'Playfair Display', serif;
-            margin-bottom: 25px;
-            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
 
         .footer-col p {
-            font-size: 14px;
+            font-size: 13px;
             color: #777;
             max-width: 250px;
         }
@@ -281,13 +292,13 @@
         }
 
         .footer-col ul li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-col ul li a {
             text-decoration: none;
             color: #777;
-            font-size: 14px;
+            font-size: 13px;
             transition: var(--transition);
         }
 
@@ -295,75 +306,30 @@
             color: var(--sage);
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
-            font-size: 12px;
-            color: #aaa;
-        }
-
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .impact-bg {
-                flex-direction: column;
-                margin: 0;
-                border-radius: 0;
-            }
-
-            .impact-img {
-                width: 100%;
-                height: 300px;
-                border-radius: 0;
-            }
-        }
-
-        /* Letakkan ini di dalam tag <style> */
-        .mega-col h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            color: var(--sage);
-            border-bottom: 1px solid #eee;
-            /* Garis tipis di bawah judul agar rapi */
-            padding-bottom: 8px;
-        }
-
-        /* Styling Newsletter agar persis gambar dengan warna Sage */
         .newsletter-form {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .newsletter-input {
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: 1px solid #ddd;
             border-radius: 50px;
             outline: none;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
+            font-size: 13px;
         }
 
         .btn-gabung-newsletter {
             background: transparent;
             color: var(--sage);
-            /* Warna Hijau Sage */
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: 1.5px solid var(--sage);
-            /* Outline Hijau Sage */
             border-radius: 50px;
             font-weight: 600;
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
-            /* Huruf Kapital */
-            letter-spacing: 3px;
-            /* Spasi antar huruf agar identik dengan gambar */
+            letter-spacing: 2px;
             cursor: pointer;
             transition: var(--transition);
         }
@@ -373,35 +339,40 @@
             color: white;
         }
 
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        @media (max-width: 992px) {
+            .process-section::before, .step-number { display: none; }
+            .step-frame, .step-frame:nth-child(even) { flex-direction: column; gap: 30px; }
+            .step-img { height: 260px; width: 100%; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
-
-        <nav>
-        <a href="index.html" class="logo">
-    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 50px;">
-</a>
-        <ul class="nav-links">
-
-            <li><a href="index.html">Beranda</a></li>
-            <li>
-                <a href="kertas-benih.html">Shop</a>
-            </li>
-            <li><a href="masalah.html">Masalah</a></li>
-            <li><a href="kalkulator.html">Kalkulator</a></li>
-
-            <!-- EDUKASI (disederhanakan biar cepat & aman deadline) -->
-            <li>
-                <a href="proses-pembuatan.html">Edukasi</a>
-            </li>
-            <li><a href="sumber.html">Sumber</a></li>
-            <li><a href="filosofi.html">Filosofi</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-
-    </nav>
-
+<nav>
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Reborn Sheet Logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="kertas-benih.html">Shop</a></li>
+        <li><a href="masalah.html">Masalah</a></li>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+        <li><a href="proses-pembuatan.html">Edukasi</a></li>
+        <li><a href="sumber.html">Sumber</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
 
 <section class="hero">
     <h1>Our Sustainable Journey</h1>
@@ -411,7 +382,7 @@
     <!-- Step 1: Penghancuran -->
     <div class="step-frame">
         <div class="step-number">1</div>
-        <img src="potongan.png" class="step-img" alt="Penghancuran kertas">
+        <img src="peleburan.jpeg" class="step-img" alt="Penghancuran kertas">
         <div class="step-text">
             <span class="step-tag">Tahap 1 — Vrida</span>
             <h2>Penghancuran</h2>
@@ -423,9 +394,9 @@
                 <li>Coklat susu</li>
                 <li>Warna selain di atas (diproses terpisah)</li>
             </ul>
-            <p>Lalu kertas tersebut dipotong menjadi potongan kecil-kecil untuk memudahkan proses selanjutnya.</p>
+            <p>Lalu kertas tersebut dipotong menjadi potongan kecil-kecil.</p>
             <div class="note">
-                <i class="fas fa-info-circle"></i> <span class="highlight">Catatan:</span> Pemisahan berdasarkan warna membantu menghasilkan produk akhir dengan kualitas dan estetika yang lebih baik.
+                <i class="fas fa-info-circle"></i> <span class="highlight">Catatan:</span> Pemisahan warna membantu kualitas produk akhir.
             </div>
         </div>
     </div>
@@ -433,39 +404,37 @@
     <!-- Step 2: Peleburan -->
     <div class="step-frame">
         <div class="step-number">2</div>
-        <img src="peleburan.jpeg"class="step-img" alt="Peleburan kertas">
+        <img src="peleburan2.jpeg" class="step-img" alt="Peleburan kertas">
         <div class="step-text">
             <span class="step-tag">Tahap 2 — Vrida</span>
             <h2>Peleburan</h2>
-            <p>Kertas yang telah dipotong kecil-kecil dimasukkan ke ember, lalu akan direndam air cuka dengan perbandingan:</p>
+            <p>Kertas yang telah dipotong direndam air cuka:</p>
             <ul>
                 <li>Air panas: <span class="highlight">10 liter</span></li>
                 <li>Cuka: <span class="highlight">3 sendok makan</span></li>
             </ul>
-            <p>Didiamkan selama <span class="highlight">12 jam</span>. Kemudian kertas yang sudah didiamkan tersebut dibilas dengan air dingin sebanyak dua kali.</p>
-            <p>Lalu kertas lembek tersebut diblender dengan air bersih dengan rasio <span class="highlight">kertas : air = 1 : 3</span> hingga menjadi bubur dan tidak ada serat kasar kertas yang tersisa.</p>
+            <p>Didiamkan <span class="highlight">12 jam</span>, dibilas 2x, lalu diblender dengan rasio <span class="highlight">1:3</span> hingga menjadi bubur halus.</p>
             <div class="note">
-                <i class="fas fa-flask"></i> <span class="highlight">Fungsi cuka:</span> Membantu melunakkan serat kertas dan menetralkan zat kimia pada tinta/pewarna.
+                <i class="fas fa-flask"></i> <span class="highlight">Fungsi cuka:</span> Melunakkan serat dan menetralkan tinta.
             </div>
         </div>
     </div>
 
-    <!-- Step 3: Pembentukan (Kertas) -->
+    <!-- Step 3: Pembentukan Kertas -->
     <div class="step-frame">
         <div class="step-number">3</div>
-        <img src="peleburan2.jpeg" class="step-img" alt="Pembentukan kertas">
+        <img src="pembentukankertas.jpeg" class="step-img" alt="Pembentukan kertas">
         <div class="step-text">
             <span class="step-tag">Tahap 3a — Pembentukan</span>
-            <h2>Pembentukan Kertas Lembaran</h2>
-            <p>Dikarenakan output produk terdapat kertas dan aksesoris dari kertas, sehingga metode pembentukannya juga berbeda.</p>
+            <h2>Pembentukan Kertas</h2>
             <p><span class="highlight">Untuk Kertas Lembaran:</span></p>
             <ul>
-                <li>Bubur kertas dimasukkan ke dalam baskom dengan rasio <span class="highlight">1 : 15</span> dan diaduk hingga rata</li>
-                <li>Cetakan kertas dimasukkan ke dalam baskom dan diangkat secara perlahan dan horizontal</li>
-                <li>Kertas yang sudah tercetak akan ditaruh di <span class="highlight">kain tahu yang lembab</span> dan dijemur sampai kering</li>
+                <li>Bubur dimasukkan baskom dengan rasio <span class="highlight">1:15</span></li>
+                <li>Cetakan dicelupkan dan diangkat horizontal</li>
+                <li>Ditaruh di kain tahu lembab, dijemur hingga kering</li>
             </ul>
             <div class="note">
-                <i class="fas fa-hand-peace"></i> <span class="highlight">Tips:</span> Pengangkatan cetakan secara horizontal dan perlahan menghasilkan ketebalan kertas yang merata.
+                <i class="fas fa-hand-peace"></i> <span class="highlight">Tips:</span> Angkat cetakan perlahan agar ketebalan merata.
             </div>
         </div>
     </div>
@@ -473,85 +442,89 @@
     <!-- Step 4: Pembentukan Aksesoris -->
     <div class="step-frame">
         <div class="step-number">4</div>
-        <img src="pembentukan2.jpeg" class="step-img" alt="Pembentukan aksesoris">
+        <img src="dicelup.jpeg" class="step-img" alt="Pembentukan aksesoris">
         <div class="step-text">
             <span class="step-tag">Tahap 3b — Pembentukan</span>
-            <h2>Pembentukan Aksesoris Kertas</h2>
+            <h2>Pembentukan Aksesoris</h2>
             <p><span class="highlight">Untuk Aksesoris Kertas:</span></p>
             <ul>
-                <li>Bubur kertas akan disaring dengan kain tahu</li>
-                <li>Lalu ditambahkan lem (perekat alami) sesuai kebutuhan</li>
-                <li>Dibentuk sesuai yang diinginkan (bros, gantungan kunci, hiasan dinding, dll)</li>
-                <li>Kemudian dijemur hingga mengeras</li>
+                <li>Bubur disaring dengan kain tahu</li>
+                <li>Ditambahkan lem alami</li>
+                <li>Dibentuk sesuai keinginan (bros, gantungan, hiasan)</li>
+                <li>Dijemur hingga mengeras</li>
             </ul>
             <div class="note">
-                <i class="fas fa-gem"></i> <span class="highlight">Kreasi tak terbatas:</span> Dari limbah kertas, kami bisa menciptakan berbagai aksesoris unik bernilai seni tinggi!
+                <i class="fas fa-gem"></i> <span class="highlight">Kreasi tak terbatas!</span> Dari limbah kertas jadi aksesoris unik.
             </div>
         </div>
     </div>
 
-    <!-- Step 5: Finishing & Produk Jadi -->
+    <!-- Step 5: Finishing & Produk Jadi (DIPERKECIL dan DIRAPIKAN) -->
     <div class="step-frame">
         <div class="step-number">5</div>
-        <img src="pembentukan2.jpeg" alt="Produk jadi">
+        <img src="pembentukan2.jpeg" class="step-img" alt="Produk jadi">
         <div class="step-text">
             <span class="step-tag">Tahap Akhir</span>
             <h2>Finishing & Siap Pakai</h2>
-            <p>Setelah melalui proses pengeringan sempurna, produk kertas dan aksesoris siap melalui tahap finishing:</p>
+            <p>Setelah kering, produk melalui tahap finishing:</p>
             <ul>
-                <li>Pemotongan sesuai ukuran standar (untuk kertas)</li>
-                <li>Pengamplasan tepian (untuk aksesoris)</li>
-                <li>Quality control sebelum dikemas</li>
-                <li>Pengemasan dengan bahan ramah lingkungan</li>
+                <li>✂️ Pemotongan sesuai ukuran standar</li>
+                <li>✨ Pengamplasan tepian (untuk aksesoris)</li>
+                <li>🔍 Quality control sebelum dikemas</li>
+                <li>📦 Pengemasan ramah lingkungan</li>
             </ul>
-            <p>Hasilnya? <span class="highlight">Kertas daur ulang berkualitas</span> dan <span class="highlight">aksesoris unik</span> yang siap menemani aktivitasmu sehari-hari! 🌿</p>
+            <p><span class="highlight">✨ Kertas daur ulang berkualitas & aksesoris unik ✨</span> siap menemani aktivitasmu!</p>
             <div class="note">
-                <i class="fas fa-heart"></i> <span class="highlight">Setiap produk</span> adalah karya tangan yang autentik — tidak ada dua produk yang persis sama.
+                <i class="fas fa-heart"></i> <span class="highlight">Setiap produk</span> adalah karya tangan autentik — tidak ada yang sama.
             </div>
         </div>
     </div>
 </section>
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-           <a href="index.html" class="logo">
-    <img src="logo.png" alt="Reborn Sheet Logo" style="height: 45px;">
-</a>
-                <p>Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur
-                    ulang.</p>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Reborn Sheet Logo" style="height: 40px;">
+            </a>
+            <p style="margin-top: 15px;">Menciptakan harmoni antara kreativitas manusia dan keberlangsungan alam melalui media kertas daur ulang.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="kontak.html">Tentang Kami</a></li>
+                <li><a href="sumber.html">Sumber</a></li>
+                <li><a href="proses-pembuatan.html">Proses Kami</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Social</h4>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Stay Updated</h4>
+            <p>Dapatkan tips sustainable living setiap minggu.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Email Anda" class="newsletter-input">
+                <button class="btn-gabung-newsletter">Gabung</button>
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="kontak.html">Tentang Kami</a></li>
-                    <li><a href="sumber.html">Sumber</a></li>
-                    <li><a href="proses-pembuatan.html">Proses Kami</a></li>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Pinterest</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2026 REBORN SHEET. All rights reserved.
+    </div>
+</footer>
 
-            </div>
-            <div class="footer-col">
-                <h4>Stay Updated</h4>
-                <p style="margin-bottom: 20px;">Dapatkan tips sustainable living setiap minggu.</p>
-
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Email Anda" class="newsletter-input">
-
-                    <button class="btn-gabung-newsletter">Gabung</button>
-                </div>
-                <div class="copyright">
-                    © 2026 REBORN SHEET. All rights reserved.
-                </div>
-    </footer>
-
+<script>
+    document.querySelectorAll('.btn-gabung-newsletter').forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('🌿 Terima kasih! Bersama kita jaga bumi.');
+        });
+    });
+</script>
 </body>
 </html>
